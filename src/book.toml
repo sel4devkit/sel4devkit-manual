@@ -1,5 +1,5 @@
 [book]
-title = "seL4 Developer Kit for the Avnet MaaXBoard"
+title = "seL4 Developer Kit"
 description = "A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer)."
 authors = [
     "Bill Ellis",
@@ -25,5 +25,3 @@ boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
 heading-split-level = 2
-
-

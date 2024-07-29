@@ -1,4 +1,4 @@
-# Background
+## Background
 
 The [seL4 Microkernel](https://sel4.systems) is a technology of increasing
 interest and has potential to deliver significant benefit across a range of

@@ -1,0 +1,152 @@
+using (i.e. ) the seL4 technology and increasing
+the number of organisations that can cost-effectively adopt seL4 in their
+products.
+
+developer kit is targeted at 
+
+
+
+
+
+
+
+
+
+
+for modern application
+development (such as drivers, libraries, and
+services)
+
+
+essential for  will be needed to build useful applications.
+
+
+
+
+
+
+https://www.linuxfoundation.org/
+
+
+
+
+It is available as open source on GitHub and supported by the seL4 Foundation.
+
+The entirety of the seL4 Microkernel, and its associated
+ecosystem,
+
+
+
+
+Given it is open source COTS technology, the potential for reduced cost for high assurance products and reduced time to market are significant.
+
+
+
+
+
+balancing the
+trade-off between 
+
+
+complexity of formal verification against 
+
+
+
+deliberately choosing to retain
+performance, even where this 
+
+when
+
+
+ not
+sacrificing 
+
+
+
+
+avoiding
+
+
+avoiding architectural concessions for the purpose of 
+
+
+achieved through design and profiling, avoiding 
+
+
+not permitting 
+
+Architectural concessions that might ease formal verification, 
+
+
+
+
+
+
+is subject to comprehensive formal verification,
+providing specific assurances to deliver trust 
+
+
+
+
+https://sel4.systems/About/seL4-whitepaper.pdf
+
+, exceptionally,  is unique 
+
+
+
+assume correctness of compiler, assembly code, and hardware, and we used a
+unique design approach that fuses formal and operating systems techniques. To
+our knowledge, this is the first formal proof of functional correctness of a
+complete, general-purpose operating-system kernel. Functional correctness
+means here that the implementation always strictly follows our high-level
+abstract specification of kernel behaviour. This encompasses traditional
+design and implementation safety properties such as the kernel will never
+crash, and it will never perform an unsafe operation. It also proves much
+more: we can predict precisely how the kernel will behave in every possible
+situation.  seL4, a third-generation microkernel of L4 provenance, comprises
+
+
+
+
+seL4 is formally verified software and therefore offers significant benefits
+over other software-based implementations in terms of the assurance and trust
+that can be gained. Given it is open source COTS technology, the potential for
+reduced cost for high assurance products and reduced time to market are
+significant.
+
+Developing on top of the seL4 microkernel is currently complex and
+time-consuming, and the expertise is limited to a small number of individuals
+and organisations. This developer kit is targeted at reducing the barrier to
+entry for using (i.e. developing on top of) the seL4 technology and increasing
+the number of organisations that can cost-effectively adopt seL4 in their
+products.
+
+
+
+
+
+In common with all Microkernels, the seL4 Microkernel provides a minimum set
+of essential features as needed to frame a viable OS (Operating System). There
+is an expectation that further components (such as drivers, libraries, and
+services) will be needed to build useful applications.
+
+
+
+The [seL4 Microkernel](https://sel4.systems) is a technology of increasing
+interest, as it has the potential to deliver significant benefits across a range of
+applications that require strong domain separation and software-enforced
+trusted execution environments.
+
+
+
+
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
