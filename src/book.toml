@@ -1,0 +1,29 @@
+[book]
+title = "seL4 Developer Kit for the Avnet MaaXBoard"
+description = "A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer)."
+authors = [
+    "Bill Ellis",
+    "Daniel Storer",
+    "Joshua Selby",
+    "Mark Jenkinson",
+    "Stephen Williams",
+    "Tom Harvey"]
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+default-theme = "ayu"
+site-url = "https://sel4devkit.github.io/"
+git-repository-url = "https://github.com/sel4devkit/sel4devkit-manual"
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
+
