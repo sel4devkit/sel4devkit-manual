@@ -1,4 +1,79 @@
-# Introduction
+# Resources
+
+Presents for immediate reference a summary of the various resources associated
+with seL4 Developer Kit.
+
+# Supporting Material
+
+The seL4 Developer Kit makes use of a large collection of existing material.
+Here, we summarise and reference this material, explaining its relevance to
+the seL4 Developer Kit. 
+
+Distinct areas considered are listed below:
+* [seL4 Microkernel]("../resources/sel4_microkernel.md")
+* [Avent MaaXBoard]("../resources/avent_maaxboard.md")
+
+# Repositories
+
+A summarised list of all the repositories that form part of the seL4 Developer
+Kit is presented to support their navigation:
+
+* [Repositories](reference/repositories.md)
+
+# Glossary
+
+A consolidated glossary of key terms is presented for easy reference:
+* [Glossary](reference/glossary.md)
+
+
+
+
+
+
+
+shaped in terms of a large collection of existing
+material in framinig a 
+
+
+deliver a 
+
+
+
+brings together a large collection of existing
+material, for the s
+
+built can be framed as 
+
+
+brings together a large collection of 
+
+
+is built atop many 
+
+
+intends to support developers in gaining familiarity
+
+There 
+An overview 
+We present a 
+
+
+
+
+
+
+
+
+
+
+- __seL4 Microkernel__: A consolidated overview of the fundamental aspects of
+  the seL4 Microkernel, highlighting relevant material available from other
+sources.
+
+- __Avent MaaXBoard__: Explain the selection of our chosen SBC (Single Board
+  Computer), providing a consolidated overview of its core features,
+highlighting relevant material available from other sources.
+
 
 The [seL4® Microkernel](https://sel4.systems) is a technology of
 increasing interest. It delivers specific capabilities and assurances, which
@@ -31,3 +106,12 @@ individuals and organisations. Thus, this seL4 Developer Kit is created to
 reduce the barrier to entry for developing on top of seL4 Microkernel. The
 overall intention is to encourage and support more organisations in adopting
 seL4 in their projects and products.
+
+
+highlighting relevant material available from other
+sources.
+
+- __Avent MaaXBoard__: Explain the selection of our chosen SBC (Single Board
+  Computer), providing a consolidated overview of its core features,
+highlighting relevant material available from other sources.
+

@@ -3,19 +3,33 @@
     - [Overview](introduction/overview.md)
     - [Structure](introduction/structure.md)
 
-- [seL4 Microkernel](sel4_microkernel/main.md)
-    - [Resources](sel4_microkernel/resources.md)
+- [Resources](resources/main.md)
+    - [seL4 Microkernel](resources/sel4_microkernel.md)
+    - [Avent MaaXBoard](resources/avent_maaxboard.md)
+    - [Repositories](resources/repositories.md)
+    - [Glossary](resources/glossary.md)
 
-- [Avent MaaXBoard](avent_maaxboard/main.md)
-    - [Resources](avent_maaxboard/resources.md)
+- [Development Platform](development_platform/main.md)
+    - [Hardware Requirements](development_platform/hardware_requirements.md)
+    - [Software Requirements](development_platform/software_requirements.md)
 
-- [Activities](activities/activities.md)
+- [Install and Configure](install_and_configure/main.md)
+    - [Host Setup](install_and_configure/host_setup.md)
+    - [Build Environment Setup](install_and_configure/build_environment_setup.md)
+    - [Target Setup](install_and_configure/target_setup.md)
+    - [Bootloader Setup](install_and_configure/bootloader_setup.md)
+
+- [First Boot](first_boot/main.md)
+    - [Bootloader](first_boot/bootloader.md)
+    - [seL4Test](first_boot/sel4test.md)
+    - [CAmkES Adder](first_boot/camkes_adder.md)
+    - [Microkit Hello World](first_boot/microkit_hello_world.md)
+
+- [Activities](activities/main.md)
 
 - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
-- [Activity: CAmkES Device Drivers](activity/camkes_device_drivers/main.md)
-
-- [Activity: Microkit Device Drivers](activity/microkit_device_drivers/main.md)
+- [Activity: Device Drivers](activity/device_drivers/main.md)
 
 - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
@@ -35,6 +49,4 @@
 
 ---
 
-[Glossary](reference/glossary.md)
-
-[Licensing](reference/licensing.md)
+[Licensing](licensing.md)
