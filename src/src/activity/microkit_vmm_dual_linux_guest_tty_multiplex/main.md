@@ -16,10 +16,8 @@ In our example, we make use of the VirtIO Console device to handle serial I/O da
 
 When loading up TWO VM's 
 
-
-* Memory considerations for two linuxes. (Where this is set up, tweaking was needed)
-* Talk about the timer, priorities of the two VM’s
-* What was the missing thing that bill found so that we could get set up?
-* add in more failures and attempts at things 
+* Memory considerations for two linuxes. (reference single tty) 
+* Talk about the timer, priorities of the two VM’s.
+* Do we need to include more failures and attempts at things? 
 
 
