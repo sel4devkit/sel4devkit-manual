@@ -6,7 +6,7 @@ The repository for this project is located at: https://github.com/sel4-cap/sel4-
 
 ## Displaying a static image
 
-The first step involved understanding the basics of display drivers so that we could define our goals for the project. The first goal was to understand U-Boot’s display driver and to set up our memory regions for the frame buffer and the physical devices required by the driver. After building and running the U-Boot example, we looked through the source code and found relevant sections in IMX8M technical specification to get a better understanding of how to write the display driver.
+The first goal was to understand U-Boot’s display driver and to set up our memory regions for the frame buffer and the physical devices required by the driver. After building and running the U-Boot example, we looked through the source code and found relevant sections in IMX8M technical specification to get a better understanding of how to write the display driver. We currently rely on the firmware provided by U-Boot which needs to be configured when setting up the development environment.
 
 Through reading the technical specification we learnt that the two main components of the Maaxboard needed for the driver are the DCSS (Display Controller Subsystem) and the HDMI TX Controller. With this information we were able to understand the purpose of the memory register read and write operations and which register bits needed to be set for specific functionality. We decided to use one protection domain for the simplicity of having one area to handle all operations. 
 
@@ -41,5 +41,5 @@ TO DO:
 
 * Talk about the firmware being used and the config options that need to be disabled.
 * Add some more specific code examples (What other things in this process could help someone to do something similar)
-* Information on how to read the specification to find the memory register and how each memory register is set up, how to toggle bits etc
+* Information on how to read the specification to find the memory register and how each memory register is set up, how to toggle bits, read and write to memory etc
 * Split into different sections
