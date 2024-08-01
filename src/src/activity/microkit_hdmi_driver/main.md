@@ -1,6 +1,8 @@
 # HDMI Driver
 
-For this task the aim was to create an hdmi display driver using our current devkit setup. For inspiration we chose to look at U-Boot’s implementation of an imx8m display driver. We chose to look at U-Boot’s solution compared to the linux contribution because it is BSD licensed, less fully featured and simpler to understand.
+For this task the aim was to create an hdmi display driver using our current devkit setup. For inspiration looked at U-Boot’s implementation of an imx8m display driver. We chose to look at U-Boot’s solution compared to the linux contribution because it is BSD licensed, less fully featured and simpler to understand.
+
+The repository for this project is located at: https://github.com/sel4-cap/sel4-hdmi 
 
 ## Displaying a static image
 
@@ -23,7 +25,7 @@ U-Boot’s implementation did not provide any capability to drive video, so we n
 
 For our implementation we decided to use two PD’s. One PD contains the display driver, consisting of the DCSS and the HDMI TX Controller. The other PD contains the api and examples which demonstrate different use cases of the driver. The system is designed such that the two PD’s communicate with each other through notifications and make use of a single shared DMA memory region. This memory region is split into different parts which are accessed by a pointer with a specific offset for different parts of the memory e.g frame buffer 1, frame buffer 2. This approach was implemented for simplicity so that the memory is easily accessible, however it would be better to define individual DMA regions for specific tasks, so that certain parts of the memory are only exposed to the PD that should have access to it.
 
-The initial time to redraw the buffer was slow because we were writing 8 bits of the 32 bit pixel at a time. To combat this we optimised the code logic reducing loops and where possible wrote 16, 32 or 64 bits at a time to minimise the amount of separate cpu instructions. This example is limited by the technology that we have available to us. For fully fledged display drivers, there will be extra bits of hardware that will be able to process the frame, drastically increasing processing time. 
+The initial time to redraw the buffer was slow because we were writing 8 bits of the 32 bit pixel at a time. To combat this we optimised the code logic reducing loops and where possible, we wrote 16, 32 or 64 bits at a time to minimise the amount of separate cpu instructions. This example is limited by the technology that we have available to us. For fully fledged display drivers, there will be extra bits of hardware that will be able to handle the different stages of processing video, drastically increasing performance. 
 
 For moving images a visible redraw is seen when switching between frames which is most noticeable when the entire screen has changed. Multiple attempts have been made to combat this issue, which have been listed in the repo for this activity.
 
@@ -38,3 +40,6 @@ The API contains the following examples:
 TO DO:
 
 * Talk about the firmware being used and the config options that need to be disabled.
+* Add some more specific code examples (What other things in this process could help someone to do something similar)
+* Split into different sections
+* 
