@@ -15,7 +15,9 @@ Two memory regions that are required to be passed through for the use of libvmm 
 Another issue we faced was  
 
 * Link to build root
-* Another issue we faced when setting up the VM was SMC…
-* Talk about how to run the project and how it works generally. Why is this useful, what do we have here?
-* Did anything trip us up on the way?
+* Link to bills repository
+* Write a short bit about the SMC issue
+* Talk about the RAM issue (only allocated 2gb for example - double check what we are using in the the actual example, look at hex amount and see if it is less - does this match up?)
+* Split into headings
+* Did anything else trip us up on the way? Is more detail needed?
 
