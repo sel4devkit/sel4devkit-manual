@@ -1,10 +1,10 @@
 # Case Study Building and Running
 
-This section builds and runs the `security_demo` demonstration application described in [Case Study Introduction](case_study_intro.md). All the host machine and target platform requirements described previously in this developer kit documentation are assumed.
+This section builds and runs the `security_demo` demonstration application described in [Case Study Introduction](intro.md). All the host machine and target platform requirements described previously in this developer kit documentation are assumed.
 
 ## Building the Application
 
-As usual, this assumes that the user is already running a Docker container within the [build environment](build_environment_setup.md), where we can create a directory and clone the code and dependencies.
+As usual, this assumes that the user is already running a Docker container within the [build environment](../../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
 ```text
 mkdir /host/security_demo
@@ -40,7 +40,7 @@ Running the `security_demo` application requires the following:
 
 ## Running the Application
 
-The application invokes two instances of the [U-Boot Driver Library](uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case none of the library instances are configured to use ethernet. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
+The application invokes two instances of the [U-Boot Driver Library](../device_drivers/uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case none of the library instances are configured to use ethernet. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
 
 When the application's initialisation has completed, we should see:
 
@@ -57,7 +57,7 @@ run_uboot_command@uboot_wrapper.c:176 --- running command 'fatrm mmc 0:2 transmi
 run_uboot_command@uboot_wrapper.c:181 --- command 'fatrm mmc 0:2 transmitter_log.txt' completed with return code 0 ---
 ```
 
-In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card appendix](appendices/partitioning_sd_card.md).
+In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card appendix](partitioning_sd_card.md).
 
 The application is now ready to perform various actions concurrently:
 
