@@ -39,7 +39,7 @@ The API contains the following examples:
 
 TO DO:
 
-* Talk about the firmware being used and the config options that need to be disabled.
+* Talk about the firmware being used and the config options that need to be disabled (could be more specific and show an example... It is in the repo so not really needed)
 * Add some more specific code examples (What other things in this process could help someone to do something similar)
 * Information on how to read the specification to find the memory register and how each memory register is set up, how to toggle bits, read and write to memory etc
 * Split into different sections
