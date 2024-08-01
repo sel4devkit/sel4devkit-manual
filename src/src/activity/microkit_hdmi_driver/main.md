@@ -10,7 +10,7 @@ The first step involved understanding the basics of display drivers so that we c
 
 Through reading the technical specification we learnt that the two main components of the Maaxboard needed for the driver are the DCSS (Display Controller Subsystem) and the HDMI TX Controller. With this information we were able to understand the purpose of the memory register read and write operations and which register bits needed to be set for specific functionality. We decided to use one protection domain for the simplicity of having one area to handle all operations. 
 
-After gaining a deeper understanding of Maaxboard and U-Boots implementation, we set values for the essential memory registers including where to set the address of the frame buffer to. For the framebuffer, we defined a region of memory that was large enough for our currently selected screen resolution and bit depth. **(Talk about existing DMA library)**
+After gaining a deeper understanding of Maaxboard and U-Boots implementation, we set values for the essential memory registers including where to set the address of the frame buffer to. For the framebuffer, we defined a region of memory that was large enough for our currently selected screen resolution and bit depth.
 
 In order to read and write from specific memory registers, they must be explicitly defined in the system file for the PD that they are being accessed from. This is an essential concept to grasp when working with microkit. The majority of the code was taken from U-Boot, so the main focus of this part of the task was to set up the parts of the code that directly interfaced with the hardware. For other projects this could include registering and handling interrupts. 
 
