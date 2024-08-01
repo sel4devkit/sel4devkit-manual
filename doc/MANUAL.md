@@ -31,15 +31,19 @@ make
 
 Build site:
 ```
+make get
 make all
 ```
 
 # Maintenance
 
-bits...
 Presents detailed technical aspects relevant to understanding and maintaining
 this Package.
-bits...
-bits...
-bits...
 
+## Publish
+
+To build and publish the site:
+```
+make get
+make publish
+```
