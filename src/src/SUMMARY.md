@@ -30,6 +30,10 @@
 - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
 - [Activity: Device Drivers](activity/device_drivers/main.md)
+    - [U-Boot Driver Library Overview](uboot_driver_library.md)
+    - [Using the U-Boot Driver Library](uboot_driver_usage.md)
+    - [Library Extension - New Platform](uboot_library_add_platform.md)
+    - [Library Extension - New Driver](uboot_library_add_driver.md)
 
 - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
