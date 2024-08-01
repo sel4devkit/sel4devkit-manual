@@ -30,6 +30,11 @@
 - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
 - [Activity: Device Drivers](activity/device_drivers/main.md)
+    - [Device Driver Introduction](device_driver_intro.md)
+    - [U-Boot Driver Library Overview](uboot_driver_library.md)
+    - [Using the U-Boot Driver Library](uboot_driver_usage.md)
+    - [Library Extension - New Platform](uboot_library_add_platform.md)
+    - [Library Extension - New Driver](uboot_library_add_driver.md)
 
 - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
@@ -37,13 +42,13 @@
 
 - [Activity: CAmkES Case Study Application](activity/camkes_case_study_application/main.md)
     - [Architecture](activity/camkes_case_study_application/architecture.md)
-    - [Architecture](activity/camkes_case_study_application/detail.md)
-    - [Architecture](activity/camkes_case_study_application/build.md)
+    - [Design](activity/camkes_case_study_application/detail.md)
+    - [Build](activity/camkes_case_study_application/build.md)
 
 - [Activity: Microkit Case Study Application](activity/microkit_case_study_application/main.md)
     - [Architecture](activity/microkit_case_study_application/architecture.md)
-    - [Architecture](activity/microkit_case_study_application/detail.md)
-    - [Architecture](activity/microkit_case_study_application/build.md)
+    - [Design](activity/microkit_case_study_application/detail.md)
+    - [Build](activity/microkit_case_study_application/build.md)
 
 - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
 
