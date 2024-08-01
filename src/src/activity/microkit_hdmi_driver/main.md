@@ -1,6 +1,6 @@
 # HDMI Driver
 
-For this task the aim was to create an hdmi display driver using our current devkit setup. For inspiration looked at U-Boot’s implementation of an imx8m display driver. We chose to look at U-Boot’s solution compared to the linux contribution because it is BSD licensed, less fully featured and simpler to understand.
+For this task the aim was to create an hdmi display driver using our current devkit setup. For inspiration looked at U-Boot’s implementation of an imx8m display driver. We chose to look at U-Boot’s solution as is BSD licensed and has minimal features making it simpler to understand.
 
 The repository for this project is located at: https://github.com/sel4-cap/sel4-hdmi 
 
