@@ -41,5 +41,5 @@ TO DO:
 
 * Talk about the firmware being used and the config options that need to be disabled.
 * Add some more specific code examples (What other things in this process could help someone to do something similar)
+* Information on how to read the specification to find the memory register and how each memory register is set up, how to toggle bits etc
 * Split into different sections
-* 
