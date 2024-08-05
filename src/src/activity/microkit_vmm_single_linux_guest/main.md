@@ -38,4 +38,4 @@ The MaaxBoard Firmware provides a small set of SiP Function Identifiers. The Lin
 ## Links
 
 * [Buildroot](https://github.com/sel4devkit/sel4devkit-maaxboard-linux-guest/blob/main/doc/MANUAL.md) - Buildroot configuration
-* [libvmm](https://github.com/libvmm/libvmm) - libvmm
+* https://github.com/au-ts/libvmm - Libvmm repository
