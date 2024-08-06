@@ -1,6 +1,6 @@
-# Case Study Building and Running
+# Building and Running
 
-This section builds and runs the `security_demo` demonstration application described in [Case Study Introduction](intro.md). All the host machine and target platform requirements described previously in this developer kit documentation are assumed.
+All the host machine and target platform requirements described previously in this manual are assumed.
 
 ## Building the Application
 
@@ -12,7 +12,7 @@ cd /host/security_demo
 ```
 
 ```bash
-repo init -u https://github.com/sel4-cap/dev-kit-microkit-manifest
+repo init -u https://github.com/sel4devkit/microkit_manifest
 ```
 
 ```bash
