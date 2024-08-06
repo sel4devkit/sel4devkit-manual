@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-For this task, the goal was to load up a virtual machine (VM) on a host with serial TTY pass-through. Our starting point for this activity was to rework an example from the Trustworthy Systems Libvmm repository so that it runs on the Maaxboard. This repo contains a virtual machine monitor for the seL4 microkernel with various examples built for the Odroid board and the open source emulator Qemu. Libvmm provides a virtual machine monitor (VMM) which is used to start and manage the guest VM. 
+For this task, the goal was to load up a virtual machine (VM) on a host with serial TTY pass-through, so that we could type input to and recive output from the Linux guest. Our starting point for this activity was to rework an example from the Trustworthy Systems Libvmm repository so that it runs on the Maaxboard. This repo contains a virtual machine monitor for the seL4 microkernel with various examples built for the Odroid board and the open source emulator Qemu. Libvmm provides a virtual machine monitor (VMM) which is used to start and manage the guest VM. 
 
 The repository for this project is located at: https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-vmm-single-linux-guest
 
