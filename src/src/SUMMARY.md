@@ -38,11 +38,20 @@
     - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
     - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
 
+
 - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
+- [Activity: Case Study Applicaton](activity/case_study_application/main.md)
+
 - [Activity: CAmkES Case Study Application](activity/camkes_case_study_application/main.md)
+    - [Architecture](activity/camkes_case_study_application/architecture.md)
+    - [Design](activity/camkes_case_study_application/detail.md)
+    - [Build](activity/camkes_case_study_application/build.md)
 
 - [Activity: Microkit Case Study Application](activity/microkit_case_study_application/main.md)
+    - [Architecture](activity/microkit_case_study_application/architecture.md)
+    - [Design](activity/microkit_case_study_application/detail.md)
+    - [Build](activity/microkit_case_study_application/build.md)
 
 - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
 
