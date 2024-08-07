@@ -47,19 +47,19 @@ It is left to the reader to look through the test script in detail, but the feat
   - read and echo keypresses from a USB keyboard, if connected, during a defined period.
 - SD/MMC operations to identify and list (`ls`) the contents of the SD card.
 - Filesystem operations to write a file to a FAT partition on the SD card before reading the contents back and deleting the file.
-- I<sup>2</sup>C operations to probe the bus and read the power management IC present on the MaaXBoard's I<sup>2</sup>C bus. (There are more details in the [worked example](appendices/add_driver_worked_example.md) that walks through the steps that were required to add this driver.)
-- SPI operations to access the SPI bus and read a BMP280 pressure sensor, if connected.
-  - Procuring and connecting this sensor is an optional extra, described in the [SPI Bus Pressure Sensor appendix](appendices/spi_bmp280.md); otherwise these operations still run but return nothing in the test application.
+- I<sup>2</sup>C operations to probe the bus and read the power management IC present on the MaaXBoard's I<sup>2</sup>C bus. (There are more details in the [worked example](add_driver_worked_example.md) that walks through the steps that were required to add this driver.)
 
 [^1]: Note: Currently, only the upper USB port on the Avnet MaaXBoard is active (i.e. the port furthest away from the PCB); the lower USB port does not function. This is a feature of the power domains on the board, not the USB driver.
 
-Other utility commands are exercised, such as `dm tree`, which is useful to follow the instantiation of device drivers, and `clocks` which lists all the available clocks. As well as 'headline' drivers like USB and SPI above, there are also some fundamental 'building block' drivers in the library, for elements such as clocks, IOMUX, and GPIO, which are needed by other drivers.
+Other utility commands are exercised, such as `dm tree`, which is useful to follow the instantiation of device drivers, and `clocks` which lists all the available clocks. As well as 'headline' drivers like USB, there are also some fundamental 'building block' drivers in the library, for elements such as clocks, IOMUX, and GPIO, which are needed by other drivers.
 
 #### Configuration for different platforms
 
-Although `uboot-driver-example` was created to demonstrate the device drivers developed for this MaaXBoard developer kit, it is configurable to support other platforms. For example, in the [worked example appendix for the Odroid-C2](appendices/add_odroidc2.md), a small subset of drivers has been developed for that platform, and the `test.c` source file for `uboot-driver-example` uses the preprocessor macros `CONFIG_PLAT_MAAXBOARD` and `CONFIG_PLAT_ODROIDC2` to configure which commands are run for each platform. By default, all tests are enabled for an unrecognised platform, but this would be readily configured for a new platform's `CONFIG_PLAT_...` preprocessor macro.
+Although `uboot-driver-example` was created to demonstrate the device drivers developed for this MaaXBoard developer kit, it is configurable to support other platforms. For example, in the [worked example appendix for the Odroid-C2](add_odroidc2.md), a small subset of drivers has been developed for that platform, and the `test.c` source file for `uboot-driver-example` uses the preprocessor macros `CONFIG_PLAT_MAAXBOARD` and `CONFIG_PLAT_ODROIDC2` to configure which commands are run for each platform. By default, all tests are enabled for an unrecognised platform, but this would be readily configured for a new platform's `CONFIG_PLAT_...` preprocessor macro.
 
-### Instructions for running `uboot-driver-example` (CAmkES)
+### Instructions for running `uboot-driver-example` 
+
+#### CAmkES
 
 As usual, this assumes that the user is already running a Docker container within the [build environment](build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
@@ -108,7 +108,9 @@ ninja
 
 A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
 
-### Instructions for running `uboot-driver-example` (Microkit)
+### Instructions for running `uboot-driver-example` 
+
+#### Microkit
 
 As usual, this assumes that the user is already running a Docker container within the [build environment](build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
@@ -118,7 +120,7 @@ cd /host/uboot_test
 ```
 
 ```bash
-repo init -u https://github.com/sel4-cap/seL4-dev-kit-microkit-manifest.git
+repo init -u https://github.com/sel4devkit/microkit_manifest
 ```
 
 ```bash
@@ -238,7 +240,3 @@ Connecting, disconnecting, and reconnecting to a network can give rise to delays
 - Start from a clean reboot of the host machine (which will include flushing its DNS cache); or
 - Be patient! (If you are prepared to wait for a few minutes, the connection will be made. Note that `nc` may timeout after a while if no connection is made, so the command would need to be repeated.)
 
-## Appendices
-
-- [SPI Bus Pressure Sensor](./appendices/spi_bmp280.md)
-- [Odroid-C2 Worked Example](./appendices/add_odroidc2.md)

@@ -30,11 +30,14 @@
 - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
 - [Activity: Device Drivers](activity/device_drivers/main.md)
-    - [Device Driver Introduction](device_driver_intro.md)
-    - [U-Boot Driver Library Overview](uboot_driver_library.md)
-    - [Using the U-Boot Driver Library](uboot_driver_usage.md)
-    - [Library Extension - New Platform](uboot_library_add_platform.md)
-    - [Library Extension - New Driver](uboot_library_add_driver.md)
+    - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
+    - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
+    - [Library Extension - New Platform](activity/device_drivers/uboot_library_add_platform.md)
+    - [Library Extension - New Driver](activity/device_drivers/uboot_library_add_driver.md)
+    - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
+    - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
+    - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
+
 
 - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
