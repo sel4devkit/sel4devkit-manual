@@ -1,6 +1,6 @@
 # U-Boot Driver Library Overview
 
-To achieve the goals specified in [device driver introduction](device_driver_intro.md) section, an extensible library of device drivers ported from U-Boot has been created. This library provides an extensive set of drivers for the Avnet MaaXBoard platform as a worked example of its usage. The library is supported by documentation in the following sections on usage, maintenance, and guidance on the extension of the library to support additional platforms and devices.
+To achieve the goals specified in [device driver introduction](main.md) section, an extensible library of device drivers ported from U-Boot has been created. This library provides an extensive set of drivers for the Avnet MaaXBoard platform as a worked example of its usage. The library is supported by documentation in the following sections on usage, maintenance, and guidance on the extension of the library to support additional platforms and devices.
 
 Information on the design and structure of the library is provided under the following sections:
 
