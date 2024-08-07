@@ -1,5 +1,5 @@
 
-# Introduction 
+# Architecture
 
 We defer to the seL4 Foundation's documentation of CAmkES as the primary source of understanding of CAmkES, but this section will cover aspects of the use of CAmkES where appropriate.
 
