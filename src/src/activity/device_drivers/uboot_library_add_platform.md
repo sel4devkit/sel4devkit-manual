@@ -49,7 +49,7 @@ Throughout the sections of this guide devoted to extension of the U-Boot driver 
 ```text
 <manifest root>
 |
-└───microkit
+└───project_libs
     ├───include
     │   └───<platform>
     │       └───all_platform_devices.h
@@ -75,10 +75,10 @@ Throughout the sections of this guide devoted to extension of the U-Boot driver 
     └───uboot
 ```
 
-- `microkit/boards`: Location of platform device trees.
+- `project_libs/boards`: Location of platform device trees.
 - `example/<platform>/uboot-driver-example`: [The test application](uboot_driver_usage.md).
-- `microkit/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4-cap/dev-kit-libs/tree/main/libubootdrivers).
-- `microkit/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `microkit/libubootdrivers/uboot`).
+- `project_libs/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4-cap/dev-kit-libs/tree/main/libubootdrivers).
+- `project_libs/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `microkit/libubootdrivers/uboot`).
 
 ## Required Reading
 
@@ -98,7 +98,7 @@ To allow the library to be successfully compiled for a new platform, the followi
 
 ### Update the library's CMake file to support the platform
 
-The library's CMake file (located at `projects/project_libs/libubootdrivers/CMakeLists.txt` or `microkit/libubootdrivers/CMakeLists.txt`) contains a section titled `Platform specific settings` to control the settings for each platform. This section:
+The library's CMake file (located at `project_libs/libubootdrivers/CMakeLists.txt`) contains a section titled `Platform specific settings` to control the settings for each platform. This section:
 
 1. Declares a set of variables to control which drivers and optional capabilities are to be built for each platform. The default values produce a build including only a dummy timer driver; this is the minimum necessary to allow the library to be built.
 

@@ -36,7 +36,7 @@ Sections below give a basic overview of the test applications and how to build a
 
 ### Overview of the `uboot-driver-example` test application
 
-The source file at `camkes/apps/uboot-driver-example/components/Test/src/test.c`/ `microkit/example/maaxboard/uboot-driver-example/uboot-driver-example.c` represents the script for the test application. It contains `run_uboot_cmd("...")` calls to U-Boot commands that are supported by the library. The set of supported commands can be readily seen in the `cmd_tbl` entries of `projects_libs/libubootdrivers/include/plat/maaxboard/plat_driver_data.h` or `microkit/libubootdrivers/include/plat/maaxboard/plat_driver_data.h`.
+The source file at `camkes/apps/uboot-driver-example/components/Test/src/test.c`/ `project_libs/example/maaxboard/uboot-driver-example/uboot-driver-example.c` represents the script for the test application. It contains `run_uboot_cmd("...")` calls to U-Boot commands that are supported by the library. The set of supported commands can be readily seen in the `cmd_tbl` entries of `projects_libs/libubootdrivers/include/plat/maaxboard/plat_driver_data.h`.
 
 It is left to the reader to look through the test script in detail, but the features demonstrated include the following.
 
@@ -142,13 +142,13 @@ run_uboot_command("setenv netmask 255.255.255.0");
 run_uboot_command("ping 8.8.8.8"); // An example internet IP address (Google DNS)
 ```
 
-From the `/host/uboot_test/microkit` directory, execute the following command:
+From the `/host/uboot_test/project_libs` directory, execute the following command:
 
 ```bash
 ./init-build.sh -DMICROKIT_APP=uboot-driver-example -DPLATFORM=maaxboard
 ```
 
-A successful build will result in an executable file called `sel4_image` in the `microkit/example/maaxboard/uboot-driver-example/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
+A successful build will result in an executable file called `sel4_image` in the `project_libs/example/maaxboard/uboot-driver-example/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
 
 ## Test application: `picoserver_uboot`
 
