@@ -10,6 +10,10 @@ The set up and structure of this project is different to other activites we've c
 
 LINK TO MK MANIFEST WITH UPDATED README (and/or explain here a little bit)
 
+List the repo's that make it up
+
+Link the docker environment (if it can be run inside that, if not find one that will run it and port it across)
+
 ## xHCI
 
 xHCI is a standardised interface used for USB host controllers. Also known as the USB 3.0 host controller specification, it is designed to be backward compatible, supporting a wide range of USB devices from older USB 1.x to the more recent USB 3.x versions. Compared to its predecessors (OHCI, UHCI and EHCI) it is designed to handle multiple data transfer speeds within a single unified standard, making it more efficient at handling computer resources. The standard describes the basic communication between the software and the host controller including memory layout, data structures, MMIO and DMA.
@@ -28,7 +32,7 @@ We created a separate DMA library which can be found here: LINK TBD
 
 ![screenshot](system_architecture.png)
 
-One Protection Domain (PD) acts as a central driver which handles all of the initialization and communicates with the hardware via MMIO. There are additional PD's for the memory handler, software interrupts and hardware interrupts. Task thread is for hotplugging and is not currently implemented.
+One Protection Domain (PD) acts as a central driver which handles all of the initialization and communicates with the hardware via MMIO. There are additional PD's for the memory handler, software interrupts and hardware interrupts.
 
 ### Memory considerations
 
