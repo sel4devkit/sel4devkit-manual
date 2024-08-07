@@ -16,7 +16,7 @@ This can be increased by changing the default `ZF_LOG_INFO` level to a higher lo
 
 ## DMA
 
-As documented in the [library overview](../uboot_driver_library.md#dma) section, drivers utilising DMA may need manual modifications.
+As documented in the [library overview](uboot_driver_library.md#dma) section, drivers utilising DMA may need manual modifications.
 
 ### Detecting DMA usage
 

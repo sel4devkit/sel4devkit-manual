@@ -2,7 +2,7 @@
 
 As part of the review of the [New Platform](uboot_library_add_platform.md)
 and [New Driver](uboot_library_add_driver.md) sections of this guide, we ported the
-U-Boot Driver Library to build with seL4 on the Odroid-C2 platform.
+U-Boot Driver Library to build with seL4 on the Odroid-C2 platform for the CAmkES framework.
 
 This document gives details of how this was achieved, following the structure
 of those earlier sections, but adding details of exact changes to each file.
