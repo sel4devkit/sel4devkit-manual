@@ -35,12 +35,12 @@
 
 - [Activity: Case Study Applicaton](activity/case_study_application/main.md)
 
-- [Activity: CAmkES Case Study Application](activity/camkes_case_study_application/main.md)
+- [Activity: CAmkES Case Study Application]
     - [Architecture](activity/camkes_case_study_application/architecture.md)
     - [Architecture](activity/camkes_case_study_application/detail.md)
     - [Architecture](activity/camkes_case_study_application/build.md)
 
-- [Activity: Microkit Case Study Application](activity/microkit_case_study_application/main.md)
+- [Activity: Microkit Case Study Application]
     - [Architecture](activity/microkit_case_study_application/architecture.md)
     - [Architecture](activity/microkit_case_study_application/detail.md)
     - [Architecture](activity/microkit_case_study_application/build.md)

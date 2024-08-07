@@ -9,14 +9,8 @@ It is expected that the reader is familiar with the [seL4 Microkit manual](https
 The application is held within the following structure (all within the `microkit` folder), with key folders and files shown:
 
 ```text
-microkit
+project_libs
 │
-├───crypto
-|   └───crytpo.c
-├───keyreader
-│   └───keyreader.c
-├───transmitter
-│   └───transmitter.c
 │      
 ├───include
 │   └───plat
@@ -30,7 +24,13 @@ microkit
 ├───example
 │   └───<platform>
 │       └───security_demo
-│           └───security_demo.system
+│           ├───security_demo.system
+│           ├───crypto
+│           │    └───crypto.c
+│           ├───keyreader
+│           │   └───keyreader.c
+│           ├───transmitter
+│           │   └───transmitter.c
 ```
 
 - `CMakeLists.txt`: Application build file.
@@ -71,7 +71,7 @@ At its core the circular buffer is a simple character array with *head* and *tai
 
 Reading data from, or writing data to, the circular buffer requires the data array, *head* index, and *tail* index to be modified. Such modification of the buffer cannot be allowed to occur concurrently by both the Crypto and Transmitter protection domains, otherwise corruption of the buffer may occur. Access to the buffer by the two protection domains must therefore be protected to avoid concurrent access.
 
-Within the security demonstrator, a lock is used to enforce this critical section which takes the form of a boolean on the circular buffer data structure; each protection domain must lock the circular buffer prior to accessing the circular buffer, and must release the lock when access to the circular buffer has been completed.
+Within the security demonstrator, cache invalidates and flushes are used to enforce this critical section. These make sure that the cpu is reading the most up to date data. Each protection domain perform a cache invalidate the circular buffer prior to accessing or writing the circular buffer, and must flush the cache when access or writing to the circular buffer has been completed.
 
 - Function implementations for the circular buffer are included in `src/circular_buffer.c`.
 - A memory region is a contiguous range of physical memory and the memory region for the circular buffer is mapped onto both the Crypto and Transmitter protection domains. A virtual address, caching attributes and permissions (read, write and execute) are given to each protection domain.
