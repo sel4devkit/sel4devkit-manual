@@ -2,17 +2,19 @@
 
 ## Introduction
 
-For this activity the goal was to create an Sel4 native xHCI driver. Writing an entire xHCI driver from scratch is a long and complicated task, so we opted to re-work an existing solution. We chose to use NetBSD's xHCI driver because it has good portability, supports a wide range of hardware, is BSD licenced, is updated often and makes use of interrupts which are more performant compared to other solutions that use polling. The plan was to use this as a base to pull drivers from in the future.   
+For this activity the goal was to create an Sel4 native xHCI driver. Writing an entire xHCI driver from scratch is a long and complicated task, so we opted to re-work an existing solution. We chose to use NetBSD's xHCI driver because it has good portability, supports a wide range of hardware, is BSD licenced, is updated often and makes use of interrupts which are more performant compared to other solutions that use polling. The plan was to use this as a base to pull drivers from in the future.
 
 ## Project Layout
 
-The set up and structure of this project is different to other activites we've completed. See the following repository for more details:
+This project uses "repo" to initialise the xHCI driver repository and to clone the dependant repositories into specific directories. To install microkit we use "make get" and "make all" in the microkit directory.
 
-LINK TO MK MANIFEST WITH UPDATED README (and/or explain here a little bit)
+The repository can be found here at https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-manifest. 
 
-List the repo's that make it up
+The dependant projects can be found at:
 
-Link the docker environment (if it can be run inside that, if not find one that will run it and port it across)
+* https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-driver - The xHCI driver
+* https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-netbsd-fork - Fork of NetBSD
+* https://github.com/sel4devkit/picolibc - C library
 
 ## xHCI
 
