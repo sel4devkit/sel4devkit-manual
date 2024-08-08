@@ -1,6 +1,6 @@
 # HDMI Driver
 
-For this task the aim was to create an hdmi display driver. For inspiration we looked at U-Boot’s implementation of an imx8m display driver because it is BSD licensed and minimally featured, which was useful to build upon as an initial foundation.
+For this task the aim was to create an hdmi display driver. For inspiration we looked at U-Boot’s implementation of an imx8m display driver because it is BSD licensed and minimally featured, which was useful to build upon as an initial foundation. We opted to copy the code into our repository rather than have a fork like we did with the xHCI driver. This is because we used a minimal amount of U-Boot's code and it was easier to manage compared to keeping a fork of a large repository up to date.
 
 The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver).
 
