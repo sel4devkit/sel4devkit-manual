@@ -2,7 +2,7 @@
 
 For this task the aim was to create an hdmi display driver. For inspiration we looked at U-Boot’s implementation of an imx8m display driver because it is BSD licensed and minimally featured, which was useful to build upon as an initial foundation.
 
-The repository for this project is located at: [https://github.com/sel4-cap/sel4-hdmi ](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver)
+The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver).
 
 ## Displaying a static image
 
