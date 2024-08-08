@@ -36,8 +36,6 @@ The API contains the following examples:
 * rotating_bars - Displays 4 colour bars rotating across the screen.
 * moving_square - A small square that moves around the screen, changing direction each time it hits the side of the screen.
 
+## Project environment
 
-Nice to have:
-
-* Add some more specific code examples (What other things in this process could help someone to do something similar)
-* Information on how to read the specification to find the memory register and how each memory register is set up, how to toggle bits, read and write to memory etc
+Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit. Ideally this should follow the format of other projects and use a centralised make get/all/clean.
