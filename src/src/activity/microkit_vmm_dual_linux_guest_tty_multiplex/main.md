@@ -4,7 +4,7 @@
 
 For this activity the goal was to load two Linux Virtual Machines (VM) on one host. We built upon our previous single guest example and took inspiration from an existing [Libvmm](https://github.com/au-ts/libvmm) contribution that makes use of VirtIO console. 
 
-The repository for this project is located at: https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-vmm-dual-linux-guest-tty-multiplex
+The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-vmm-dual-linux-guest-tty-multiplex)
 
 ## Design
 
