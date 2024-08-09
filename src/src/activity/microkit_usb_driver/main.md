@@ -2,19 +2,9 @@
 
 ## Introduction
 
-For this activity the goal was to create an Sel4 native xHCI driver. Writing an entire xHCI driver from scratch is a long and complicated task, so we opted to re-work an existing solution. We chose to use NetBSD's xHCI driver because it has good portability, supports a wide range of hardware, is BSD licenced, is updated often and makes use of interrupts which are more performant compared to other solutions that use polling. The plan was to use this as a base to pull drivers from in the future.
+For this activity the goal was to create an Sel4 native xHCI driver. We opted to re-work an existing solution, because writing an entire xHCI driver from scratch would be a long and complicated task. We chose to use NetBSD's xHCI driver because it has good portability, supports a wide range of hardware, is BSD licenced, is updated often and makes use of interrupts which are more performant compared to other solutions that use polling. The plan was to use this as a base to pull drivers from in the future.
 
-## Project Layout
-
-This project uses "repo" to initialise the xHCI driver repository and to clone the dependant repositories into specific directories. To install microkit we use "make get" and "make all" in the microkit directory.
-
-The repository can be found here at https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-manifest. 
-
-The dependant projects can be found at:
-
-* https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-driver - The xHCI driver
-* https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-netbsd-fork - Fork of NetBSD
-* https://github.com/sel4devkit/picolibc - C library
+The repository can be found [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-driver). 
 
 ## xHCI
 
@@ -43,3 +33,23 @@ Between the core driver PD and the software interrupt PD there are some function
 ### Devices
 
 Once we initialised host controller, we moved onto devices. We started with keyboard as it was straightforward to get an example up and running and easy to test as it is a human interface device. Next we added a mouse which was conceptually very similar to the keyboard as they were both human interface devices and had the same fundamental layer. Additionally we just needed to include the mouse set up files from NetBSD. We also added touchscreen support by making use of the generic code for the mouse and by implementing extra functionality to account for the Z axis. When probing the bus for drivers we needed to state what device was being attached. This meant modifying the code and recompiling the program when switching between devices. To resolve this we introduced NetBSD's autoconfiguration which reads from a  prebuilt list of devices created at kernel compile time to evaluate which USB devices drivers should be assigned.
+
+## Project Layout
+
+This project uses a single 'make get' command to download and configure the dependencies for the project. Then a build script is used to build each separate example.
+
+The dependant projects can be found at:
+
+* [Microkit](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-dev)
+* [Fork of NetBSD](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-netbsd-fork)
+* [C library](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-picolibc)
+
+## Examples
+
+The following examples have been provided:
+
+* **FatFs** - Demonstrates usage using our seL4 xHCI driver and API to communicate with a USB mass storage device on a block level.
+* **Shell** - This example shows off all of the capabilities of the xHCI API by providing a shell interface to interact with.
+* **Empty Client** - This example shows the usage of the driver as an empty API. This can be used as a skeleton to create a new API user.
+
+
