@@ -1,10 +1,12 @@
 # HDMI Driver
 
+## Introduction
+
 For this task the aim was to create an HDMI display driver. For inspiration we looked at U-Boot’s imx8m display driver because it is BSD licensed and minimally featured which was useful to use as an initial foundation to build upon. We opted to copy the code into our repository rather than have a fork like we did with the xHCI driver. This is because we used a minimal amount of U-Boot's code and it was easier to manage compared to keeping a fork of a large repository up to date.
 
 The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver).
 
-## Displaying a static image
+## Displaying a Static Image
 
 The first goal was to understand U-Boot’s display driver and to set up our memory regions for the frame buffer and the physical devices required by the driver. After building and running the U-Boot example, we looked through the source code and found relevant sections in IMX8M technical specification to get a better understanding of how to write the display driver. We currently rely on the firmware provided by U-Boot which needs to be configured when setting up the development environment.
 
@@ -16,7 +18,7 @@ In order to read and write from specific memory registers, they must be explicit
 
 Our initial display configuration had a screen resolution of 1280x720 and a colour depth of 32 bit RGB. This meant that each pixel was composed of 32 bits (8 bits reserved for each colour and an additional alpha channel for colour transparency). With this information, we were able to display four equally spaced bars across the screen as red, green, blue and white. We then experimented with different screen resolutions which involved re-defining the size of the frame buffer so that it could accommodate larger screen resolutions.
 
-## Displaying a moving image
+## Displaying a Moving Image
 
 The next goal was to display a moving image, which first involved learning about the theory of double buffering and understanding the capabilities of the Maaxboard’s DCSS. Double buffering makes use of two buffers. The first buffer stores the current frame and the second buffer stores the next frame. Whilst the current frame is being displayed the second buffer is being written to. During the window of time where the image on screen is not actively being redrawn, the pointers to each buffer are swapped.
 
@@ -35,6 +37,6 @@ The API contains the following examples:
 * rotating_bars - Displays 4 colour bars rotating across the screen.
 * moving_square - A small square that moves around the screen, changing direction each time it hits the side of the screen.
 
-## Project environment
+## Project Environment
 
 Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit. 
