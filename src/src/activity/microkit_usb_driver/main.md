@@ -26,7 +26,7 @@ We created a separate DMA library which can be found [here](https://github.com/s
 
 One Protection Domain (PD) acts as a central driver which handles all of the initialization and communicates with the hardware via MMIO. There are additional PD's for the memory handler, software interrupts and hardware interrupts.
 
-### Memory considerations
+### Memory Considerations
 
 Between the core driver PD and the software interrupt PD there are some function pointers to callback functions. In NetBSD's implementation it expects these function callbacks to be running in the same memory address space. However, with our setup this part of the communication is done between PD's, meaning that they don't have access to the same blocks of memory. Our first attempt at resolving this solution involved using a master PD that handled all of these functions, where the driver would call into the master PD, then the master PD would call into the software interrupt PD. This however was not a viable solution because the software interrupt PD was of a lower priority than the driver PD resulting in an affect on performance. Instead we opted to use a context switch, where both PD's at initialisation notify each other of the memory addresses that they will be using for the function pointers. The appropriate memory address is then selected during the function callback.
 
