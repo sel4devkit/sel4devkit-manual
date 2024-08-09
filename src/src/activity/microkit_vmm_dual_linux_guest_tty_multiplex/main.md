@@ -4,7 +4,7 @@
 
 For this activity the goal was to load two Linux Virtual Machines (VM) on one host. We built upon our previous single guest example and took inspiration from an existing [Libvmm](https://github.com/au-ts/libvmm) contribution that makes use of VirtIO console. 
 
-The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-vmm-dual-linux-guest-tty-multiplex)
+The repository for this project is located [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-vmm-dual-linux-guest-tty-multiplex).
 
 ## Design
 
@@ -32,7 +32,7 @@ The back-end devices typically exist in the VMM. Libvmm provides implementations
 
 ### VirtQueues
 
-VirtQueues are shared memory regions that are used by a VirtIO front-end driver and back-end device pair. A VRing is a data structure contained within the VirtQueue that facilitates data transfer between the VirtIO device and driver. Libvmm follows version 1.2 of the VirtIO specification and uses the seL4 Device Driver Framework (SDDF) to implement the VirtQueues for specific devices.
+VirtQueues are shared memory regions that are used by a VirtIO front-end driver and back-end device pair. A VRing is a data structure contained within the VirtQueue that facilitates data transfer between the VirtIO device and driver. Libvmm follows version 1.2 of the VirtIO specification and uses the seL4 Device Driver Framework ([SDDF](https://github.com/au-ts/sddf)) to implement the VirtQueues for specific devices.
 
 ### VirtIO Console
 
