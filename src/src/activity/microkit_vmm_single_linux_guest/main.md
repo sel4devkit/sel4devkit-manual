@@ -17,7 +17,7 @@ To create the Linux kernel image and the root filesystem we used Buildroot. It i
 
 Our buildroot repository can be found [here](https://github.com/sel4devkit/sel4devkit-maaxboard-linux-guest/blob/main/doc/MANUAL.md).
 
-## Virtual memory faults
+## Virtual Memory Faults
 
 The VM doesn’t necessarily know it's being virtualised, so it may try to perform read and write operations on certain devices and memory regions that it doesn’t have access to. When setting up the project there were a number of virtual memory faults, which were caused by the guest VM trying to access devices that it was not exposed to in the system file. Generally, there are three approaches to fix this.
 
@@ -29,13 +29,13 @@ The VM doesn’t necessarily know it's being virtualised, so it may try to perfo
 
 Two memory regions that are required to be passed through for the use of Libvmm and our example are the RAM and the Generic Interrupt Controller Virtual CPU (GIC-VCPU). In order for the Linux guest to be able to run, it needs to have an area of contiguous space directly allocated for its own RAM. In its current implementation Libvmm expects the physical memory address and the virtual memory area for the RAM to be at the same address. At a minimum there needs to be enough memory to load the kernel image and other associated binaries. The size and position of this memory need to reflect the memory node in the device tree. The GIC-VCPU is used to signal virtual interrupts. Libvmm provides a driver to handle this device which is necessary for running any guest operating system with Libvmm.
 
-## Memory considerations
+## Memory Considerations
 
 In the current release of Microkit (1.2.6 At the time of writing), the way that Microkit allocates memory for untyped regions is not optimal for large amounts of memory. All of memory, including RAM, is split into regions based on some rules and then Microkit allocates kernel objects from those untypeds. It is thought that the Microkit allocator is for some reason only allocating from a maximum of one untyped for a single allocation. This means that for example, if you want 3GB of RAM then it will be split over a couple of untypeds. So if you're trying to create an MR of 512MiB, and the biggest untyped is only 256MB, then Microkit is failing even though technically there is 3GB of space.
 
 An initramfs (initial ram file system) is used to prepare Linux systems during boot before the init process starts. If the memory allocated for the ram isn't big enough then this process will fail. It is not known why exactly, but currently the size is 0xf000000 because 0x9000000 was too small.
 
-## SMC issue
+## SMC Issue
 
 Whilst developing this project, we came across an error when trying to boot up the VM:
 
