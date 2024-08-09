@@ -16,7 +16,6 @@ In order to read and write from specific memory registers, they must be explicit
 
 Our initial display configuration had a screen resolution of 1280x720 and a colour depth of 32 bit RGB. This meant that each pixel was composed of 32 bits (8 bits reserved for each colour and an additional alpha channel for colour transparency). With this information, we were able to display four equally spaced bars across the screen as red, green, blue and white. We then experimented with different screen resolutions which involved re-defining the size of the frame buffer so that it could accommodate larger screen resolutions.
 
-
 ## Displaying a moving image
 
 The next goal was to display a moving image, which first involved learning about the theory of double buffering and understanding the capabilities of the Maaxboard’s DCSS. Double buffering makes use of two buffers. The first buffer stores the current frame and the second buffer stores the next frame. Whilst the current frame is being displayed the second buffer is being written to. During the window of time where the image on screen is not actively being redrawn, the pointers to each buffer are swapped.
