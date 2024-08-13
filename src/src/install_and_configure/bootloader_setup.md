@@ -7,5 +7,5 @@ When a computer is turned off, its software remains stored in non-volatile memor
 **Das U-Boot** (known as "the Universal Boot Loader" and often shortened to U-Boot) is an open-source bootloader commonly used in embedded devices. For such low-level operations, it has to be customized for the hardware on which it is running.
 
 There are two options for using U-Boot:
-    - [Using the prebuilt image](using_the_prebuilt_image.md)
-    - [Building U-Boot manually](building_uboot_manually.md)
+- [Using the prebuilt image](using_the_prebuilt_image.md)
+- [Building U-Boot manually](building_uboot_manually.md)
