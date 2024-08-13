@@ -1,7 +1,6 @@
 # Building U-Boot manually 
 
 The instructions for [formatting the SD card](#partitioning-the-sd-card), [building U-Boot](#building-u-boot) and [flashing the image](#writing-u-boot-to-the-sd-card) are as follows:
-
 ## Partitioning the SD Card
 
 The SD card must be partitioned correctly in order to contain U-Boot, seL4 and space for a filesystem. This can be done as follows.
@@ -178,7 +177,7 @@ It is expected that such changes would be made within a fork of the [`maaxboard-
 
 ## Appendix 2
 
-## Building U-Boot offline
+### Building U-Boot offline
 
 1. On a computer with an internet connection, clone the maaxboard-uboot repository using:
 
