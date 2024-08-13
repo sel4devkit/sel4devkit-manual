@@ -1,6 +1,6 @@
 # Host Setup
 
-The previous [Software Requirements](software_requirements.md) section listed the applications required on the host machine. Installation links provided there should be followed, where applicable. This section covers any necessary configuration.
+The previous [Software Requirements](../development_platform/software_requirements.md) section listed the applications required on the host machine. Installation links provided there should be followed, where applicable. This section covers any necessary configuration.
 
 ## Docker Desktop / Docker Engine
 
@@ -24,7 +24,7 @@ No special configuration is necessary for Etcher.
 
 ## CoolTerm
 
-CoolTerm enables the host machine to communicate with the MaaXBoard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](target_platform_setup.md) section for more details of the necessary connections). Alternative applications are available, but this documentation will use CoolTerm, which is freely available and multi-platform.
+CoolTerm enables the host machine to communicate with the MaaXBoard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](target_setup.md) section for more details of the necessary connections). Alternative applications are available, but this documentation will use CoolTerm, which is freely available and multi-platform.
 
 The configuration parameters are accessible via the _Connection > Options_ menu. The following serial port parameters are required (i.e. 115200 baud, 8 data bits, no parity, 1 stop bit):
 
@@ -42,5 +42,5 @@ All these settings may be saved for convenience as a CoolTerm configuration file
 
 ## Minicom 
 
-Minicom can also be used to communicate with the maaxboard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](target_platform_setup.md) section for more details of the necessary connections). Minicom can be used on linux machines or on Windows with the PuTTY application. Instructions for installing and running minicom are [here](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom). 
+Minicom can also be used to communicate with the maaxboard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](target_setup.md) section for more details of the necessary connections). Minicom can be used on linux machines or on Windows with the PuTTY application. Instructions for installing and running minicom are [here](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom). 
 
