@@ -1,6 +1,6 @@
-# SD Card preparation
+# Using the prebuilt image
 
-## Using the prebuilt image
+## SD Card preparation
 
 The SD card must be partitioned correctly in order to contain U-Boot and partitions to hold a binary / kernel plus additional filesystem. For convenience, a prebuilt disk image is provided. _Note: the disk images have been created for a 16GB SD card; please use a card that is 16GB or larger._
 
@@ -8,7 +8,7 @@ The SD card must be partitioned correctly in order to contain U-Boot and partiti
 
     _Note: the images are compressed as zip files in order to reduce their size (compressed size ~15MB, uncompressed size ~15GB), and will need to be uncompressed using a suitable utility before use._
 
-2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Machine Setup](host_machine_setup.md) section for more details.
+2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Machine Setup](host_setup.md) section for more details.
 
 3. Insert the SD card you wish to flash, and open Etcher.
 ![etcher-default](figures/etcher-default.png)
@@ -38,7 +38,4 @@ A U-Boot configuration file is contained within the provided image. It is placed
 
 3. ELF binary name (`elf_binary_file`): the name of the ELF binary the U-Boot will try to load, first from a USB device, then from a SD card, and finally via the configured TFTP server.
 
-## Appendices
 
-- [Manually partitioning the SD card](./appendices/partitioning_sd_card.md)
-- [Manually writing U-Boot to an SD card](./appendices/writing_uboot_to_sd_card.md)
