@@ -18,6 +18,8 @@
     - [Build Environment Setup](install_and_configure/build_environment_setup.md)
     - [Target Setup](install_and_configure/target_setup.md)
     - [Bootloader Setup](install_and_configure/bootloader_setup.md)
+        - [SD Card Preparation](install_and_configure/sd_card_preparation)
+        - [Building U-boot](install_and_configure/building_uboot.md)
 
 - [First Boot](first_boot/main.md)
     - [Bootloader](first_boot/bootloader.md)
