@@ -1,14 +1,12 @@
 # Using the prebuilt image
 
-## SD Card preparation
+Instructions for using the prebuilt U-Boot image are as follows: _Note: the disk images have been created for a 16GB SD card; please use a card that is 16GB or larger._
 
-The SD card must be partitioned correctly in order to contain U-Boot and partitions to hold a binary / kernel plus additional filesystem. For convenience, a prebuilt disk image is provided. _Note: the disk images have been created for a 16GB SD card; please use a card that is 16GB or larger._
-
-1. Get the prebuilt disk image from the [maaxboard-prebuilt](https://github.com/sel4devkit/maaxboard-prebuilt) repository, either by cloning the entire repository, or by using the direct link [here](https://github.com/sel4devkit/maaxboard-prebuilt/raw/master/disk_images/maaxboard-uboot.img.zip).
+1. Get the prebuilt disk image from the [maaxboard-prebuilt](https://github.com/sel4devkit/maaxboard-prebuilt) repository, either by cloning the entire repository, or by using the direct link [here](https://github.com/sel4devkit/maaxboard-prebuilt/blob/main/disk_images/maaxboard-uboot.img.zip).
 
     _Note: the images are compressed as zip files in order to reduce their size (compressed size ~15MB, uncompressed size ~15GB), and will need to be uncompressed using a suitable utility before use._
 
-2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Machine Setup](host_setup.md) section for more details.
+2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Setup](host_setup.md) section for more details.
 
 3. Insert the SD card you wish to flash, and open Etcher.
 ![etcher-default](figures/etcher-default.png)
@@ -30,7 +28,7 @@ _After Etcher has flashed the disk, it will validate the disk:_
 
 ## Setting up U-Boot config
 
-A U-Boot configuration file is contained within the provided image. It is placed in the root of the `BOOT` partition and is named `uEnv.txt`; this file was introduced in a [previous section](bootloader.md#u-boot-configuration-file). It contains 3 main configurable items:
+A U-Boot configuration file is contained within the provided image. It is placed in the root of the `BOOT` partition and is named `uEnv.txt`. It contains 3 main configurable items:
 
 1. U-Boot network configuration (`ipaddr` and `netmask`): use this to manually configure the IP address and subnet for U-Boot to use, or comment them out to have them assigned by DHCP/BootP.
 

@@ -1,6 +1,8 @@
 # Building U-Boot manually 
 
-## Manually Partitioning the SD Card
+The instructions for [formatting the SD card](#partitioning-the-sd-card), [building U-Boot](#building-u-boot) and [flashing the image](#writing-u-boot-to-the-sd-card) are as follows:
+
+## Partitioning the SD Card
 
 The SD card must be partitioned correctly in order to contain U-Boot, seL4 and space for a filesystem. This can be done as follows.
 
@@ -81,9 +83,9 @@ In order to build U-Boot, the seL4devkit Docker build environment is required, p
 
 4. Once git has successfully cloned the repository, a new folder called `maaxboard-uboot` should be created, containing a README file, some build scripts, and a `firmware` folder.
 
-5. Once you have verified you have the correct files, run the main build script using `./build.sh` (the other build scripts are used if [building offline](./devkit_offline_use.md#building-u-boot-offline)).
+5. Once you have verified you have the correct files, run the main build script using `./build.sh` (the other build scripts are used if building offline[^2]).
 
-6. `build.sh` will clone a number of git repositories and extract necessary files from them [^1](see footnote for an explanation of the build script), after which you will be presented with a license agreement for the NXP firmware for the i.MX8. You can navigate this agreement with the up and down arrow keys. Assuming you are happy to accept the agreement, type `y` to accept when prompted. *Note: if you decline the EULA, the build process will be terminated, since the firmware is required to build U-Boot.*
+6. `build.sh` will clone a number of git repositories and extract necessary files from them (see [^1] for an explanation of the build script), after which you will be presented with a license agreement for the NXP firmware for the i.MX8. You can navigate this agreement with the up and down arrow keys. Assuming you are happy to accept the agreement, type `y` to accept when prompted. *Note: if you decline the EULA, the build process will be terminated, since the firmware is required to build U-Boot.*
 
 7. After the script has completed the build process, if successful you should see the following:
 ![successful-uboot-build](figures/successful-uboot-build.png)
@@ -108,9 +110,7 @@ In order to build U-Boot, the seL4devkit Docker build environment is required, p
 3. The image should now be written to your SD card and should be bootable by the MaaXBoard.
 
 
-[^1]: ## Understanding build.sh
-
-Whilst an understanding of how the build script ([`build.sh`](https://github.com/sel4devkit/maaxboard-uboot/blob/main/build.sh)) functions is not required for most use cases, such information is useful in case the developer has a need to modify the script. For example, it may be necessary to adapt the script for a different board or to update the script to use a different version or fork of U-Boot.
+[^1]: Whilst an understanding of how the build script ([`build.sh`](https://github.com/sel4devkit/maaxboard-uboot/blob/main/build.sh)) functions is not required for most use cases, such information is useful in case the developer has a need to modify the script. For example, it may be necessary to adapt the script for a different board or to update the script to use a different version or fork of U-Boot.
 
 This section seeks to document the origins of the script and provide guidance on potential modifications.
 
@@ -154,9 +154,9 @@ To satisfy the requirements above, the build script performs the following steps
 
 8. Builds and executes `imx-mkimage` configured for the i.MX8MQ SoC in 'headless' mode.
 
-[^note]: To facilitate [offline use of the developer kit](./devkit_offline_use.md), these steps are factored into the `clone.sh` and `build-offline.sh` scripts called by `build.sh`.
+[^note]: These steps are factored into the `clone.sh` and `build-offline.sh` scripts called by `build.sh`.
 
-The build steps, if successful, result in a binary named `flash.bin` which is suitable for booting the MaaXBoard if placed in a specific location on an SD card as documented within the section [Manually writing U-Boot to an SD card](./writing_uboot_to_sd_card.md).
+The build steps, if successful, result in a binary named `flash.bin` which is suitable for booting the MaaXBoard if placed in a specific location on an SD card as documented within the section [partitioning the SD card](#partitioning-the-sd-card).
 
 ### Modifying the build script
 
@@ -171,3 +171,26 @@ Whilst the build steps and their ordering is expected to remain unchanged, the c
 - The choices of configuration options and firmware to be included can be changed.
 
 It is expected that such changes would be made within a fork of the [`maaxboard-uboot`](https://github.com/sel4devkit/maaxboard-uboot) Git repository that provides the build script and folder structure supporting the build.
+
+[^2]: Building U-Boot offline
+
+1. On a computer with an internet connection, clone the maaxboard-uboot repository using:
+
+    ```text
+    git clone https://github.com/sel4devkit/maaxboard-uboot.git
+    ```
+
+2. Run the `clone.sh` script to download the required files for building U-Boot.
+
+3. When the clone is complete, the following message is shown:
+
+    ```text
+    +----------------------------------------------------------------+
+    |  Source code for compiling U-Boot now cloned.                  |
+    |  This folder can now be transferred to an offline computer     |
+    |  and U-Boot built by running build-offline.sh.                 |
+    |  If you ran build.sh, build will start now.                    |
+    +----------------------------------------------------------------+
+    ```
+
+4. The cloned repository folder can be transferred to an offline machine, and built within the Docker container using `build-offline.sh`.

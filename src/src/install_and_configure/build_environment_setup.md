@@ -16,7 +16,7 @@ The build environment is a Debian Linux system pre-installed with all of the req
 
 ## Installation
 
-[Host machine setup](host_machine_setup.md) must be completed, specifically installation of Docker, and the Docker tools must be active prior to installation of the build environment.
+[Host machine setup](host_setup.md) must be completed, specifically installation of Docker, and the Docker tools must be active prior to installation of the build environment.
 
 Installation of the build environment comprises the download of a pre-built Docker image into the Docker tools. This can be performed from the command line on the host machine as follows:
 
@@ -114,5 +114,3 @@ make run IMAGE=user-me HOST_PATH=<HOST_PATH> HOME_PATH=<HOME_PATH>
 ```
 
 On build environment startup the user will be placed into an interactive shell within the `/host` directory.
-
-How the build environment can be used to compile an seL4 binary for the MaaXBoard is documented in the [Building Applications](building_applications.md) section.
