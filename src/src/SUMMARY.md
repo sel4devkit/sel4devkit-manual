@@ -18,6 +18,8 @@
     - [Build Environment Setup](install_and_configure/build_environment_setup.md)
     - [Target Setup](install_and_configure/target_setup.md)
     - [Bootloader Setup](install_and_configure/bootloader_setup.md)
+        - [Using the Prebuilt Image](install_and_configure/using_the_prebuilt_image.md)
+        - [Building U-boot Manually](install_and_configure/building_uboot_manually.md)
 
 - [First Boot](first_boot/main.md)
     - [Bootloader](first_boot/bootloader.md)
