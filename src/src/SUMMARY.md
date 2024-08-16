@@ -29,39 +29,39 @@
 
 - [Activities](activities/main.md)
 
-- [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
+    - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
-- [Activity: Device Drivers](activity/device_drivers/main.md)
-    - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
-    - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
-    - [Library Extension - New Platform](activity/device_drivers/uboot_library_add_platform.md)
-    - [Library Extension - New Driver](activity/device_drivers/uboot_library_add_driver.md)
-    - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
-    - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
-    - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
+    - [Activity: Device Drivers](activity/device_drivers/main.md)
+        - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
+        - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
+        - [Library Extension - New Platform](activity/device_drivers/uboot_library_add_platform.md)
+        - [Library Extension - New Driver](activity/device_drivers/uboot_library_add_driver.md)
+        - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
+        - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
+        - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
 
 
-- [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
+    - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 
-- [Activity: CAmkES Case Study Application](activity/camkes_case_study_application/main.md)
-    - [Architecture](activity/camkes_case_study_application/architecture.md)
-    - [Design](activity/camkes_case_study_application/detail.md)
-    - [Build](activity/camkes_case_study_application/build.md)
+    - [Activity: CAmkES Case Study Application](activity/camkes_case_study_application/main.md)
+        - [Architecture](activity/camkes_case_study_application/architecture.md)
+        - [Design](activity/camkes_case_study_application/detail.md)
+        - [Build](activity/camkes_case_study_application/build.md)
 
-- [Activity: Microkit Case Study Application](activity/microkit_case_study_application/main.md)
-    - [Architecture](activity/microkit_case_study_application/architecture.md)
-    - [Design](activity/microkit_case_study_application/detail.md)
-    - [Build](activity/microkit_case_study_application/build.md)
+    - [Activity: Microkit Case Study Application](activity/microkit_case_study_application/main.md)
+        - [Architecture](activity/microkit_case_study_application/architecture.md)
+        - [Design](activity/microkit_case_study_application/detail.md)
+        - [Build](activity/microkit_case_study_application/build.md)
 
-- [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
+    - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
 
-- [Activity: Microkit HDMI Driver](activity/microkit_hdmi_driver/main.md)
+    - [Activity: Microkit HDMI Driver](activity/microkit_hdmi_driver/main.md)
 
-- [Activity: Microkit VMM Single Linux Guest](activity/microkit_vmm_single_linux_guest/main.md)
+    - [Activity: Microkit VMM Single Linux Guest](activity/microkit_vmm_single_linux_guest/main.md)
 
-- [Activity: Microkit VMM Dual Linux Guest TTY Multiplex](activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.md)
+    - [Activity: Microkit VMM Dual Linux Guest TTY Multiplex](activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.md)
 
-- [Activity: Microkit VMM Dual Linux Guest USB Routing](activity/microkit_vmm_dual_linux_guest_usb_routing/main.md)
+    - [Activity: Microkit VMM Dual Linux Guest USB Routing](activity/microkit_vmm_dual_linux_guest_usb_routing/main.md)
 
 ---
 
