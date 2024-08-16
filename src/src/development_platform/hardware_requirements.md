@@ -24,6 +24,6 @@ For convenience, the following table includes order codes and hyperlinks for the
 
 This guide assumes the following basic hardware capabilities of the user's development environment:
 
-1. The ability to connect the MaaXBoard to a wired network to which the host machine is also connected. This is required if the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Bootloader](../first_boot/bootloader.md) section).
+1. The ability to connect the MaaXBoard to a wired network to which the host machine is also connected. This is required if the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Bootloader](../first_boot/bootloader.md#loading-via-tftp) section).
 
 2. The ability to connect USB devices (i.e. the USB flash drive and USB SD card reader / writer) to the host machine.

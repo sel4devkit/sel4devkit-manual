@@ -10,7 +10,7 @@ Prior to powering the MaaXBoard ensure the following setup is in place, building
 
 2. The MaaXBoard has been set up as per the [Target Setup](../install_and_configure/target_setup.md) section with only the USB-to-TTL cable connected and the SD card inserted.
 
-3. The USB-to-TTL cable is connected to the host machine with CoolTerm configured as per the [Host Setup](../install_and_configure/host_setup.md) section.
+3. The USB-to-TTL cable is connected to the host machine with CoolTerm/Minicom configured as per the [Host Setup](../install_and_configure/host_setup.md) section.
 
 ## Boot to U-Boot Prompt
 
