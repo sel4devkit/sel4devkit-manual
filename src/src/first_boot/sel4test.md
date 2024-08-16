@@ -1,4 +1,4 @@
-# Building sel4test
+# sel4test
 
 As a worked example throughout this section the [seL4Test](https://docs.sel4.systems/projects/sel4test) project will be used. seL4Test is a test suite for seL4 developed and maintained by the seL4 Foundation.
 
