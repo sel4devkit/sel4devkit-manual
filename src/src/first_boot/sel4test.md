@@ -2,7 +2,7 @@
 
 As a worked example throughout this section the [seL4Test](https://docs.sel4.systems/projects/sel4test) project will be used. seL4Test is a test suite for seL4 developed and maintained by the seL4 Foundation.
 
-This section of the document assumes the [build environment setup](../install_and_configure/build_environment_setup.md) has been completed and the user is using the CAmkES docker environment (../install_and_configure/build_environment_setup.md#Installation#CAmkES). All commands provided within this section are to be executed within the build environment; i.e. please ensure that you have followed the instructions in the [build environment setup's usage](../install_and_configure/build_environment_setup.md#usage) section and that you execute the following commands from inside the Docker container.
+This section of the document assumes the [build environment setup](../install_and_configure/build_environment_setup.md) has been completed and the user is using the [CAmkES docker environment](../install_and_configure/build_environment_setup.md#camkes). All commands provided within this section are to be executed within the build environment; i.e. please ensure that you have followed the instructions in the [build environment setup's usage](../install_and_configure/build_environment_setup.md#usage) section and that you execute the following commands from inside the Docker container.
 
 ## Context
 
@@ -10,19 +10,7 @@ The seL4Test example that is built in this section is a result of an seL4 port f
 
 ## Getting the Code
 
-Within the build environment a directory named `seL4Test` will be created and all of the code and dependencies (e.g. the seL4 kernel, libraries and required tools) will be cloned.
-
-Create a directory to hold the code:
-
-```text
-mkdir /host/seL4Test
-```
-
-```text
-cd /host/seL4Test
-```
-
-Clone the code and dependencies:
+Clone the repository:
 
 ```bash
 git clone git@github.com:sel4devkit/sel4devkit-maaxboard-first-boot-sel4test.git
@@ -61,7 +49,7 @@ Device tree files are stored within the Linux kernel within the `/arch/<arch_ide
 
 Support has not been incorporated into the mainline Linux kernel for the Avnet MaaXBoard, and therefore the device tree needed to be sourced from the platform-specific Linux distribution supplied by Avnet at [this link](https://github.com/Avnet/linux-imx/blob/maaxboard_5.4.24_2.1.0/arch/arm64/boot/dts/freescale/maaxboard-base.dts).
 
-Once a DTS file has been located it needs to be processed into a form suitable for inclusion in seL4, e.g. to remove use of C-style includes and macros. For the Avnet MaaXBoard this processing was performed using the following commands to generate DTS file named `maaxboard.dts`. It is expected the commands should be easily modifiable for other boards and sources of the Linux kernel. The following commands to be are executed within the [build environment](../build_environment_setup.md) (i.e. the Docker container).
+Once a DTS file has been located it needs to be processed into a form suitable for inclusion in seL4, e.g. to remove use of C-style includes and macros. For the Avnet MaaXBoard this processing was performed using the following commands to generate DTS file named `maaxboard.dts`. It is expected the commands should be easily modifiable for other boards and sources of the Linux kernel. The following commands to be are executed within the [build environment](../install_and_configure/build_environment_setup.md) (i.e. the Docker container).
 
 ```text
 git clone https://github.com/Avnet/linux-imx.git
@@ -121,14 +109,11 @@ To build and execute seL4Test for testing purposes against forks of the seL4 git
         <project name="seL4.git" path="kernel" remote="work_account" revision="my_port" upstream="my_port" dest-branch="my_port"/>
         ```
 
-3. Check out the newly updated manifest within the build environment:
+3. Modify the Makefile in the sel4devkit-maaxboard-first-boot-sel4test directory to clone the repositories for your port:
 
-    ```text
-    mkdir /host/seL4test
-    cd /host/seL4test
-    repo init -u https://github.com/work_account/sel4test-manifest.git -b my_port
-    repo sync
+    ```bash
+    cd ${TMP_PATH}/sel4test-manifest ; repo init --manifest-url "git@github.com:seL4/sel4test-manifest.git" -b my_port
     ```
 
-4. Building and executing seL4Test can be performed by following the instructions previously provided in the [Building Applications](../building_applications.md) and [Execution on Target Platform](../execution_on_target_platform.md) sections with the build commands modified appropriately to target the newly added platform.
+4. Building and executing seL4Test can be performed by following the instructions previously provided in the [Building Applications](#building) and [Bootloader](bootloader.md) sections with the build commands modified appropriately to target the newly added platform.
 

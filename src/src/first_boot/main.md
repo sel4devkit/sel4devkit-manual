@@ -6,9 +6,9 @@ First boot aims to demonstrate correct operation of the prepared SD card and com
 
 Prior to powering the MaaXBoard ensure the following setup is in place, building on previous sections:
 
-1. The SD card has been prepared as per the instructions in the [SD Card Preparation](../install_and_configure/bootloader_setup.md) section.
+1. The SD card has been prepared as per the instructions in the [Bootloader Setup](../install_and_configure/bootloader_setup.md) section.
 
-2. The MaaXBoard has been set up as per the [Target Platform Setup](../install_and_configure/target_setup.md) section with only the USB-to-TTL cable connected and the SD card inserted.
+2. The MaaXBoard has been set up as per the [Target Setup](../install_and_configure/target_setup.md) section with only the USB-to-TTL cable connected and the SD card inserted.
 
 3. The USB-to-TTL cable is connected to the host machine with CoolTerm configured as per the [Host Setup](../install_and_configure/host_setup.md) section.
 

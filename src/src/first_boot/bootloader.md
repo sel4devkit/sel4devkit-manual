@@ -1,7 +1,5 @@
 # Bootloader
 
-## Loading the Application
-
 After U-Boot has configured the MaaXBoard's memory and devices, it is able to load an application into RAM and then execute it. It is possible for a user to do this interactively using U-Boot commands via the serial terminal on the host machine. It is also possible and convenient to provide a U-Boot configuration file `uEnv.txt` that runs automatically; both options are documented below.
 
 ### Methods of Loading
@@ -18,7 +16,7 @@ The remainder of this section assumes that you have an application in the form o
 
 #### Loading from SD Card
 
-The SD card is used to store the bootloader, U-Boot. The SD card may also be used to store the application's ELF file that is to be loaded into RAM by the bootloader. If the SD card is partitioned as described in the [Bootloader setup](bootloader_setup.md) section, the `BOOT` partition is used for this by placing the `sel4_image` file in the root of the partition.
+The SD card is used to store the bootloader, U-Boot. The SD card may also be used to store the application's ELF file that is to be loaded into RAM by the bootloader. If the SD card is partitioned as described in the [Bootloader setup](../install_and_configure/bootloader_setup.md) section, the `BOOT` partition is used for this by placing the `sel4_image` file in the root of the partition.
 
 An advantage of this approach is that it makes use of a single medium that (a) is already being used to store U-Boot and (b) generally has a much larger capacity than is required by U-Boot alone.
 
@@ -44,9 +42,9 @@ Or a network connection via a hub / router:
 
 Loading via TFTP is considered to be the most convenient method within an application development environment as there is no need to keep plugging and unplugging anything from the board. To load the `sel4_image` binary via TFTP, the file needs to be made available for download from the TFTP server.
 
-Below are the instructions for setting up TFTP on linux.
+Below are the instructions for setting up TFTP on linux:
 
-##### Setting up a netboot server using TFTP 
+#### Setting up a netboot server using TFTP 
 
 1. [Dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html) is the application used to provide a network infrastructure. The program can be installed using your provided package manager (for Debian, this would be `apt`).
 
@@ -150,7 +148,7 @@ u-boot=> bootelf 40480000
 
 Booting via U-Boot can be configured via commands stored in a file named `uEnv.txt` and placed in the `BOOT` partition of the SD card.
 
-The example file below (stored on the SD card prepared via the instructions in the [Bootloader Setup](sd_card_preparation.md) section) automatically searches for, loads and then executes the binary file named `sel4_image`. The following potential locations for the `sel4_image` are searched in order:
+The example file below (stored on the SD card prepared via the instructions in the [Bootloader Setup](../install_and_configure/bootloader_setup.md) section) automatically searches for, loads and then executes the binary file named `sel4_image`. The following potential locations for the `sel4_image` are searched in order:
 
 1. USB flash drive with a FAT filesystem.
 2. SD Card / eMMC device with a FAT filesystem.

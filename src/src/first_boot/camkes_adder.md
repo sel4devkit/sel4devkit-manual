@@ -1,6 +1,6 @@
 # CAmkES adder
 
-The purpose of this example is to confirm that the CAmkES environment is configured correctly. As usual, this assumes that the user is already running the CAmkES Docker container within the [build environment](../../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
+The purpose of this example is to confirm that the CAmkES environment is configured correctly. As usual, this assumes that the user is already running the CAmkES Docker container within the [build environment](../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
 ## Getting the code 
 
