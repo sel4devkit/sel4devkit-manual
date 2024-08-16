@@ -119,7 +119,7 @@ iptables -A INPUT -i eno2 -p tcp --dport 67:68 -j accept
 
 7. The board is now ready to use the tftp server. The bootloader will try to boot using `sel4_image` stored in `/var/lib/tftpboot`.
 
-8. If an error occurs and U-Boot drops to a prompt, the image can still be booted using U-Boot commands. Using `bootp sel4_image` will load the file to a memory address (usually `40480000`), where it can then be booted using `bootelf 40480000`. This method can also be used to boot different images. By using `bootp`, any file contained within `/var/lib/tftpboot` can be loaded and then booted.
+8. If an error occurs and U-Boot drops to a prompt, the image can still be booted using U-Boot commands. Using `bootp sel4_image` will load the file to a memory address (usually `50000000`), where it can then be booted using `bootelf 50000000` for .elf files or `go 50000000` for .img files. This method can also be used to boot different images. By using `bootp`, any file contained within `/var/lib/tftpboot` can be loaded and then booted.
 
 ```
 u-boot=> bootp sel4_image

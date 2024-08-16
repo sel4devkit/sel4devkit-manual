@@ -20,7 +20,7 @@ The build environment is a Debian Linux system pre-installed with all of the req
 
 Installation of the build environment comprises the download of a pre-built Docker image into the Docker tools. This can be performed from the command line on the host machine as follows:
 
-### Camkes 
+### CAmkES 
 
 ```bash
 git clone "git@github.com:sel4devkit/sel4devkit-maaxboard-camkes-docker-dev-env.git"
