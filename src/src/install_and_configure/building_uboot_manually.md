@@ -86,7 +86,7 @@ make get
 make all
 ```
 
-4. The generated file `flash.bin` is located in the `out` file and can be written to storage media.
+4. The generated file `flash.bin` is located in the `/out` folder and can be written to storage media.
 
 
 ## Writing U-Boot to the SD card
