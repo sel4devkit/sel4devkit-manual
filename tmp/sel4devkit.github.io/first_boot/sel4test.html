@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>seL4Test - seL4 Developer Kit</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/main.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/audience.html"><strong aria-hidden="true">1.1.</strong> Audience</a></li><li class="chapter-item expanded "><a href="../introduction/overview.html"><strong aria-hidden="true">1.2.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../introduction/structure.html"><strong aria-hidden="true">1.3.</strong> Structure</a></li></ol></li><li class="chapter-item expanded "><a href="../resources/main.html"><strong aria-hidden="true">2.</strong> Resources</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../resources/sel4_microkernel.html"><strong aria-hidden="true">2.1.</strong> seL4 Microkernel</a></li><li class="chapter-item expanded "><a href="../resources/avent_maaxboard.html"><strong aria-hidden="true">2.2.</strong> Avent MaaXBoard</a></li><li class="chapter-item expanded "><a href="../resources/repositories.html"><strong aria-hidden="true">2.3.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../resources/glossary.html"><strong aria-hidden="true">2.4.</strong> Glossary</a></li></ol></li><li class="chapter-item expanded "><a href="../development_platform/main.html"><strong aria-hidden="true">3.</strong> Development Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development_platform/hardware_requirements.html"><strong aria-hidden="true">3.1.</strong> Hardware Requirements</a></li><li class="chapter-item expanded "><a href="../development_platform/software_requirements.html"><strong aria-hidden="true">3.2.</strong> Software Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../install_and_configure/main.html"><strong aria-hidden="true">4.</strong> Install and Configure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../install_and_configure/host_setup.html"><strong aria-hidden="true">4.1.</strong> Host Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/build_environment_setup.html"><strong aria-hidden="true">4.2.</strong> Build Environment Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/target_setup.html"><strong aria-hidden="true">4.3.</strong> Target Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/bootloader_setup.html"><strong aria-hidden="true">4.4.</strong> Bootloader Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../install_and_configure/using_the_prebuilt_image.html"><strong aria-hidden="true">4.4.1.</strong> Using the Prebuilt Image</a></li><li class="chapter-item expanded "><a href="../install_and_configure/building_uboot_manually.html"><strong aria-hidden="true">4.4.2.</strong> Building U-boot Manually</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../first_boot/main.html"><strong aria-hidden="true">5.</strong> First Boot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../first_boot/bootloader.html"><strong aria-hidden="true">5.1.</strong> Bootloader</a></li><li class="chapter-item expanded "><a href="../first_boot/sel4test.html" class="active"><strong aria-hidden="true">5.2.</strong> seL4Test</a></li><li class="chapter-item expanded "><a href="../first_boot/camkes_adder.html"><strong aria-hidden="true">5.3.</strong> CAmkES Adder</a></li><li class="chapter-item expanded "><a href="../first_boot/microkit_hello_world.html"><strong aria-hidden="true">5.4.</strong> Microkit Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="../activities/main.html"><strong aria-hidden="true">6.</strong> Activities</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/microkit_memory_probe/main.html"><strong aria-hidden="true">6.1.</strong> Activity: Microkit Memory Probe</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/main.html"><strong aria-hidden="true">6.2.</strong> Activity: Device Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_driver_library.html"><strong aria-hidden="true">6.2.1.</strong> U-Boot Driver Library Overview</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_driver_usage.html"><strong aria-hidden="true">6.2.2.</strong> Using the U-Boot Driver Library</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_library_add_platform.html"><strong aria-hidden="true">6.2.3.</strong> Library Extension - New Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/add_odroidc2.html"><strong aria-hidden="true">6.2.3.1.</strong> Add Odroid C2</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_library_add_driver.html"><strong aria-hidden="true">6.2.4.</strong> Library Extension - New Driver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/add_driver_worked_example.html"><strong aria-hidden="true">6.2.4.1.</strong> Add Driver Worked Example</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/driver_troubleshooting.html"><strong aria-hidden="true">6.2.4.2.</strong> Driver Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../activity/spi_bus_bmp280_pressure_sensor/main.html"><strong aria-hidden="true">6.3.</strong> Activity: SPI Bus BMP280 Pressure Sensor</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/main.html"><strong aria-hidden="true">6.4.</strong> Activity: CAmkES Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/architecture.html"><strong aria-hidden="true">6.4.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/detail.html"><strong aria-hidden="true">6.4.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/build.html"><strong aria-hidden="true">6.4.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/main.html"><strong aria-hidden="true">6.5.</strong> Activity: Microkit Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/architecture.html"><strong aria-hidden="true">6.5.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/detail.html"><strong aria-hidden="true">6.5.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/build.html"><strong aria-hidden="true">6.5.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/microkit_usb_driver/main.html"><strong aria-hidden="true">6.6.</strong> Activity: Microkit USB Driver</a></li><li class="chapter-item expanded "><a href="../activity/microkit_hdmi_driver/main.html"><strong aria-hidden="true">6.7.</strong> Activity: Microkit HDMI Driver</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_single_linux_guest/main.html"><strong aria-hidden="true">6.8.</strong> Activity: Microkit VMM Single Linux Guest</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.html"><strong aria-hidden="true">6.9.</strong> Activity: Microkit VMM Dual Linux Guest TTY Multiplex</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_dual_linux_guest_usb_routing/main.html"><strong aria-hidden="true">6.10.</strong> Activity: Microkit VMM Dual Linux Guest USB Routing</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../licensing.html">Licensing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">seL4 Developer Kit</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sel4devkit/sel4devkit-manual" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="sel4test"><a class="header" href="#sel4test">sel4test</a></h1>
+<p>As a worked example throughout this section the <a href="https://docs.sel4.systems/projects/sel4test">seL4Test</a> project will be used. seL4Test is a test suite for seL4 developed and maintained by the seL4 Foundation.</p>
+<p>This section of the document assumes the <a href="../install_and_configure/build_environment_setup.html">build environment setup</a> has been completed and the user is using the <a href="../install_and_configure/build_environment_setup.html#camkes">CAmkES docker environment</a>. All commands provided within this section are to be executed within the build environment; i.e. please ensure that you have followed the instructions in the <a href="../install_and_configure/build_environment_setup.html#usage">build environment setup's usage</a> section and that you execute the following commands from inside the Docker container.</p>
+<h2 id="context"><a class="header" href="#context">Context</a></h2>
+<p>The seL4Test example that is built in this section is a result of an seL4 port for the Avnet MaaXBoard that we created for this developer kit. Whilst our seL4 port is not documented here in detail, there is some guidance on this in the <a href="#appendices">Guide to Porting seL4</a> appendix, which includes links to the Git commits that added the MaaXBoard port to the main seL4 repositories.</p>
+<h2 id="getting-the-code"><a class="header" href="#getting-the-code">Getting the Code</a></h2>
+<p>Clone the repository:</p>
+<pre><code class="language-bash">git clone git@github.com:sel4devkit/sel4devkit-maaxboard-first-boot-sel4test.git
+</code></pre>
+<h2 id="building"><a class="header" href="#building">Building</a></h2>
+<p>The sel4test example uses the make build system therefore make needs to be run in the repository:</p>
+<pre><code>cd sel4devkit-maaxboard-first-boot-sel4test
+</code></pre>
+<pre><code>make get
+make all
+</code></pre>
+<p>On completion of the compilation, the resulting executable is available at <code>/host/sel4devkit-maaxboard-first-boot-sel4test/out/program.elf</code> on the build environment, or available at <code>/&lt;host_directory&gt;/sel4devkit-maaxboard-first-boot-sel4test/out/program.elf</code> on the host machine, where <code>/&lt;host_directory&gt;</code> was the directory on the host mapped to the build environment.</p>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h2 id="guide-to-porting-sel4"><a class="header" href="#guide-to-porting-sel4">Guide to Porting seL4</a></h2>
+<p>The level of work required and complexity of porting seL4 to a new platform is directly related to the level of similarity between the system to be ported and systems already supported by seL4. Porting seL4 to a new system based upon a SoC (system-on-chip) already supported by seL4 is likely to be relatively straightforward whilst porting seL4 to a system with a currently unsupported SoC is likely to require more work, e.g. requiring the addition of new serial and timer drivers.</p>
+<p>As a starting point the user should read and understand the excellent guidance on porting supplied by the seL4 Foundation at <a href="https://docs.sel4.systems/projects/sel4/porting.html">this link</a>.</p>
+<p>The remainder of this section does not seek to repeat any information in the seL4 documentation; instead it provides more detailed guidance and worked examples based upon the experience of porting seL4 to the Avnet MaaXBoard.</p>
+<h3 id="device-tree-dts"><a class="header" href="#device-tree-dts">Device Tree (DTS)</a></h3>
+<p>A device tree (DTS file) contains plain text data that describes a platform's hardware. A key requirement in porting seL4 to a new platform is the provision of a device tree describing the platform. A device tree can normally either be sourced from the Linux kernel or from a Linux distribution supplied by the platform manufacturer.</p>
+<p>Device tree files are stored within the Linux kernel within the <code>/arch/&lt;arch_identifier&gt;/boot/dts</code> folders. For example, for ARM based devices DTS files may be retrieved from <a href="https://github.com/torvalds/linux/tree/master/arch/arm/boot/dts">this link</a>.</p>
+<p>Support has not been incorporated into the mainline Linux kernel for the Avnet MaaXBoard, and therefore the device tree needed to be sourced from the platform-specific Linux distribution supplied by Avnet at <a href="https://github.com/Avnet/linux-imx/blob/maaxboard_5.4.24_2.1.0/arch/arm64/boot/dts/freescale/maaxboard-base.dts">this link</a>.</p>
+<p>Once a DTS file has been located it needs to be processed into a form suitable for inclusion in seL4, e.g. to remove use of C-style includes and macros. For the Avnet MaaXBoard this processing was performed using the following commands to generate DTS file named <code>maaxboard.dts</code>. It is expected the commands should be easily modifiable for other boards and sources of the Linux kernel. The following commands to be are executed within the <a href="../install_and_configure/build_environment_setup.html">build environment</a> (i.e. the Docker container).</p>
+<pre><code class="language-text">git clone https://github.com/Avnet/linux-imx.git
+cd linux-imx
+cpp -nostdinc -I include -I arch -undef -x assembler-with-cpp \
+   arch/arm64/boot/dts/freescale/maaxboard-base.dts temp.dts
+dtc -o temp.dtb temp.dts
+dtc -o maaxboard.dts temp.dtb
+</code></pre>
+<p>Following creation of the platform's DTS file it should be stored in the <code>boards</code> directory</p>
+<h3 id="previous-worked-examples"><a class="header" href="#previous-worked-examples">Previous Worked Examples</a></h3>
+<p>To help fully understand the guidance supplied by the seL4 documentation, it is informative to examine the changes made previously to the seL4 repositories to support new platforms. To that end the following links are to commits in the seL4 git repositories where support for platforms was added. It should be noted that to perform a basic port of seL4 to a new platform, i.e. sufficient to run and pass the seL4Test application, will require modification to the <a href="https://github.com/seL4/seL4"><code>seL4</code></a>, <a href="https://github.com/seL4/seL4_tools"><code>seL4_tools</code></a> and <a href="https://github.com/seL4/util_libs"><code>util_libs</code></a> git repositories.</p>
+<ul>
+<li>
+<p>Avnet MaaXBoard - Port to platform with existing SoC support</p>
+<ul>
+<li><a href="https://github.com/seL4/seL4/commit/55fde27e103d7d4a3eda5eba2bf70fc4234b7e8f">seL4 commit</a></li>
+<li><a href="https://github.com/seL4/seL4_tools/commit/2f15ba2dc6a08c30b74c722b0673131d2aab32ac">seL4_tools commit</a></li>
+<li><a href="https://github.com/seL4/util_libs/commit/73d4ccaeca68dcda83eda49245d774cab73480c0">util_libs commit</a></li>
+</ul>
+</li>
+<li>
+<p>ODroid C4 - Port to platform using an SoC very similar to previously supported SoC</p>
+<ul>
+<li><a href="https://github.com/seL4/seL4/commit/76b1de0670fc09df279883be570f4a518bad4745">seL4 commit</a></li>
+<li><a href="https://github.com/seL4/seL4_tools/commit/83c1891fb007c945e61d04887e49dd1a82eb9b69">seL4_tools commit</a></li>
+<li><a href="https://github.com/seL4/util_libs/commit/8ed42ff66c586ab2b6dc32f678e00764453754f0">util_libs commit</a></li>
+</ul>
+</li>
+<li>
+<p>Raspberry Pi 4 - Port to new SoC requiring new serial and timer drivers</p>
+<ul>
+<li><a href="https://github.com/seL4/seL4/commit/2a0e5a2a1fbbb6706e79cf12d0efd7f1004b3389">seL4 commit</a></li>
+<li><a href="https://github.com/seL4/seL4_tools/commit/f086b4b818d51519a6d00f6934d97c2a3a834cbe">seL4_tools commit</a></li>
+<li><a href="https://github.com/seL4/util_libs/commit/b6f99879e59950f39ee35472ab15eac1efb0f139">util_libs commit</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="testing-the-port-with-sel4test"><a class="header" href="#testing-the-port-with-sel4test">Testing the Port With seL4Test</a></h3>
+<p>To confirm the correct functionality of a port it is recommended that the <a href="https://docs.sel4.systems/projects/sel4test/">seL4Test</a> test suite is executed.</p>
+<p>To build and execute seL4Test for testing purposes against forks of the seL4 git repositories the following procedure can be used. For the purposes of this example it is envisioned that the developer has forked the <a href="https://github.com/seL4/seL4"><code>sel4</code></a>, <a href="https://github.com/seL4/seL4_tools"><code>seL4_tools</code></a> and <a href="https://github.com/seL4/util_libs"><code>util_libs</code></a> git repositories under GitHub account <code>work_account</code> and performed the required modifications under branches named <code>my_port</code>. When following the instructions the commands will need to be modified to match the name of the developer's GitHub account and branch name.</p>
+<ol>
+<li>
+<p>Create a fork of the <a href="https://github.com/seL4/sel4test-manifest"><code>sel4test-manifest</code></a> repository through the GitHub web interface and create branch <code>my_port</code>.</p>
+</li>
+<li>
+<p>Modify file <code>default.xml</code> in the <code>my_port</code> branch of the forked <code>sel4test-manifest</code> repository to point at the developer's forks / branches. This will require the following changes.</p>
+<ul>
+<li>
+<p>Add a new <code>remote</code> to the manifest:</p>
+<pre><code class="language-xml">&lt;remote name="work_account" fetch="https://github.com/work_account"/&gt;
+</code></pre>
+</li>
+<li>
+<p>For each modified repository update the associated <code>project</code> entry. For example, the entry for the <code>seL4</code> repository would be changed from:</p>
+<pre><code class="language-xml">&lt;project name="seL4.git" path="kernel" revision="..." upstream="master" dest-branch="master"/&gt;
+</code></pre>
+<p>To the following:</p>
+<pre><code class="language-xml">&lt;project name="seL4.git" path="kernel" remote="work_account" revision="my_port" upstream="my_port" dest-branch="my_port"/&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Modify the Makefile in the sel4devkit-maaxboard-first-boot-sel4test directory to clone the repositories for your port:</p>
+<pre><code class="language-bash">cd ${TMP_PATH}/sel4test-manifest ; repo init --manifest-url "git@github.com:seL4/sel4test-manifest.git" -b my_port
+</code></pre>
+</li>
+<li>
+<p>Building and executing seL4Test can be performed by following the instructions previously provided in the <a href="#building">Building Applications</a> and <a href="bootloader.html">Bootloader</a> sections with the build commands modified appropriately to target the newly added platform.</p>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../first_boot/bootloader.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../first_boot/camkes_adder.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../first_boot/bootloader.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../first_boot/camkes_adder.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
