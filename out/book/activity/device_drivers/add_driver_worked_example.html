@@ -1,0 +1,567 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Add Driver Worked Example - seL4 Developer Kit</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction/main.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../introduction/audience.html"><strong aria-hidden="true">1.1.</strong> Audience</a></li><li class="chapter-item expanded "><a href="../../introduction/overview.html"><strong aria-hidden="true">1.2.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../introduction/structure.html"><strong aria-hidden="true">1.3.</strong> Structure</a></li></ol></li><li class="chapter-item expanded "><a href="../../resources/main.html"><strong aria-hidden="true">2.</strong> Resources</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../resources/sel4_microkernel.html"><strong aria-hidden="true">2.1.</strong> seL4 Microkernel</a></li><li class="chapter-item expanded "><a href="../../resources/avent_maaxboard.html"><strong aria-hidden="true">2.2.</strong> Avent MaaXBoard</a></li><li class="chapter-item expanded "><a href="../../resources/repositories.html"><strong aria-hidden="true">2.3.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../resources/glossary.html"><strong aria-hidden="true">2.4.</strong> Glossary</a></li></ol></li><li class="chapter-item expanded "><a href="../../development_platform/main.html"><strong aria-hidden="true">3.</strong> Development Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development_platform/hardware_requirements.html"><strong aria-hidden="true">3.1.</strong> Hardware Requirements</a></li><li class="chapter-item expanded "><a href="../../development_platform/software_requirements.html"><strong aria-hidden="true">3.2.</strong> Software Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../install_and_configure/main.html"><strong aria-hidden="true">4.</strong> Install and Configure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../install_and_configure/host_setup.html"><strong aria-hidden="true">4.1.</strong> Host Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/build_environment_setup.html"><strong aria-hidden="true">4.2.</strong> Build Environment Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/target_setup.html"><strong aria-hidden="true">4.3.</strong> Target Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/bootloader_setup.html"><strong aria-hidden="true">4.4.</strong> Bootloader Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../install_and_configure/using_the_prebuilt_image.html"><strong aria-hidden="true">4.4.1.</strong> Using the Prebuilt Image</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/building_uboot_manually.html"><strong aria-hidden="true">4.4.2.</strong> Building U-boot Manually</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../first_boot/main.html"><strong aria-hidden="true">5.</strong> First Boot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../first_boot/bootloader.html"><strong aria-hidden="true">5.1.</strong> Bootloader</a></li><li class="chapter-item expanded "><a href="../../first_boot/sel4test.html"><strong aria-hidden="true">5.2.</strong> seL4Test</a></li><li class="chapter-item expanded "><a href="../../first_boot/camkes_adder.html"><strong aria-hidden="true">5.3.</strong> CAmkES Adder</a></li><li class="chapter-item expanded "><a href="../../first_boot/microkit_hello_world.html"><strong aria-hidden="true">5.4.</strong> Microkit Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="../../activities/main.html"><strong aria-hidden="true">6.</strong> Activities</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/microkit_memory_probe/main.html"><strong aria-hidden="true">6.1.</strong> Activity: Microkit Memory Probe</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/main.html"><strong aria-hidden="true">6.2.</strong> Activity: Device Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_driver_library.html"><strong aria-hidden="true">6.2.1.</strong> U-Boot Driver Library Overview</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_driver_usage.html"><strong aria-hidden="true">6.2.2.</strong> Using the U-Boot Driver Library</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_library_add_platform.html"><strong aria-hidden="true">6.2.3.</strong> Library Extension - New Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/add_odroidc2.html"><strong aria-hidden="true">6.2.3.1.</strong> Add Odroid C2</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_library_add_driver.html"><strong aria-hidden="true">6.2.4.</strong> Library Extension - New Driver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/add_driver_worked_example.html" class="active"><strong aria-hidden="true">6.2.4.1.</strong> Add Driver Worked Example</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/driver_troubleshooting.html"><strong aria-hidden="true">6.2.4.2.</strong> Driver Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../activity/spi_bus_bmp280_pressure_sensor/main.html"><strong aria-hidden="true">6.3.</strong> Activity: SPI Bus BMP280 Pressure Sensor</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/main.html"><strong aria-hidden="true">6.4.</strong> Activity: CAmkES Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/architecture.html"><strong aria-hidden="true">6.4.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/detail.html"><strong aria-hidden="true">6.4.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/build.html"><strong aria-hidden="true">6.4.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/main.html"><strong aria-hidden="true">6.5.</strong> Activity: Microkit Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/architecture.html"><strong aria-hidden="true">6.5.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/detail.html"><strong aria-hidden="true">6.5.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/build.html"><strong aria-hidden="true">6.5.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/microkit_usb_driver/main.html"><strong aria-hidden="true">6.6.</strong> Activity: Microkit USB Driver</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_hdmi_driver/main.html"><strong aria-hidden="true">6.7.</strong> Activity: Microkit HDMI Driver</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_single_linux_guest/main.html"><strong aria-hidden="true">6.8.</strong> Activity: Microkit VMM Single Linux Guest</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.html"><strong aria-hidden="true">6.9.</strong> Activity: Microkit VMM Dual Linux Guest TTY Multiplex</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_dual_linux_guest_usb_routing/main.html"><strong aria-hidden="true">6.10.</strong> Activity: Microkit VMM Dual Linux Guest USB Routing</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../licensing.html">Licensing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">seL4 Developer Kit</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sel4devkit/sel4devkit-manual" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="library-extension---new-driver-worked-example"><a class="header" href="#library-extension---new-driver-worked-example">Library Extension - New Driver Worked Example</a></h1>
+<p>A helpful way to show the process of adding a driver is to work through an example step-by-step. The I<sup>2</sup>C driver is relatively straightforward and can be readily tested on the MaaXBoard as there is a power management IC (BD71837MWV) already installed on the board's I<sup>2</sup>C bus. In this worked example, we shall not go as far as installing a driver for the BD71837MWV device itself, but we can probe the I<sup>2</sup>C bus, identify the address of the BD71837MWV device, and perform a sample memory read.</p>
+<h2 id="establishing-the-driver"><a class="header" href="#establishing-the-driver">Establishing the driver</a></h2>
+<p>The first place to look is the relevant source code for the driver in U-Boot. This file may be identified as follows.</p>
+<p>A <code>dm tree</code> command from the U-Boot prompt<sup class="footnote-reference"><a href="#2">1</a></sup> should reveal an <code>i2c</code> entry, which uses driver <code>i2c_mxc</code>.</p>
+<pre><code class="language-text"> Class     Index  Probed  Driver                Name
+-----------------------------------------------------------
+       ...
+ i2c           0  [   ]   i2c_mxc                   |   |-- i2c@30a20000
+ i2c           1  [   ]   i2c_mxc                   |   |-- i2c@30a30000
+</code></pre>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">1</sup>
+<p>If the MaaXBoard is powered on and autoboot is interrupted (e.g. press the <code>Enter</code> key during the countdown shown in line 37 of the output in the <a href="../first_boot.html#boot-to-u-boot-prompt">First Boot</a> section), then the <code>dm tree</code> command may be entered at the U-Boot prompt.</p>
+</div>
+<p>A search for <code>i2c_mxc</code> within U-Boot's github repository <a href="https://github.com/u-boot/u-boot">https://github.com/u-boot/u-boot</a> reveals the relevant file to be <code>uboot/drivers/i2c/mxc_i2c.c</code>:</p>
+<p><img src="../figures/github_search_i2c_1.png" alt="i2c GitHub search-1" /></p>
+<p><img src="../figures/github_search_i2c_2.png" alt="i2c GitHub search-2" /></p>
+<p>This file is in the equivalent location within our <code>libubootdrivers</code> library, at <code>projects_libs/libubootdrivers/uboot/drivers/i2c/mxc_i2c.c</code>.</p>
+<p>In the code snippet from the screenshot above, we can see that the driver relies on the <code>UCLASS_I2C</code> uclass. This is provided by the file <code>i2c-uclass.c</code> in the same directory. At the end of <code>i2c-uclass.c</code>, we can see that driver and the other relevant drivers:</p>
+<pre><code class="language-c">UCLASS_DRIVER(i2c) = {
+    .id = UCLASS_I2C,
+    .name = "i2c",
+    ...
+
+UCLASS_DRIVER(i2c_generic) = {
+    .id = UCLASS_I2C_GENERIC,
+    .name = "i2c_generic",
+    ...
+
+U_BOOT_DRIVER(i2c_generic_chip_drv) = {
+    .name = "i2c_generic_chip_drv",
+    .id = UCLASS_I2C_GENERIC,
+    ...
+</code></pre>
+<p>This provides the driver references that we need to add to <code>libubootdrivers</code> via <code>projects_libs/libubootdrivers/include/plat/maaxboard/plat_driver_data.h</code>:</p>
+<pre><code class="language-c">/* Define the uclass drivers to be used on this platform */
+...
+extern struct uclass_driver _u_boot_uclass_driver__i2c;
+extern struct uclass_driver _u_boot_uclass_driver__i2c_generic;
+
+/* Define the drivers to be used on this platform */
+...
+extern struct driver _u_boot_driver__i2c_mxc;
+extern struct driver _u_boot_driver__i2c_generic_chip_drv;
+...
+</code></pre>
+<p>and <code>projects_libs/libubootdrivers/src/plat/maaxboard/plat_driver_data.c</code>:</p>
+<pre><code class="language-c">void initialise_driver_data(void) {
+    ...
+    driver_data.uclass_driver_array[17] = _u_boot_uclass_driver__i2c;
+    driver_data.uclass_driver_array[18] = _u_boot_uclass_driver__i2c_generic;
+    ...
+    driver_data.driver_array[19] = _u_boot_driver__i2c_mxc;
+    driver_data.driver_array[20] = _u_boot_driver__i2c_generic_chip_drv;
+    ...
+</code></pre>
+<p>We can see that the latter change has added to the arrays. In this example, the two arrays had previously extended to elements [16] and [18] respectively. The increased sizes need to be reflected back in <code>libubootdrivers/include/plat/maaxboard/plat_driver_data.h</code> by increasing the size counts:</p>
+<pre><code class="language-c">/* Define the number of different driver elements to be used on this platform */
+#define _u_boot_uclass_driver_count  19  // In this example previous count was 17, so +2
+#define _u_boot_driver_count         21  // In this example previous count was 19, so +2
+...
+</code></pre>
+<p>In order to build the new driver files, we need to add them to the <code>libubootdrivers/CMakeLists.txt</code> makefile.</p>
+<p>There are also some U-Boot configuration macros relevant to I<sup>2</sup>C that are needed, which are also set within the makefile. In this example, we can use the guidance in the <a href="uboot_library_add_driver.html#updating-cmakeliststxt">Library Extension - New Driver</a> section, and refer to the <code>.config</code> file created during the <a href="appendices/building_uboot.html">Building U-Boot for the MaaXBoard</a> appendix. Using the suggested directory name from that appendix, the filepath would be: <code>maaxboard_dockerimage/maaxboard-uboot-build/maaxboard-uboot/uboot-imx/.config</code>.</p>
+<p>Extracting I2C-related items (e.g. using <code>grep -i I2C .config</code>), we would see:</p>
+<pre><code class="language-text">CONFIG_SYS_I2C_MXC_I2C1=y
+CONFIG_SYS_I2C_MXC_I2C2=y
+CONFIG_SYS_I2C_MXC_I2C3=y
+# CONFIG_SYS_I2C_MXC_I2C4 is not set
+CONFIG_SPL_I2C_SUPPORT=y
+CONFIG_CMD_I2C=y
+# I2C support
+CONFIG_DM_I2C=y
+# CONFIG_I2C_SET_DEFAULT_BUS_NUM is not set
+# CONFIG_DM_I2C_GPIO is not set
+# CONFIG_SYS_I2C_IPROC is not set
+# CONFIG_SYS_I2C_FSL is not set
+# CONFIG_SYS_I2C_CADENCE is not set
+# CONFIG_SYS_I2C_DW is not set
+# CONFIG_SYS_I2C_INTEL is not set
+# CONFIG_SYS_I2C_IMX_LPI2C is not set
+# CONFIG_SYS_I2C_IMX_VIRT_I2C is not set
+CONFIG_SYS_I2C_MXC=y
+# CONFIG_SYS_I2C_MXC_I2C5 is not set
+# CONFIG_SYS_I2C_MXC_I2C6 is not set
+# CONFIG_SYS_I2C_MXC_I2C7 is not set
+# CONFIG_SYS_I2C_MXC_I2C8 is not set
+CONFIG_SYS_MXC_I2C1_SPEED=100000
+CONFIG_SYS_MXC_I2C1_SLAVE=0
+CONFIG_SYS_MXC_I2C2_SPEED=100000
+CONFIG_SYS_MXC_I2C2_SLAVE=0
+CONFIG_SYS_MXC_I2C3_SPEED=100000
+CONFIG_SYS_MXC_I2C3_SLAVE=0
+# CONFIG_SYS_I2C_NEXELL is not set
+# CONFIG_SYS_I2C_OCORES is not set
+# CONFIG_SYS_I2C_ROCKCHIP is not set
+# CONFIG_SYS_I2C_MVTWSI is not set
+# CONFIG_SYS_I2C_XILINX_XIIC is not set
+# CONFIG_SYS_I2C_IHS is not set
+# CONFIG_I2C_MUX is not set
+# CONFIG_I2C_EDID is not set
+</code></pre>
+<p>Removing (most of) the commented items and reordering slightly leaves:</p>
+<pre><code class="language-text">CONFIG_CMD_I2C=y
+CONFIG_DM_I2C=y
+CONFIG_SYS_I2C_MXC=y
+CONFIG_SYS_I2C_MXC_I2C1=y
+CONFIG_SYS_I2C_MXC_I2C2=y
+CONFIG_SYS_I2C_MXC_I2C3=y
+CONFIG_SYS_MXC_I2C1_SPEED=100000
+CONFIG_SYS_MXC_I2C1_SLAVE=0
+CONFIG_SYS_MXC_I2C2_SPEED=100000
+CONFIG_SYS_MXC_I2C2_SLAVE=0
+CONFIG_SYS_MXC_I2C3_SPEED=100000
+CONFIG_SYS_MXC_I2C3_SLAVE=0
+# CONFIG_SYS_I2C_MXC_I2C4 is not set
+CONFIG_SPL_I2C_SUPPORT=y
+</code></pre>
+<p>This is an excellent starting point and may well be complete; however, we may still need to apply some reasoning. For example, we do not need the final item (although it would do no harm), as SPL is only used when compiling the secondary bootloader and <code>CONFIG_SPL_I2C_SUPPORT</code> does not appear in our U-Boot code. The penultimate item concerning I2C4 (currently commented) is inaccurate and is an omission from this <code>maaxboard-uboot/uboot-imx</code> build. Examining the DTS file <code>maaxboard.dts</code> confirms that there are four I<sup>2</sup>C buses, so we will include a set of I2C4 macros. Note that, although inconsistent, it is not an issue that these macros use I2C1-I2C4 labels, whereas the DTS labels them 0-3. Our convention, such as in the following <a href="#integrating-the-driver-with-camkes">CAmkES</a> section, will be to use 0-3 labels.</p>
+<p>Combining the previous paragraphs, we update the <code>libubootdrivers/CMakeLists.txt</code> makefile as follows (showing only extracts relevant to I<sup>2</sup>C).</p>
+<p>The <code>i2c_driver</code> variable, which by default is <code>"none"</code>, is set to <code>"i2c_mxc"</code>:</p>
+<pre><code class="language-makefile"># Set up the applicable drivers and platform dependent configuration.
+if(KernelPlatImx8mq)
+...
+    # Define the drivers used for this platform
+    ...
+    set(i2c_driver "i2c_mxc")
+    ...
+</code></pre>
+<p>Then a new section is added to handle this:</p>
+<pre><code class="language-makefile">...
+############################
+# Settings for I2C drivers #
+############################
+
+if(i2c_driver MATCHES "none")
+    # Nothing to do
+else()
+    # Enable I2C support
+    add_definitions("-DCONFIG_DM_I2C=1")
+    # Generic I2C source files
+    list(APPEND uboot_deps uboot/drivers/i2c/i2c-uclass.c)
+
+    # Driver specific settings / files
+    if(i2c_driver MATCHES "i2c_mxc")
+        add_definitions("-DCONFIG_SYS_I2C_MXC=1")
+        add_definitions("-DCONFIG_SYS_I2C_MXC_I2C1=1")
+        add_definitions("-DCONFIG_SYS_I2C_MXC_I2C2=1")
+        add_definitions("-DCONFIG_SYS_I2C_MXC_I2C3=1")
+        add_definitions("-DCONFIG_SYS_I2C_MXC_I2C4=1")
+        add_definitions("-DCONFIG_SYS_MXC_I2C1_SPEED=100000")
+        add_definitions("-DCONFIG_SYS_MXC_I2C1_SLAVE=0")
+        add_definitions("-DCONFIG_SYS_MXC_I2C2_SPEED=100000")
+        add_definitions("-DCONFIG_SYS_MXC_I2C2_SLAVE=0")
+        add_definitions("-DCONFIG_SYS_MXC_I2C3_SPEED=100000")
+        add_definitions("-DCONFIG_SYS_MXC_I2C3_SLAVE=0")
+        add_definitions("-DCONFIG_SYS_MXC_I2C4_SPEED=100000")
+        add_definitions("-DCONFIG_SYS_MXC_I2C4_SLAVE=0")
+
+        list(APPEND uboot_deps uboot/drivers/i2c/mxc_i2c.c)
+    else()
+        message(FATAL_ERROR "Unrecognised I2C driver. Aborting.")
+    endif()
+endif()
+</code></pre>
+<p>The <code>list(APPEND uboot_deps ...)</code> lines add the driver files that were identified earlier, ensuring that they are picked out from the rest of the files held in the <code>libubootdrivers/uboot</code> directory and compiled. When they are compiled, they will require extra header files, but those will be picked up automatically from the <code>uboot</code> directory.</p>
+<p>The <code>add_definitions</code> lines establish the configuration macros. Note that <code>CONFIG_CMD_I2C</code>, which was in our previous list of candidates, has been excluded, but only until we discuss it further in the forthcoming <a href="#establishing-the-driver-api">API</a> section.</p>
+<p>After these changes, within our <code>build</code> directory, <code>init_build</code> followed by <code>ninja</code> should result in a clean build.</p>
+<h2 id="integrating-the-driver-with-camkes"><a class="header" href="#integrating-the-driver-with-camkes">Integrating the driver with CAmkES</a></h2>
+<p>We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the <code>uboot-driver-example</code> test application introduced earlier – see <a href="uboot_driver_usage.html#instructions-for-running-the-uboot-driver-example-test">Using the U-Boot Driver Library</a> – we need to modify the file <code>camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h</code> as follows.</p>
+<p>Firstly, we need to add path definitions so that the devices can be located in the device tree:</p>
+<pre><code class="language-c">#define REG_I2C_0_PATH      "/soc@0/bus@30800000/i2c@30a20000"
+#define REG_I2C_1_PATH      "/soc@0/bus@30800000/i2c@30a30000"
+#define REG_I2C_2_PATH      "/soc@0/bus@30800000/i2c@30a40000"
+#define REG_I2C_3_PATH      "/soc@0/bus@30800000/i2c@30a50000"
+...
+#define DEV_I2C_0_PATH      REG_I2C_0_PATH
+#define DEV_I2C_1_PATH      REG_I2C_1_PATH
+#define DEV_I2C_2_PATH      REG_I2C_2_PATH
+#define DEV_I2C_3_PATH      REG_I2C_3_PATH
+</code></pre>
+<p>These need to be added to <code>DEV_PATHS</code> and <code>DEV_PATH_COUNT</code> should be modified accordingly:</p>
+<pre><code class="language-c">#define DEV_PATH_COUNT 19 // In this example previous size was 15 so +4
+
+#define DEV_PATHS {   \
+    ...               \
+    DEV_I2C_0_PATH,   \
+    DEV_I2C_1_PATH,   \
+    DEV_I2C_2_PATH,   \
+    DEV_I2C_3_PATH,   \
+    ...
+    };
+</code></pre>
+<p>Entries for the devices need to be added to <code>HARDWARE_INTERFACES</code>:</p>
+<pre><code class="language-c">#define HARDWARE_INTERFACES  \
+    ...                      \
+    consumes Dummy i2c_0;    \
+    consumes Dummy i2c_1;    \
+    consumes Dummy i2c_2;    \
+    consumes Dummy i2c_3;    \
+    ...                      \
+    emits Dummy dummy_source;
+</code></pre>
+<p>And also added to <code>HARDWARE_COMPOSITION</code>:</p>
+<pre><code class="language-c">#define HARDWARE_COMPOSITION                                             \
+    ...                                                                  \
+    connection seL4DTBHardware i2c_0_conn(from dummy_source, to i2c_0);  \
+    connection seL4DTBHardware i2c_1_conn(from dummy_source, to i2c_1);  \
+    connection seL4DTBHardware i2c_2_conn(from dummy_source, to i2c_2);  \
+    connection seL4DTBHardware i2c_3_conn(from dummy_source, to i2c_3);  \
+    ...
+</code></pre>
+<p>And also added to <code>HARDWARE_CONFIGURATION</code>:</p>
+<pre><code class="language-c">#define HARDWARE_CONFIGURATION                         \
+    ...                                                \
+    i2c_0.dtb     = dtb({ "path" : REG_I2C_0_PATH });  \
+    i2c_1.dtb     = dtb({ "path" : REG_I2C_1_PATH });  \
+    i2c_2.dtb     = dtb({ "path" : REG_I2C_2_PATH });  \
+    i2c_3.dtb     = dtb({ "path" : REG_I2C_3_PATH });  \
+    ...
+</code></pre>
+<h2 id="establishing-the-driver-api"><a class="header" href="#establishing-the-driver-api">Establishing the driver API</a></h2>
+<p>We now need to work on the driver's API. We are going to access the driver via the U-Boot <code>i2c</code> command, such as is available at the U-Boot command line:</p>
+<pre><code class="language-text">u-boot=&gt; i2c
+i2c - I2C sub-system
+
+Usage:
+i2c bus [muxtype:muxaddr:muxchannel] - show I2C bus info
+i2c crc32 chip address[.0, .1, .2] count - compute CRC32 checksum
+i2c dev [dev] - show or set current I2C bus
+i2c loop chip address[.0, .1, .2] [# of objects] - looping read of device
+i2c md chip address[.0, .1, .2] [# of objects] - read from I2C device
+i2c mm chip address[.0, .1, .2] - write to I2C device (auto-incrementing)
+i2c mw chip address[.0, .1, .2] value [count] - write to I2C device (fill)
+i2c nm chip address[.0, .1, .2] - write to I2C device (constant address)
+i2c probe [address] - test for and show device(s) on the I2C bus
+i2c read chip address[.0, .1, .2] length memaddress - read to memory
+i2c write memaddress chip address[.0, .1, .2] length [-s] - write memory
+          to I2C; the -s option selects bulk write in a single transaction
+i2c flags chip [flags] - set or get chip flags
+i2c olen chip [offset_length] - set or get chip offset length
+i2c reset - re-init the I2C Controller
+i2c speed [speed] - show or set I2C bus speed
+u-boot=&gt;
+</code></pre>
+<p>We return to <code>libubootdrivers/src/plat/maaxboard/plat_driver_data.c</code> to add a new entry to the <code>cmd_array</code>:</p>
+<pre><code class="language-c">void initialise_driver_data(void) {
+    ...
+    driver_data.cmd_array[16] = _u_boot_cmd__i2c;
+    ...
+</code></pre>
+<p>Corresponding changes are made in <code>libubootdrivers/include/plat/maaxboard/plat_driver_data.h</code>:</p>
+<pre><code class="language-c">/* Define the number of different driver elements to be used on this platform */
+...
+#define _u_boot_cmd_count  17  // In this example previous count was 16, so +1
+...
+
+/* Define the u-boot commands to be used on this platform */
+...
+extern struct cmd_tbl _u_boot_cmd__i2c;
+...
+</code></pre>
+<p>We need to pull in the U-Boot source code for the <code>i2c</code> command from the file <code>i2c.c</code> (<code>projects_libs/libubootdrivers/uboot/cmd/i2c.c</code>).</p>
+<p>As with the previous addition of <code>.c</code> files, this needs to be added to the <code>libubootdrivers/CMakeLists.txt</code> makefile, along with the CMD configuration macro that we identified earlier. The previous extract from the makefile is repeated below, with two additional lines marked.</p>
+<pre><code class="language-makefile">    ############################
+    # Settings for I2C drivers #
+    ############################
+
+    if(i2c_driver MATCHES "none")
+        # Nothing to do
+    else()
+        # Enable I2C support
++       add_definitions("-DCONFIG_CMD_I2C=1")
+        add_definitions("-DCONFIG_DM_I2C=1")
+        # Generic I2C source files
++       list(APPEND uboot_deps uboot/cmd/i2c.c)
+        list(APPEND uboot_deps uboot/drivers/i2c/i2c-uclass.c)
+
+        # Driver specific settings / files
+        if(i2c_driver MATCHES "i2c_mxc")
+            add_definitions("-DCONFIG_SYS_I2C_MXC=1")
+            add_definitions("-DCONFIG_SYS_I2C_MXC_I2C1=1")
+            add_definitions("-DCONFIG_SYS_I2C_MXC_I2C2=1")
+            add_definitions("-DCONFIG_SYS_I2C_MXC_I2C3=1")
+            add_definitions("-DCONFIG_SYS_I2C_MXC_I2C4=1")
+            add_definitions("-DCONFIG_SYS_MXC_I2C1_SPEED=100000")
+            add_definitions("-DCONFIG_SYS_MXC_I2C1_SLAVE=0")
+            add_definitions("-DCONFIG_SYS_MXC_I2C2_SPEED=100000")
+            add_definitions("-DCONFIG_SYS_MXC_I2C2_SLAVE=0")
+            add_definitions("-DCONFIG_SYS_MXC_I2C3_SPEED=100000")
+            add_definitions("-DCONFIG_SYS_MXC_I2C3_SLAVE=0")
+            add_definitions("-DCONFIG_SYS_MXC_I2C4_SPEED=100000")
+            add_definitions("-DCONFIG_SYS_MXC_I2C4_SLAVE=0")
+
+            list(APPEND uboot_deps uboot/drivers/i2c/mxc_i2c.c)
+        else()
+            message(FATAL_ERROR "Unrecognised I2C driver. Aborting.")
+        endif()
+    endif()
+</code></pre>
+<p>Within our <code>build</code> directory, after <code>init_build</code> and <code>ninja</code>, this should build successfully.</p>
+<h2 id="testing-the-driver"><a class="header" href="#testing-the-driver">Testing the driver</a></h2>
+<p>Now that we have the I<sup>2</sup>C driver and its API, we can call <code>i2c</code> commands from our test application. For example, the following lines can be used within a CAmkES component (in our example, these would be added to file <code>camkes/apps/uboot-driver-example/components/Test/src/test.c</code>):</p>
+<pre><code class="language-c">    // I2C test
+    run_uboot_command("i2c dev 0"); // Set current i2c bus to zero
+    run_uboot_command("i2c probe"); // Probe i2c bus 0
+</code></pre>
+<p>On the MaaXBoard, the <code>i2c probe</code> command returns <code>Valid chip addresses: 4B</code>, which is the address of the BD71837MWV power management IC on the bus. Extending the test case as follows:</p>
+<pre><code class="language-c">    // I2C test
+    run_uboot_command("i2c dev 0"); // Set current i2c bus to zero
+    run_uboot_command("i2c probe"); // Probe i2c bus 0
+    run_uboot_command("i2c md 0x4b 0x0.1 0x20"); // Read 32 bytes from device at address 0x4b
+    run_uboot_command("dm tree");
+</code></pre>
+<p>will read the first 32 bytes from the BD71837MWV, displaying:</p>
+<pre><code class="language-text">0000: a3 04 03 a2 00 40 40 44 44 00 00 00 00 14 14 14    .....@@DD.......
+0010: 1e 14 1e 1e 02 03 03 28 03 00 00 00 00 00 0f 48    .......(.......H
+</code></pre>
+<p>Before the <code>i2c probe</code>, a <code>dm tree</code> command would reveal the presence of the <code>i2c_mxc</code> driver:</p>
+<pre><code class="language-text"> Class     Index  Probed  Driver                Name
+-----------------------------------------------------------
+       ...
+ i2c           0  [   ]   i2c_mxc               |   |   |-- i2c@30a20000
+ i2c           1  [   ]   i2c_mxc               |   |   |-- i2c@30a30000
+ i2c           2  [   ]   i2c_mxc               |   |   |-- i2c@30a40000
+ i2c           3  [   ]   i2c_mxc               |   |   |-- i2c@30a50000
+</code></pre>
+<p>Following the <code>i2c probe</code>, the <code>dm tree</code> command shows the instantiation of the <code>i2c_generic_chip_drv</code> driver that we ported earlier:</p>
+<pre><code class="language-text"> Class     Index  Probed  Driver                Name
+-----------------------------------------------------------
+       ...
+ i2c           0  [ + ]   i2c_mxc               |   |   |-- i2c@30a20000
+ i2c_generi    0  [ + ]   i2c_generic_chip_drv  |   |   |   `-- generic_4b
+ i2c           1  [   ]   i2c_mxc               |   |   |-- i2c@30a30000
+ i2c           2  [   ]   i2c_mxc               |   |   |-- i2c@30a40000
+ i2c           3  [   ]   i2c_mxc               |   |   |-- i2c@30a50000
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../activity/device_drivers/uboot_library_add_driver.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../activity/device_drivers/driver_troubleshooting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../activity/device_drivers/uboot_library_add_driver.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../activity/device_drivers/driver_troubleshooting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

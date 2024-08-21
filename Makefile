@@ -74,7 +74,7 @@ ${OUT_PATH}/book: always_rebuild ${DEP_MDB_PATH}/out/mdbook | ${OUT_PATH}
 publish: ${OUT_PATH}/book | ${TMP_PATH}
 	rm -rf ${TMP_PATH}/sel4devkit.github.io
 	git -C ${TMP_PATH} clone --branch "main" "git@github.com:sel4devkit/sel4devkit.github.io.git" sel4devkit.github.io
-	rsync --checksum --recursive ${OUT_PATH}/book/ ${TMP_PATH}/sel4devkit.github.io
+	rsync --delete --checksum --recursive ${OUT_PATH}/book/ ${TMP_PATH}/sel4devkit.github.io
 	git -C ${TMP_PATH}/sel4devkit.github.io add --all
 	git -C ${TMP_PATH}/sel4devkit.github.io commit -m "Publish."
 	git -C ${TMP_PATH}/sel4devkit.github.io push
