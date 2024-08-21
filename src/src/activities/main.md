@@ -8,7 +8,7 @@ These techical activities provide a range of examples which seek to demonstrate 
 * **[Microkit HDMI Driver](../activity/microkit_hdmi_driver/main.md)** - A basic HDMI Driver capable of displaying static images and simple moving images.
 * **[Microkit Memory Probe](../activity/microkit_memory_probe/main.md)** -
 * **[Microkit USB Driver](../activity/microkit_usb_driver/main.md)** - A XHCI USB driver with support for Keyboard, Mouse, Resistive Touch Screen, USB Hub and Mass Storage Devices
-* **[Microkit Single Linux VMM](../activity/microkit_vmm_single_linux_guest/main.md)** - Loads a single linux Virtual Machine with serial I/O.
-* **[Microkit Dual Linux VMM with TTY Multiplexing](../activity/microkit_dual_linux_guest_tty_multiplex/main.md)** - Loads Two linux Virtual Machine with serial I/O and multiplexing for each Virtual Machine.
-* **[Microkit Dual Linux VMM with USB Routing](../activity/microkit_dual_linux_guest_usb_routing/main.md)**- An investigation into communication between Virtual Machines.
+* **[Microkit Single Linux VMM](../activity/microkit_vmm_single_linux_guest/main.md)** - Loads up a single Linux virtual machine with serial I/O.
+* **[Microkit Dual Linux VMM with TTY Multiplexing](../activity/microkit_dual_linux_guest_tty_multiplex/main.md)** - Loads up two Linux virtual machines with serial I/O and multiplexing for each virtual machine.
+* **[Microkit Dual Linux VMM with USB Routing](../activity/microkit_dual_linux_guest_usb_routing/main.md)**- An investigation into communication between virtual machines.
 * **[SPI Bus BMP280 Pressure Sensor RENAME](../activity/spi_bus_bmp280_pressure_sensor/main.md)** -
