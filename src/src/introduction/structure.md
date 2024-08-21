@@ -8,8 +8,8 @@ step-by-step guide:
 Developer Kit as a means to help facilitate and encourage wider adoption.
 
 - __Resources__: Provides an overview of the fundamental aspects of both the
-  seL4 Microkernel and the Avent MaaXBoard (our chosen SBC (Single Board
-Computer)), highlighting relevant supporting material from other sources. The
+  seL4 Microkernel and our chosen SBC (Single Board Computer), the the Avent
+MaaXBoard, highlighting relevant supporting material from other sources. The
 technical scope of the seL4 Developer Kit is summerised though a list of its
 associated repositories. Finally, a consolidated glossary of key terms is
 presented for easy reference.

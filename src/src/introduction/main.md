@@ -14,10 +14,10 @@ greater complexity in the formal verification where this achieves higher
 performance. 
 
 The development of the seL4 Microkernel is overseen by the [seL4
-Foundation](https://sel4.systems/Foundation/), operating as project under The
-[Linux Foundation](https://www.linuxfoundation.org/). The entirety of the seL4
-Microkernel, and its associated components, are made available as Open Source,
-on Git Hub ([seL4 Microkernel and associated
+Foundation](https://sel4.systems/Foundation/), operating as a project under
+The [Linux Foundation](https://www.linuxfoundation.org/). The entirety of the
+seL4 Microkernel, and its associated components, are made available as Open
+Source, on Git Hub ([seL4 Microkernel and associated
 components](https://github.com/seL4)).
 
 In common with all Microkernels, the seL4 Microkernel provides a minimum set

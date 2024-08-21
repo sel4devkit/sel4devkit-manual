@@ -8,8 +8,8 @@ The intended audience is an application developer:
 ### Complementary Approach
 
 This seL4 Developer Kit does not intend to cover or replace any of the
-extensive material as maintained by the ([seL4
-Foundation](https://sel4.systems)) and associated organisations.
+extensive material as maintained by the [seL4
+Foundation](https://sel4.systems) and associated organisations.
 
 Instead, the purpose is to complement this existing material with practical
 guidance about getting started with seL4. Throughout the seL4 Developer Kit,

@@ -1,26 +1,19 @@
 # Resources
 
-Presents for immediate reference a summary of the various resources associated
-with seL4 Developer Kit.
+This section presents a high level overview of the fundamental resources
+associated with the seL4 Developer Kit. The majority of this section is
+deliberately framed in terms of references to external content. The intention
+is that developers will refer to, and return to, this section to find further
+avenues of information to help with their efforts.
 
-## Supporting Material
-
-The seL4 Developer Kit makes use of a large collection of existing material.
-Here, we summarise and reference this material, explaining its relevance to
-the seL4 Developer Kit. 
-
-Distinct areas considered are listed below:
-* [seL4 Microkernel]("../resources/sel4_microkernel.md")
-* [Avent MaaXBoard]("../resources/avent_maaxboard.md")
-
-## Repositories
-
-A summarised list of all the repositories that form part of the seL4 Developer
-Kit is presented to support their navigation:
-
-* [Repositories](reference/repositories.md)
-
-## Glossary
-
-A consolidated glossary of key terms is presented for easy reference:
-* [Glossary](reference/glossary.md)
+The section is structured as follows:
+- [seL4 Microkernel](../resources/sel4_microkernel.md): Provide an overview of the
+  seL4 Microkernel, focusing on its capabilities and infrastructure as relates
+to the seL4 Developer Kit.
+- [Avent MaaXBoard](../resources/avent_maaxboard.md): Describe the rationale
+  behind the selection of our chosen SBC, the Avent MaaXBoard. Further,
+summarise and reference entry points into its available resources.
+- [Glossary](../resources/glossary.md): A consolidated glossary of key terms
+  for subsequent reference.
+- [Repositories](../resources/repositories.md): Summarise the suite of
+  repositories that collectively deliver the seL4 Developer Kit.
