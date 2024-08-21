@@ -4,7 +4,7 @@ These techical activities provide a range of examples which seek to demonstrate 
 
 * **[CAmkES Case Study Application](../activity/camkes_case_study_application/main.md)** - 
 * **[Microkit Case Study Application](../activity/microkit_case_study_application/main.md)** -
-* **[Device Drivers](../activity/device_drivers/main.md)** -
+* **[Device Drivers](../activity/device_drivers/main.md)** - Guidance on adding device drivers to seL4.
 * **[Microkit HDMI Driver](../activity/microkit_hdmi_driver/main.md)** - A basic HDMI Driver capable of displaying static images and simple moving images.
 * **[Microkit Memory Probe](../activity/microkit_memory_probe/main.md)** -
 * **[Microkit USB Driver](../activity/microkit_usb_driver/main.md)** - A XHCI USB driver with support for Keyboard, Mouse, Resistive Touch Screen, USB Hub and Mass Storage Devices
