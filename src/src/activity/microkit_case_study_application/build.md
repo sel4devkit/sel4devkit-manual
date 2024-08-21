@@ -21,11 +21,17 @@ repo sync
 From the `/host/security_demo` directory, we execute the following commands:
 
 ```text
-cd microkit
+cd project_libs
 ```
 
 ```bash
 ./init-build.sh -DMICROKIT_APP=security_demo -DPLATFORM=maaxboard
+```
+
+Once build there is an option to rebuild the entire project using the below command:
+
+```bash
+./init-build.sh -DMICROKIT_APP=security_demo -DPLATFORM=maaxboard -DBUILD_TYPE=rebuild
 ```
 
 ## Preparing to Run
