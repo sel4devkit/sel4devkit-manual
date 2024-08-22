@@ -21,4 +21,4 @@ products. It does this by:
 Once the fundamentals of building and executing an seL4 program are
 established, the seL4 Developer Kit seeks to explain and encourage further
 development through the presentation of a diverse series of technical
-[Activities](../activities/activities.md).
+[Activities](../activities/main.md).
