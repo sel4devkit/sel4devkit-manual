@@ -1,6 +1,6 @@
-# Instructions for running `uboot-driver-example` for CAmkES 
+# Instructions for running `uboot-driver-example`: CAmkES 
 
-As usual, this assumes that the user is already running a Docker container within the [build environment](build_environment_setup.md), where we can create a directory and clone the code and dependencies.
+As usual, this assumes that the user is already running the CAmkES Docker container within the [build environment](../../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
 ```text
 mkdir /host/uboot_test

@@ -4,7 +4,7 @@ This section documents the required actions and guidance to add support for a ne
 
 By the end of this section, an seL4 executable will be built for the new platform that can initialise the library (although the library may not support any of the platform's devices). Later sections of this guide cover the required actions to add driver support into the library for the new platform (e.g. see the [Odroid-C2 worked example](add_odroidc2.md)).
 
-Throughout the sections of this guide devoted to extension of the U-Boot driver library, it is expected the developer is working within the folder structure created by the `repo` tool (e.g. as used to build the [test applications](uboot_driver_usage.md)). Key folders and files within the hierarchy are shown below:
+Throughout the sections of this guide devoted to extension of the U-Boot driver library, it is expected the developer is working within the folder structure created by the `repo` tool (e.g. as used to build the [test applications](../device_drivers/uboot_driver_usage.md)). Key folders and files within the hierarchy are shown below:
 
 ### CAmkES
 
@@ -40,7 +40,7 @@ Throughout the sections of this guide devoted to extension of the U-Boot driver 
 ```
 
 - `kernel/tools/dts`: Location of platform device trees.
-- `projects/project_libs/camkes/apps/uboot-driver-example`: [The test application](uboot_driver_usage.md).
+- `projects/project_libs/camkes/apps/uboot-driver-example`: [The test application](../device_drivers/uboot_driver_usage.md).
 - `projects/project_libs/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4devkit/projects_libs/tree/master/libubootdrivers).
 - `projects/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `projects/project_libs/libubootdrivers/uboot`).
 
@@ -78,7 +78,7 @@ Throughout the sections of this guide devoted to extension of the U-Boot driver 
 - `project_libs/boards`: Location of platform device trees.
 - `example/<platform>/uboot-driver-example`: [The test application](uboot_driver_usage.md).
 - `project_libs/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4-cap/dev-kit-libs/tree/main/libubootdrivers).
-- `project_libs/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `microkit/libubootdrivers/uboot`).
+- `project_libs/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `project_libs/libubootdrivers/uboot`).
 
 ## Required Reading
 
@@ -125,7 +125,7 @@ To enable access to platform specific header files it is necessary to create a s
 
 ### Define platform specific Linker Lists data structure
 
-As documented within the [Linker Lists section of the library overview](uboot_driver_library.md#linker-lists), the library requires a global data structure named `driver_data` to be declared to allow the U-Boot source code to access optional functionality included in the executable.
+As documented within the [Linker Lists section of the library overview](../device_drivers/uboot_driver_library.md#linker-lists), the library requires a global data structure named `driver_data` to be declared to allow the U-Boot source code to access optional functionality included in the executable.
 
 To define `driver_data` for the new platform, new platform-specific files must be added to the library. The code blocks that follow provide minimal templates for these files that include the base device classes, drivers for those classes, and base commands that are required by all platforms.
 
@@ -221,7 +221,7 @@ As support for additional optional objects (e.g. drivers, driver classes, comman
 
 ## Add support to example application
 
-Section [Using the U-Boot Driver Library](uboot_driver_usage.md) introduced the demonstration application  `uboot-driver-example`. This section documents the changes required to the `uboot-driver-example` application to allow it to be built for the new platform.
+Section [Using the U-Boot Driver Library](../device_drivers/uboot_driver_usage.md) introduced the demonstration application  `uboot-driver-example`. This section documents the changes required to the `uboot-driver-example` application to allow it to be built for the new platform.
 
 The following empty template file needs to be added to the application `include/plat/foo/platform_devices.h`:
 
@@ -279,7 +279,7 @@ The following drivers are likely to form the core of the support for a platform 
 
 ### Timer
 
-As documented [in the library overview](uboot_driver_library.md#timer), some U-Boot drivers rely upon access to a monotonic timer to underpin their timing needs.
+As documented [in the library overview](../device_drivers/uboot_driver_library.md#timer), some U-Boot drivers rely upon access to a monotonic timer to underpin their timing needs.
 
 By default a platform will be supported by the `dummy` timer driver (see library file `src/timer/timer_dummy.c`). Whilst the dummy timer driver allows the library to build cleanly, it will raise an assertion error / exception, thereby halting execution, should any of the timing routines be used. Some simple drivers (e.g. GPIO drivers) typically do not require any timing routines and so can be supported without the need to provide a functional timer; however, a functional timer will typically need to be provided to support more complex devices such as Ethernet or USB.
 

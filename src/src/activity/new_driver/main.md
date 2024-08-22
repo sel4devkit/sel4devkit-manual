@@ -188,6 +188,6 @@ At this stage, the library with the newly added driver should compile cleanly.
 
 What remains is to update the application utilising the library to:
 
-1. Ensure that seL4 permits access to the necessary devices from the platform's device tree; this is performed through the configuration of the application's CAmkES project file or Microkit's system file. For a worked example, see the  `uboot-driver-example.camkes` or `uboot-driver-example.system` file from the `uboot-driver-example` [test application](uboot_driver_usage.md#test-application-uboot-driver-example).
+1. Ensure that seL4 permits access to the necessary devices from the platform's device tree; this is performed through the configuration of the application's CAmkES project file or Microkit's system file. For a worked example, see the  `uboot-driver-example.camkes` or `uboot-driver-example.system` file from the `uboot-driver-example` [test application](../device_drivers/uboot_driver_usage.md#test-application-uboot-driver-example).
 
 2. Provide the identity of those devices from the platform's device tree to the library; this is performed by providing the names of the devices when initialising the library through the `initialise_uboot_drivers` interface on the library's public API. Note that only those devices from the device tree listed in the call to `initialise_uboot_drivers` will be used by the library; all other devices in the device tree will be considered to be disabled.

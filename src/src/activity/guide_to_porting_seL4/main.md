@@ -80,4 +80,4 @@ To build and execute seL4Test for testing purposes against forks of the seL4 git
     cd ${TMP_PATH}/sel4test-manifest ; repo init --manifest-url "git@github.com:seL4/sel4test-manifest.git" -b my_port
     ```
 
-4. Building and executing seL4Test can be performed by following the instructions previously provided in the [Building Applications](#building) and [Bootloader](bootloader.md) sections with the build commands modified appropriately to target the newly added platform.
+4. Building and executing seL4Test can be performed by following the instructions previously provided in the [seL4test](../../first_boot/sel4test.md) and [Bootloader](../../first_boot/bootloader.md) sections with the build commands modified appropriately to target the newly added platform.

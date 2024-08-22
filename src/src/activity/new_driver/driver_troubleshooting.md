@@ -16,7 +16,7 @@ This can be increased by changing the default `ZF_LOG_INFO` level to a higher lo
 
 ## DMA
 
-As documented in the [library overview](uboot_driver_library.md#dma) section, drivers utilising DMA may need manual modifications.
+As documented in the [library overview](../device_drivers/uboot_driver_library.md#dma) section, drivers utilising DMA may need manual modifications.
 
 ### Detecting DMA usage
 
@@ -51,7 +51,7 @@ All of the above techniques have been used in the modifications made to the Ethe
 
 ## Live Device Tree support
 
-As documented in the [library overview](../uboot_driver_library.md#library-limitations) section, the library only supports drivers that are compatible with U-Boot's live tree format for holding the device tree.
+As documented in the [library overview](../device_drivers/uboot_driver_library.md#library-limitations) section, the library only supports drivers that are compatible with U-Boot's live tree format for holding the device tree.
 
 Guidance on porting an old driver to the live device tree interface is provided [here](https://u-boot.readthedocs.io/en/latest/develop/driver-model/livetree.html#porting-drivers).
 

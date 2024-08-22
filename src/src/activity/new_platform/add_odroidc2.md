@@ -1,12 +1,12 @@
 # Odroid-C2 Platform - Worked Example
 
-As part of the review of the [New Platform](uboot_library_add_platform.md) section of this guide, we ported the
+As part of the review of the [New Platform](main.md) section of this guide, we ported the
 U-Boot Driver Library to build with seL4 on the Odroid-C2 platform for the CAmkES framework.
 
 This document gives details of how this was achieved, following the structure
 of those earlier sections, but adding details of exact changes to each file.
 
-Our goal is to get the U-Boot [test application](uboot_driver_usage.md#test-application-uboot-driver-example) running
+Our goal is to get the U-Boot [test application](../device_drivers/uboot_driver_usage.md#test-application-uboot-driver-example) running
 on the Odroid-C2.
 
 ## Repository setup and forks
@@ -23,10 +23,10 @@ our forks, not from the upstream repositories).
 You'll need to your own GitHub account to do this. From here on, we'll be using the
 GitHub account name `rod-chapman` for our local forks.
 
-1. Using the GitHub web GUI, create your own forks of the `camkes-manifest`, `camkes`,
-and `projects_libs` repositories.
+1. Using the GitHub web GUI, create your own forks of the `sel4devkit-maaxboard-camkes-manifest`, `sel4devkit-maaxboard-camkes`,
+and `sel4devkit-maaxboard-camkes-projects_libs` repositories. You might want to rename using the board being ported.
 
-2. Clone the `camkes-manifest` fork into your local machine, and create
+2. Clone the `sel4devkit-maaxboard-camkes-manifest` fork into your local machine, and create
 a new branch called `addc2` to make our changes. In the following commands, remember to change `rod-chapman` to your own GitHub user name:
 
     ```text
@@ -37,8 +37,7 @@ a new branch called `addc2` to make our changes. In the following commands, reme
     cd ..
     ```
 
-3. Similarly, clone the `camkes` and `projects_libs` forks, and add a new branch
-to each with the same name.
+3. Similarly, clone the `sel4devkit-maaxboard-camkes` and ``sel4devkit-maaxboard-camkes-projects_libs` forks, and add a new branch to each with the same name.
 
     ```text
     git clone https://github.com/rod-chapman/camkes.git
@@ -56,7 +55,7 @@ to each with the same name.
     cd ..
     ```
 
-4. Edit the `default.xml` file in the `camkes-manifest` repository to add a new remote (in our
+4. Edit the `default.xml` file in the `sel4devkit-maaxboard-camkes-manifest` repository to add a new remote (in our
 case called `rod`) pointing at our own GitHub account.
 
     For example, the line to add is
@@ -65,23 +64,23 @@ case called `rod`) pointing at our own GitHub account.
     <remote name="rod" fetch="https://github.com/rod-chapman"/>
     ```
 
-5. Similarly, edit the `default.xml` file to specify that the `camkes` and `projects_libs` repositories
+5. Similarly, edit the `default.xml` file to specify that the `sel4devkit-maaxboard-camkes` and `sel4devkit-maaxboard-camkes-projects_libs` repositories
 should come from the `addc2` branches of our own forked repositories. Find the `project` line for each
 repository and modify its entry to specify our own remote (`rod`) and branch (`addc2`).
 
     For example, the `project` lines for our forks are:
 
     ```text
-    <project name="camkes.git" path="projects/camkes" remote="rod" revision="addc2" upstream="addc2" dest-branch="addc2">
+    <project name="sel4devkit-maaxboard-camkes.git" path="projects/camkes" remote="rod" revision="addc2" upstream="addc2" dest-branch="addc2">
       <linkfile src="easy-settings.cmake" dest="easy-settings.cmake"/>
     </project>
-    <project name="projects_libs.git" path="projects/projects_libs" remote="rod" revision="addc2" upstream="addc2" dest-branch="addc2"/>
+    <project name="sel4devkit-maaxboard-camkes-projects_libs.git" path="projects/projects_libs" remote="rod" revision="addc2" upstream="addc2" dest-branch="addc2"/>
     ```
 
 6. Commit and push that change:
 
     ```text
-    cd camkes-manifest
+    cd sel4devkit-maaxboard-camkes-manifest
     git add default.xml
     git commit -m "Add remote and forked repositories for adding Odroid-C2 platform."
     git push
@@ -94,14 +93,14 @@ Having made no other changes at this point, we should be able to build and run
 the U-Boot Driver Example program for the MaaxBoard from those newly forked
 repositories, just to make sure that creating the forks hasn't broken anything.
 
-The earlier instructions in the [New Platform](../uboot_library_add_platform.md)
+The earlier instructions in the [New Platform](main.md)
 section should be followed with one significant change: the first `repo init` command
-specifies our fork and branch of the `camkes-manifest` repository.
+specifies our fork and branch of the `sel4devkit-maaxboard-camkes-manifest` repository.
 
 For example:
 
 ```text
-repo init -u https://github.com/rod-chapman/camkes-manifest.git -b addc2
+repo init -u https://github.com/rod-chapman/sel4devkit-maaxboard-camkes-manifest.git -b addc2
 ```
 
 Assuming that works, then we can start to make modifications to support the Odroid-C2.
@@ -123,18 +122,18 @@ The system-on-chip device at the heart of the C2 is Amlogic S905, also known as
 a "meson" SoC.
 
 We create that root directory, and initialise our build environment. Remember to use the
-Docker container from the [build environment setup](../build_environment_setup.md#usage) section
+Docker container from the [build environment setup](../../install_and_configure/build_environment_setup.md#usage) section
 from here on:
 
 ```text
 # In the docker container with working directory at /host
 mkdir c2new
 cd c2new
-repo init -u https://github.com/rod-chapman/camkes-manifest.git -b addc2
+repo init -u https://github.com/rod-chapman/sel4devkit-maaxboard-camkes-manifest.git -b addc2
 repo sync
 ```
 
-At this point, we return to the structure of the [New Platform](../uboot_library_add_platform.md)
+At this point, we return to the structure of the [New Platform](main.md)
 section.
 
 ## Update the library's CMake file to support the platform
