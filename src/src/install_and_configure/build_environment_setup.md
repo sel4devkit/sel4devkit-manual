@@ -110,7 +110,7 @@ Building Docker Image (user-me):
 make build IMAGE=user-me
 ```
 
-Running Docker Image (user-dev):
+Running Docker Image (user-me):
 ```
 make run IMAGE=user-me HOST_PATH=<HOST_PATH> HOME_PATH=<HOME_PATH>
 ```

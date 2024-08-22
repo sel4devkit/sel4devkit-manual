@@ -1,4 +1,4 @@
-# Library Extension - New Platform
+# Porting Device Drivers to a New Platform
 
 This section documents the required actions and guidance to add support for a new platform to the library.
 

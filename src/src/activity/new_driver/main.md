@@ -1,4 +1,4 @@
-# Library Extension - New Driver
+# New Driver
 
 This section provides guidance on the addition of a new device driver to support a device on an existing platform.
 
