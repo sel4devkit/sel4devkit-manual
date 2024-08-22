@@ -61,22 +61,21 @@ All data is passed from the high-side to the low-side through a shared circular 
 
 ## Example of Protection Domain Communication
 
-The circular buffer shared between the Crypto protection domain (high-side) and the Transmitter protection domain (low-side) is used in this section as a detailed worked example of Microkit data flow and control flow.
+The circular buffer shared between the Crypto protection domain (high-side) and the Transmitter protection domain (low-side) is used in this section as a detailed worked example of Microkit data control flow.
 
 The buffer has been deliberately designed for the purpose of this worked example to use two types of protection domain interface listed in the [seL4 Microkit manual](https://github.com/seL4/microkit/blob/main/docs/manual.md), i.e. Memory region and Notification.
 
 ### Memory Region
 
-At its core the circular buffer is a simple character array with *head* and *tail* holding indexes associated with the start and end of the used portion of the array.
+A memory region is a contiguous range of physical memory and the memory region for the circular buffer is mapped onto both the Crypto and Transmitter protection domains. A virtual address, caching attributes and permissions (read, write and execute) are given to each protection domain. At its core the circular buffer is a simple character array with *head* and *tail* holding indexes associated with the start and end of the used portion of the array.
 
 ### Procedure
 
 Reading data from, or writing data to, the circular buffer requires the data array, *head* index, and *tail* index to be modified. Such modification of the buffer cannot be allowed to occur concurrently by both the Crypto and Transmitter protection domains, otherwise corruption of the buffer may occur. Access to the buffer by the two protection domains must therefore be protected to avoid concurrent access.
 
-Within the security demonstrator, cache invalidates and flushes are used to enforce this critical section. These make sure that the cpu is reading the most up to date data. Each protection domain perform a cache invalidate the circular buffer prior to accessing or writing the circular buffer, and must flush the cache when access or writing to the circular buffer has been completed.
+Within the security demonstrator, cache invalidates and flushes are used to enforce this critical section. These make sure that the cpu is reading the most up to date data. Each protection domain performs a cache invalidate prior to accessing or writing the circular buffer, and must flush the cache when access or writing to the circular buffer has been completed.
 
 - Function implementations for the circular buffer are included in `src/circular_buffer.c`.
-- A memory region is a contiguous range of physical memory and the memory region for the circular buffer is mapped onto both the Crypto and Transmitter protection domains. A virtual address, caching attributes and permissions (read, write and execute) are given to each protection domain.
 
 This results in an instance of the circular buffer type being made available in an area of memory shared by both the Crypto and Transmitter protection domains.
 
@@ -84,7 +83,7 @@ This results in an instance of the circular buffer type being made available in 
 
 A mechanism for the Transmitter protection domain to determine whether the circular buffer contains any data.
 
-A Notification interface is used to allow the Crypto protection domain to notify Transmitter when the circular buffer is full. This allows the Transmitter protection domain to wait or poll for such a notification before accessing the circular buffer.
+A Notification interface is used to allow the Crypto protection domain to notify Transmitter when there is data to be read in the circular buffer. This allows the Transmitter protection domain to wait or poll for such a notification before accessing the circular buffer.
 
 - Channels are set up between the Crypto and Transmitter protection domains in the applications system file which allow the protection domains to notify each other when there is data to read in a shared buffer.
 

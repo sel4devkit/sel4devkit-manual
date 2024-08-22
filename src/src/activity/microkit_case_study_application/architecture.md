@@ -10,7 +10,7 @@ The Microkit architecture is different to the CAmkES architecture as it does not
 
 ## Protection domains and Connector Types
 
-Protected procedure is an appropriate connector type for the character-by-character data flow between KeyReader and Crypto because it sends a singular message when invoked. The encrypted characters are transferred to the Transmitter PD via a shared circular buffer, where Crypto writes to the head of the buffer and Transmitter reads from its tail. The buffer is implemented as a shared memory region. When the buffer is full Crypto notifies Transmitter that the buffer is full and the data needs to be read via the notification mechanism. Transmitter acts upon notifications by reading all available characters until the buffer is empty.
+Protected procedure is an appropriate connector type for the character-by-character data flow between KeyReader and Crypto because it sends a singular message when invoked. The encrypted characters are transferred to the Transmitter PD via a shared circular buffer, where Crypto writes to the head of the buffer and Transmitter reads from its tail. The buffer is implemented as a shared memory region. When there is data to be read in the buffer Crypto notifies Transmitter that data needs to be read via the notification mechanism. Transmitter acts upon notifications by reading all available characters until the buffer is empty.
 
 ## Device Drivers
 
