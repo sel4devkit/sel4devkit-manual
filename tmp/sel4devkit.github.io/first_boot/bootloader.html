@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bootloader - seL4 Developer Kit</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction/main.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/audience.html"><strong aria-hidden="true">1.1.</strong> Audience</a></li><li class="chapter-item expanded "><a href="../introduction/overview.html"><strong aria-hidden="true">1.2.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../introduction/structure.html"><strong aria-hidden="true">1.3.</strong> Structure</a></li></ol></li><li class="chapter-item expanded "><a href="../resources/main.html"><strong aria-hidden="true">2.</strong> Resources</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../resources/sel4_microkernel.html"><strong aria-hidden="true">2.1.</strong> seL4 Microkernel</a></li><li class="chapter-item expanded "><a href="../resources/avent_maaxboard.html"><strong aria-hidden="true">2.2.</strong> Avent MaaXBoard</a></li><li class="chapter-item expanded "><a href="../resources/repositories.html"><strong aria-hidden="true">2.3.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../resources/glossary.html"><strong aria-hidden="true">2.4.</strong> Glossary</a></li></ol></li><li class="chapter-item expanded "><a href="../development_platform/main.html"><strong aria-hidden="true">3.</strong> Development Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../development_platform/hardware_requirements.html"><strong aria-hidden="true">3.1.</strong> Hardware Requirements</a></li><li class="chapter-item expanded "><a href="../development_platform/software_requirements.html"><strong aria-hidden="true">3.2.</strong> Software Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../install_and_configure/main.html"><strong aria-hidden="true">4.</strong> Install and Configure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../install_and_configure/host_setup.html"><strong aria-hidden="true">4.1.</strong> Host Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/build_environment_setup.html"><strong aria-hidden="true">4.2.</strong> Build Environment Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/target_setup.html"><strong aria-hidden="true">4.3.</strong> Target Setup</a></li><li class="chapter-item expanded "><a href="../install_and_configure/bootloader_setup.html"><strong aria-hidden="true">4.4.</strong> Bootloader Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../install_and_configure/using_the_prebuilt_image.html"><strong aria-hidden="true">4.4.1.</strong> Using the Prebuilt Image</a></li><li class="chapter-item expanded "><a href="../install_and_configure/building_uboot_manually.html"><strong aria-hidden="true">4.4.2.</strong> Building U-boot Manually</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../first_boot/main.html"><strong aria-hidden="true">5.</strong> First Boot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../first_boot/bootloader.html" class="active"><strong aria-hidden="true">5.1.</strong> Bootloader</a></li><li class="chapter-item expanded "><a href="../first_boot/sel4test.html"><strong aria-hidden="true">5.2.</strong> seL4Test</a></li><li class="chapter-item expanded "><a href="../first_boot/camkes_adder.html"><strong aria-hidden="true">5.3.</strong> CAmkES Adder</a></li><li class="chapter-item expanded "><a href="../first_boot/microkit_hello_world.html"><strong aria-hidden="true">5.4.</strong> Microkit Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="../activities/main.html"><strong aria-hidden="true">6.</strong> Activities</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/microkit_memory_probe/main.html"><strong aria-hidden="true">6.1.</strong> Activity: Microkit Memory Probe</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/main.html"><strong aria-hidden="true">6.2.</strong> Activity: Device Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_driver_library.html"><strong aria-hidden="true">6.2.1.</strong> U-Boot Driver Library Overview</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_driver_usage.html"><strong aria-hidden="true">6.2.2.</strong> Using the U-Boot Driver Library</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_library_add_platform.html"><strong aria-hidden="true">6.2.3.</strong> Library Extension - New Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/add_odroidc2.html"><strong aria-hidden="true">6.2.3.1.</strong> Add Odroid C2</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/device_drivers/uboot_library_add_driver.html"><strong aria-hidden="true">6.2.4.</strong> Library Extension - New Driver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/device_drivers/add_driver_worked_example.html"><strong aria-hidden="true">6.2.4.1.</strong> Add Driver Worked Example</a></li><li class="chapter-item expanded "><a href="../activity/device_drivers/driver_troubleshooting.html"><strong aria-hidden="true">6.2.4.2.</strong> Driver Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../activity/spi_bus_bmp280_pressure_sensor/main.html"><strong aria-hidden="true">6.3.</strong> Activity: SPI Bus BMP280 Pressure Sensor</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/main.html"><strong aria-hidden="true">6.4.</strong> Activity: CAmkES Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/architecture.html"><strong aria-hidden="true">6.4.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/detail.html"><strong aria-hidden="true">6.4.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../activity/camkes_case_study_application/build.html"><strong aria-hidden="true">6.4.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/main.html"><strong aria-hidden="true">6.5.</strong> Activity: Microkit Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/architecture.html"><strong aria-hidden="true">6.5.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/detail.html"><strong aria-hidden="true">6.5.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../activity/microkit_case_study_application/build.html"><strong aria-hidden="true">6.5.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../activity/microkit_usb_driver/main.html"><strong aria-hidden="true">6.6.</strong> Activity: Microkit USB Driver</a></li><li class="chapter-item expanded "><a href="../activity/microkit_hdmi_driver/main.html"><strong aria-hidden="true">6.7.</strong> Activity: Microkit HDMI Driver</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_single_linux_guest/main.html"><strong aria-hidden="true">6.8.</strong> Activity: Microkit VMM Single Linux Guest</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.html"><strong aria-hidden="true">6.9.</strong> Activity: Microkit VMM Dual Linux Guest TTY Multiplex</a></li><li class="chapter-item expanded "><a href="../activity/microkit_vmm_dual_linux_guest_usb_routing/main.html"><strong aria-hidden="true">6.10.</strong> Activity: Microkit VMM Dual Linux Guest USB Routing</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../licensing.html">Licensing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">seL4 Developer Kit</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sel4devkit/sel4devkit-manual" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="bootloader"><a class="header" href="#bootloader">Bootloader</a></h1>
+<p>After U-Boot has configured the MaaXBoard's memory and devices, it is able to load an application into RAM and then execute it. It is possible for a user to do this interactively using U-Boot commands via the serial terminal on the host machine. It is also possible and convenient to provide a U-Boot configuration file <code>uEnv.txt</code> that runs automatically; both options are documented below.</p>
+<h3 id="methods-of-loading"><a class="header" href="#methods-of-loading">Methods of Loading</a></h3>
+<p>We cover three primary mechanisms for loading the application into RAM by U-Boot:</p>
+<ul>
+<li>from SD card;</li>
+<li>from USB flash drive;</li>
+<li>via TFTP.</li>
+</ul>
+<p>Additional mechanisms are available, such as downloading over the serial cable; however, this would be much slower compared with the options above and is not considered further here. Downloading from on-board flash memory is another possible mechanism, but that is not applicable to the MaaXBoard.</p>
+<p>The remainder of this section assumes that you have an application in the form of an executable ELF file called <code>sel4_image</code>. We will create this as our test application <a href="sel4test.html">later in this documentation</a>, but this section is concerned with the loading mechanisms rather than the executable itself.</p>
+<h4 id="loading-from-sd-card"><a class="header" href="#loading-from-sd-card">Loading from SD Card</a></h4>
+<p>The SD card is used to store the bootloader, U-Boot. The SD card may also be used to store the application's ELF file that is to be loaded into RAM by the bootloader. If the SD card is partitioned as described in the <a href="../install_and_configure/bootloader_setup.html">Bootloader setup</a> section, the <code>BOOT</code> partition is used for this by placing the <code>sel4_image</code> file in the root of the partition.</p>
+<p>An advantage of this approach is that it makes use of a single medium that (a) is already being used to store U-Boot and (b) generally has a much larger capacity than is required by U-Boot alone.</p>
+<p>A disadvantage is that while U-Boot is likely to be a relatively unchanging artefact (once it has been configured for a particular board), during development the application is likely to be modified repeatedly, and removing, reprogramming, and replacing the SD card is inconvenient and physically stresses the card and its mountings.</p>
+<h4 id="loading-from-usb-flash-drive"><a class="header" href="#loading-from-usb-flash-drive">Loading from USB Flash Drive</a></h4>
+<p>The MaaXBoard has two USB 3.0 connectors that U-Boot is able to access, so the application file may be stored on a removable USB flash drive (i.e. thumb/pen drive) and loaded into RAM by U-Boot. To load the <code>sel4_image</code> binary from a USB flash drive the file needs to be placed in the root of a FAT formatted drive.</p>
+<p>Compared with loading from SD card, this approach has the advantage of leaving the SD card and its U-Boot image undisturbed, although it still involves physical insertion and removal of the flash drive on both the development board and the host machine whenever a new version is to be tested.</p>
+<h4 id="loading-via-tftp"><a class="header" href="#loading-via-tftp">Loading via TFTP</a></h4>
+<p>The MaaXBoard has an Ethernet port that U-Boot is able to access, and the application file may be downloaded from the host machine over TFTP (Trivial File Transfer Protocol), a convenient and popular method for booting.</p>
+<p>Connection options include either a direct wired Ethernet connection between the host machine and the MaaXBoard:</p>
+<p><img src="figures/TFTP-option-direct.png" alt="TFTP option direct connection" /></p>
+<p>Or a network connection via a hub / router:</p>
+<p><img src="figures/TFTP-option-router.png" alt="TFTP option router connection" /></p>
+<p>Loading via TFTP is considered to be the most convenient method within an application development environment as there is no need to keep plugging and unplugging anything from the board. To load the <code>sel4_image</code> binary via TFTP, the file needs to be made available for download from the TFTP server.</p>
+<p>Below are the instructions for setting up TFTP on linux:</p>
+<h4 id="setting-up-a-netboot-server-using-tftp"><a class="header" href="#setting-up-a-netboot-server-using-tftp">Setting up a netboot server using TFTP</a></h4>
+<ol>
+<li><a href="https://thekelleys.org.uk/dnsmasq/doc.html">Dnsmasq</a> is the application used to provide a network infrastructure. The program can be installed using your provided package manager (for Debian, this would be <code>apt</code>).</li>
+</ol>
+<pre><code>sudo apt install dnsmasq
+</code></pre>
+<ol start="2">
+<li>
+<p>Create the root folder where the image will be stored. In this example, the path will be <code>/var/lib/tftpboot</code>.</p>
+</li>
+<li>
+<p>Identify the ethernet interface you will be connecting the board to using <code>ip addr</code> command from the terminal.</p>
+</li>
+</ol>
+<pre><code>$ ip addr
+1. eno2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP gruop default qlen 1000
+    link/ether [IPv4 ADDRESS] brd ff:ff:ff:ff:ff:ff
+    altname enp2s0
+    inet 10.0.0.253/24 scope global eno2
+        valid_lft forever preferred_lft forever
+    inet6 [IPv6 ADDRESS] scope link
+        valid_lft forever preferred_lft forever
+</code></pre>
+<p>From this command, the necessary information is the <em>mac address</em> of the interface (01:23:45:67:89:0a in this case), and the <em>inet address</em> (10.0.0.253).</p>
+<ol start="4">
+<li>Edit the file <code>/etc/dnsmasq.conf</code> with the output of the ip addr command. The dnsmasq.conf file takes this format:</li>
+</ol>
+<pre><code>interface=&lt;interface_name&gt;
+dhcp-range=&lt;start_ip&gt;,&lt;end_ip&gt;,&lt;lease_time&gt;
+dhcp-host=&lt;mac_address&gt;,&lt;hostname&gt;,infinite
+dhcp-boot=&lt;image_name&gt;
+enable-tftp
+tftp-root=&lt;root_folder&gt;
+</code></pre>
+<ul>
+<li>interface -&gt; Specifies which network interface dnsmasq will listen on for DHCP and TFTP requests</li>
+<li>dhcp-range -&gt; Defines the range of IP addresses that dnsmasq can allocate to devices on the network via DHCP.</li>
+<li>dhcp-host -&gt; Maps a specific MAC address to a hostname and optionally assigns a permanent IP address (infinite lease time)</li>
+<li>dhcp-boot -&gt; Specifies the boot file that should be served to clients requesting a network boot via TFTP</li>
+<li>enable-tftp -&gt; Enables the TFTP (Trivial File Transfer Protocol) server functionality within dnsmasq.</li>
+<li>tftp-root -&gt; Specifies the directory where the TFTP server will look for files to serve.</li>
+</ul>
+<p>For the output listed in step 3, the file will look like this:</p>
+<pre><code>interface=eno2
+dhcp-range=10.0.0.101,10.0.0.200,12h
+dhcp-host=01:23:45:67:89:0a,svr1,infinite
+dhcp-boot=sel4_image
+enable-tftp
+tftp-root=/var/lib/tftpboot
+</code></pre>
+<ol start="5">
+<li>With the setup complete for dnsmasq, the service can be started and enabled. To ensure the service has properly started, the <code>status</code> command can be used.</li>
+</ol>
+<pre><code>systemctl start dnsmasq
+systemctl enable dnsmasq
+systemctl status dnsmasq
+</code></pre>
+<p>If, at any point, any of the configuration files need to be changed, the service will need to be restarted with <code>systemctl restart dnsmasq</code> to see these changes reflected.</p>
+<ol start="6">
+<li>If a firewall is enabled, rules will need to be added to allow requests to pass to the dnsmasq server. The following commands will permit requests:</li>
+</ol>
+<pre><code>iptables -A INPUT -i eno2 --dport 69 -j ACCEPT
+iptables -A INPUT -i eno2 -p tcp --dport 67:68 -j accept
+</code></pre>
+<ol start="7">
+<li>
+<p>The board is now ready to use the tftp server. The bootloader will try to boot using <code>sel4_image</code> stored in <code>/var/lib/tftpboot</code>.</p>
+</li>
+<li>
+<p>If an error occurs and U-Boot drops to a prompt, the image can still be booted using U-Boot commands. Using <code>bootp sel4_image</code> will load the file to a memory address (usually <code>50000000</code>), where it can then be booted using <code>bootelf 50000000</code> for .elf files or <code>go 50000000</code> for .img files. This method can also be used to boot different images. By using <code>bootp</code>, any file contained within <code>/var/lib/tftpboot</code> can be loaded and then booted.</p>
+</li>
+</ol>
+<pre><code>u-boot=&gt; bootp sel4_image
+BOOTP broadcast 1
+DHCP client bound to address 10.0.0.115 (6ms)
+Using ethernet@30be0000 device
+TFTP from server 10.0.0.253 our IP address is 10.0.0.115
+Filename 'sel4_image'.
+Load address 0x40480000
+Loading: ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###############################################################################
+         ###########################################################################
+         11.9 MiB/s
+done
+Bytes transferred = 15217072 (e831b0)
+u-boot=&gt; bootelf 40480000
+</code></pre>
+<h3 id="u-boot-configuration-file"><a class="header" href="#u-boot-configuration-file">U-Boot Configuration File</a></h3>
+<p>Booting via U-Boot can be configured via commands stored in a file named <code>uEnv.txt</code> and placed in the <code>BOOT</code> partition of the SD card.</p>
+<p>The example file below (stored on the SD card prepared via the instructions in the <a href="../install_and_configure/bootloader_setup.html">Bootloader Setup</a> section) automatically searches for, loads and then executes the binary file named <code>sel4_image</code>. The following potential locations for the <code>sel4_image</code> are searched in order:</p>
+<ol>
+<li>USB flash drive with a FAT filesystem.</li>
+<li>SD Card / eMMC device with a FAT filesystem.</li>
+<li>TFTP server.</li>
+</ol>
+<pre><code class="language-text">### Uncomment and define the 'ipaddr' and 'netmask' variables to statically set
+### the device IP address. If no static IP address is provided one will attempt to
+### assigned using DHCP / BOOTP.
+
+### ipaddr=192.168.100.50
+### netmask=255.255.255.0
+
+### Uncomment and define the 'serverip' address to set the IP address of the
+### TFTP server. If no server IP address is defined then no attempt to boot
+### from TFTP will be made.
+
+serverip=192.168.0.11
+
+### Define the name of the ELF binary to boot.
+
+elf_binary_file=sel4_image
+
+### Attempt to boot the ELF binary. The following locations will be searched in
+### priority order:
+### 1. USB mass storage devices with a FAT filesystem.
+### 2. SD Card / eMMC devices with a FAT filesystem.
+### 3. TFTP server.
+
+elf_dev_boot=if ${devtype} dev ${devnum}; then echo Booting ELF binary from ${devtype} ${devnum} ...; fatload ${devtype} ${devnum} ${loadaddr} ${elf_binary_file}; bootelf ${loadaddr}; fi
+elf_tftp_boot_0=if test -n ${serverip}; then run elf_tftp_boot_1; else echo Skipping booting ELF binary from TFTP, serverip not defined; fi
+elf_tftp_boot_1=if test -n ${ipaddr}; then echo Using statically defined IP address; else echo Setting IP address from DHCP / BOOTP; setenv autoload no; dhcp; fi; run elf_tftp_boot_2
+elf_tftp_boot_2=echo Booting ELF binary from TFTP ...; tftp ${loadaddr} ${elf_binary_file}; bootelf ${loadaddr}
+uenvcmd=usb start; for devtype in usb mmc; do for devnum in 0 1; do run elf_dev_boot; done; done; run elf_tftp_boot_0
+</code></pre>
+<p>Some configuration of the <code>uEnv.txt</code> file is required, e.g. to set IP addresses relevant to the user's network. This is covered in more detail in the <a href="../install_and_configure/bootloader_setup.html">Bootloader Setup</a> and <a href="main.html">First Boot</a> sections.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../first_boot/main.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../first_boot/sel4test.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../first_boot/main.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../first_boot/sel4test.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

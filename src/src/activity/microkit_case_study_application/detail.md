@@ -6,29 +6,33 @@ It is expected that the reader is familiar with the [seL4 Microkit manual](https
 
 ## Code Structure
 
-The application is held within the following structure (all within the `microkit` folder), with key folders and files shown:
+The application is held within the following structure with key folders and files shown:
 
 ```text
+root
+│    
 project_libs
+│   │
+│   │      
+│   ├───include
+│   │   └───plat
+│   │       └───<platform>
+│   │            ├───mmc_platform_devices.h
+│   │            └───usb_platform_devices.h
+│   │
+│   └───CMakeLists.txt
 │
-├───example
-│   └───<platform>
-│       └───security_demo
-│           ├───security_demo.system
-│           ├───crypto
-│           │    └───crypto.c
-│           ├───keyreader
-│           │   └───keyreader.c
-│           └───transmitter
-│               └───transmitter.c
-│      
-├───include
-│   └───plat
-│       └───<platform>
-│            ├───mmc_platform_devices.h
-│            └───usb_platform_devices.h
-│
-└───CMakeLists.txt
+└───examples
+    └───<platform>
+          └───security_demo
+              ├───security_demo.system
+              ├───crypto
+              │    └───crypto.c
+              ├───keyreader
+              │   └───keyreader.c
+              └───transmitter
+                  └───transmitter.c
+      
 ```
 
 - `CMakeLists.txt`: Application build file.
@@ -59,7 +63,7 @@ All data is passed from the high-side to the low-side through a shared circular 
 
 The circular buffer shared between the Crypto protection domain (high-side) and the Transmitter protection domain (low-side) is used in this section as a detailed worked example of Microkit data flow and control flow.
 
-The buffer has been deliberately designed for the purpose of this worked example to use two types of protection domain interface listed in the [seL4 Microkit manual](https://github.com/sel4-cap/microkit-old/blob/main/docs/manual.md), i.e. Memory region and Notification.
+The buffer has been deliberately designed for the purpose of this worked example to use two types of protection domain interface listed in the [seL4 Microkit manual](https://github.com/seL4/microkit/blob/main/docs/manual.md), i.e. Memory region and Notification.
 
 ### Memory Region
 

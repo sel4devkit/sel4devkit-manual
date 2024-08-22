@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Activity: Microkit HDMI Driver - seL4 Developer Kit</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="A developer kit for the seL4 microkernel on the Avnet MaaXBoard SBC (Single Board Computer).">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../introduction/main.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../introduction/audience.html"><strong aria-hidden="true">1.1.</strong> Audience</a></li><li class="chapter-item expanded "><a href="../../introduction/overview.html"><strong aria-hidden="true">1.2.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../introduction/structure.html"><strong aria-hidden="true">1.3.</strong> Structure</a></li></ol></li><li class="chapter-item expanded "><a href="../../resources/main.html"><strong aria-hidden="true">2.</strong> Resources</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../resources/sel4_microkernel.html"><strong aria-hidden="true">2.1.</strong> seL4 Microkernel</a></li><li class="chapter-item expanded "><a href="../../resources/avent_maaxboard.html"><strong aria-hidden="true">2.2.</strong> Avent MaaXBoard</a></li><li class="chapter-item expanded "><a href="../../resources/repositories.html"><strong aria-hidden="true">2.3.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../resources/glossary.html"><strong aria-hidden="true">2.4.</strong> Glossary</a></li></ol></li><li class="chapter-item expanded "><a href="../../development_platform/main.html"><strong aria-hidden="true">3.</strong> Development Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../development_platform/hardware_requirements.html"><strong aria-hidden="true">3.1.</strong> Hardware Requirements</a></li><li class="chapter-item expanded "><a href="../../development_platform/software_requirements.html"><strong aria-hidden="true">3.2.</strong> Software Requirements</a></li></ol></li><li class="chapter-item expanded "><a href="../../install_and_configure/main.html"><strong aria-hidden="true">4.</strong> Install and Configure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../install_and_configure/host_setup.html"><strong aria-hidden="true">4.1.</strong> Host Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/build_environment_setup.html"><strong aria-hidden="true">4.2.</strong> Build Environment Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/target_setup.html"><strong aria-hidden="true">4.3.</strong> Target Setup</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/bootloader_setup.html"><strong aria-hidden="true">4.4.</strong> Bootloader Setup</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../install_and_configure/using_the_prebuilt_image.html"><strong aria-hidden="true">4.4.1.</strong> Using the Prebuilt Image</a></li><li class="chapter-item expanded "><a href="../../install_and_configure/building_uboot_manually.html"><strong aria-hidden="true">4.4.2.</strong> Building U-boot Manually</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../first_boot/main.html"><strong aria-hidden="true">5.</strong> First Boot</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../first_boot/bootloader.html"><strong aria-hidden="true">5.1.</strong> Bootloader</a></li><li class="chapter-item expanded "><a href="../../first_boot/sel4test.html"><strong aria-hidden="true">5.2.</strong> seL4Test</a></li><li class="chapter-item expanded "><a href="../../first_boot/camkes_adder.html"><strong aria-hidden="true">5.3.</strong> CAmkES Adder</a></li><li class="chapter-item expanded "><a href="../../first_boot/microkit_hello_world.html"><strong aria-hidden="true">5.4.</strong> Microkit Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="../../activities/main.html"><strong aria-hidden="true">6.</strong> Activities</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/microkit_memory_probe/main.html"><strong aria-hidden="true">6.1.</strong> Activity: Microkit Memory Probe</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/main.html"><strong aria-hidden="true">6.2.</strong> Activity: Device Drivers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_driver_library.html"><strong aria-hidden="true">6.2.1.</strong> U-Boot Driver Library Overview</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_driver_usage.html"><strong aria-hidden="true">6.2.2.</strong> Using the U-Boot Driver Library</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_library_add_platform.html"><strong aria-hidden="true">6.2.3.</strong> Library Extension - New Platform</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/add_odroidc2.html"><strong aria-hidden="true">6.2.3.1.</strong> Add Odroid C2</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/uboot_library_add_driver.html"><strong aria-hidden="true">6.2.4.</strong> Library Extension - New Driver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/device_drivers/add_driver_worked_example.html"><strong aria-hidden="true">6.2.4.1.</strong> Add Driver Worked Example</a></li><li class="chapter-item expanded "><a href="../../activity/device_drivers/driver_troubleshooting.html"><strong aria-hidden="true">6.2.4.2.</strong> Driver Troubleshooting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../activity/spi_bus_bmp280_pressure_sensor/main.html"><strong aria-hidden="true">6.3.</strong> Activity: SPI Bus BMP280 Pressure Sensor</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/main.html"><strong aria-hidden="true">6.4.</strong> Activity: CAmkES Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/architecture.html"><strong aria-hidden="true">6.4.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/detail.html"><strong aria-hidden="true">6.4.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../../activity/camkes_case_study_application/build.html"><strong aria-hidden="true">6.4.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/main.html"><strong aria-hidden="true">6.5.</strong> Activity: Microkit Case Study Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/architecture.html"><strong aria-hidden="true">6.5.1.</strong> Architecture</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/detail.html"><strong aria-hidden="true">6.5.2.</strong> Design</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_case_study_application/build.html"><strong aria-hidden="true">6.5.3.</strong> Build</a></li></ol></li><li class="chapter-item expanded "><a href="../../activity/microkit_usb_driver/main.html"><strong aria-hidden="true">6.6.</strong> Activity: Microkit USB Driver</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_hdmi_driver/main.html" class="active"><strong aria-hidden="true">6.7.</strong> Activity: Microkit HDMI Driver</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_single_linux_guest/main.html"><strong aria-hidden="true">6.8.</strong> Activity: Microkit VMM Single Linux Guest</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_dual_linux_guest_tty_multiplex/main.html"><strong aria-hidden="true">6.9.</strong> Activity: Microkit VMM Dual Linux Guest TTY Multiplex</a></li><li class="chapter-item expanded "><a href="../../activity/microkit_vmm_dual_linux_guest_usb_routing/main.html"><strong aria-hidden="true">6.10.</strong> Activity: Microkit VMM Dual Linux Guest USB Routing</a></li></ol></li><li class="chapter-item expanded "><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../licensing.html">Licensing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">seL4 Developer Kit</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sel4devkit/sel4devkit-manual" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hdmi-driver"><a class="header" href="#hdmi-driver">HDMI Driver</a></h1>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>For this task the aim was to create an HDMI display driver. For inspiration we looked at U-Boot’s imx8m display driver because it is BSD licensed and minimally featured which was useful to use as an initial foundation to build upon. We opted to copy the code into our repository rather than have a fork like we did with the xHCI driver. This is because we used a minimal amount of U-Boot's code and it was easier to manage compared to keeping a fork of a large repository up to date.</p>
+<p>The repository for this project is located <a href="https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver">here</a>.</p>
+<h2 id="displaying-a-static-image"><a class="header" href="#displaying-a-static-image">Displaying a Static Image</a></h2>
+<p>The first goal was to understand U-Boot’s display driver and to set up our memory regions for the frame buffer and the physical devices required by the driver. After building and running the U-Boot example, we looked through the source code and found relevant sections in IMX8M technical specification to get a better understanding of how to write the display driver. We currently rely on the firmware provided by U-Boot which needs to be configured when setting up the development environment.</p>
+<p>Through reading the technical specification we learnt that the two main components of the Maaxboard needed for the driver are the DCSS (Display Controller Subsystem) and the HDMI TX Controller. With this information we were able to understand the purpose of the memory register read and write operations and which register bits needed to be set for specific functionality. We decided to use one protection domain for the simplicity of having one area to handle all operations.</p>
+<p>After gaining a deeper understanding of Maaxboard and U-Boots implementation, we set values for the essential memory registers including where to set the address of the frame buffer to. For the frame buffer, we defined a region of memory that was large enough for our currently selected screen resolution and bit depth.</p>
+<p>In order to read and write from specific memory registers, they must be explicitly defined in the system file for the PD that they are being accessed from. This is an essential concept to grasp when working with Microkit. The majority of the code was taken from U-Boot, so the main focus of this part of the task was to set up the parts of the code that directly interfaced with the hardware. For other projects this could include registering and handling interrupts.</p>
+<p>Our initial display configuration had a screen resolution of 1280x720 and a colour depth of 32 bit RGB. This meant that each pixel was composed of 32 bits (8 bits reserved for each colour and an additional alpha channel for colour transparency). With this information, we were able to display four equally spaced bars across the screen as red, green, blue and white. We then experimented with different screen resolutions which involved re-defining the size of the frame buffer so that it could accommodate larger screen resolutions.</p>
+<h2 id="displaying-a-moving-image"><a class="header" href="#displaying-a-moving-image">Displaying a Moving Image</a></h2>
+<p>The next goal was to display a moving image, which first involved learning about the theory of double buffering and understanding the capabilities of the Maaxboard’s DCSS. Double buffering makes use of two buffers. The first buffer stores the current frame and the second buffer stores the next frame. Whilst the current frame is being displayed the second buffer is being written to. During the window of time where the image on screen is not actively being redrawn, the pointers to each buffer are swapped.</p>
+<p>U-Boot’s implementation did not provide any capability to drive video, so we needed to investigate and understand the technical specification in greater detail. We found a component of the DCSS called the Context Loader which can be configured to change various parts of the display state at specific timing intervals. This would act as the trigger to switch the pointers to each frame buffer.</p>
+<p>For our implementation we decided to use two PD’s. One PD contains the display driver, consisting of the DCSS and the HDMI TX Controller. The other PD contains the API and examples which demonstrate different use cases of the driver. The system is designed such that the two PD’s communicate with each other through notifications and make use of a single shared DMA memory region. This memory region is split into different parts which are accessed by a pointer with a specific offset for different parts of the memory e.g frame buffer 1, frame buffer 2. This approach was implemented for simplicity so that the memory is easily accessible, however it would be better to define individual DMA regions for specific tasks, so that certain parts of the memory are only exposed to the PD that should have access to it.</p>
+<p>The initial time to redraw the buffer was slow because we were writing 8 bits of the 32 bit pixel at a time. To combat this we optimised the code logic reducing loops and where possible, we wrote 16, 32 or 64 bits at a time to minimise the amount of separate CPU instructions. This example is limited by the technology that we have available to us. For fully-fledged display drivers, there will be extra bits of hardware that will be able to handle the different stages of processing video, drastically increasing performance.</p>
+<p>For moving images there is a visible redraw of the screen when switching between frames. This is most noticeable when the whole screen has changed. Multiple attempts have been made to combat this issue, which have been listed in the repo for this activity.</p>
+<p>The API contains the following examples:</p>
+<ul>
+<li>static_image - Displays 4 colour bars on the screen.</li>
+<li>resolution_change - Displays a square of the same size in pixels one after another at three different resolutions.</li>
+<li>rotating_bars - Displays 4 colour bars rotating across the screen.</li>
+<li>moving_square - A small square that moves around the screen, changing direction each time it hits the side of the screen.</li>
+</ul>
+<h2 id="project-environment"><a class="header" href="#project-environment">Project Environment</a></h2>
+<p>Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../activity/microkit_usb_driver/main.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../activity/microkit_vmm_single_linux_guest/main.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../activity/microkit_usb_driver/main.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../activity/microkit_vmm_single_linux_guest/main.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

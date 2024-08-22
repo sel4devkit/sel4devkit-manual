@@ -36,7 +36,7 @@ Sections below give a basic overview of the test applications and how to build a
 
 ### Overview of the `uboot-driver-example` test application
 
-The source file at `camkes/apps/uboot-driver-example/components/Test/src/test.c`/ `project_libs/example/maaxboard/uboot-driver-example/uboot-driver-example.c` represents the script for the test application. It contains `run_uboot_cmd("...")` calls to U-Boot commands that are supported by the library. The set of supported commands can be readily seen in the `cmd_tbl` entries of `projects_libs/libubootdrivers/include/plat/maaxboard/plat_driver_data.h`.
+The source file at `camkes/apps/uboot-driver-example/components/Test/src/test.c`/ `examples/maaxboard/uboot-driver-example/uboot-driver-example.c` represents the script for the test application. It contains `run_uboot_cmd("...")` calls to U-Boot commands that are supported by the library. The set of supported commands can be readily seen in the `cmd_tbl` entries of `projects_libs/libubootdrivers/include/plat/maaxboard/plat_driver_data.h`.
 
 It is left to the reader to look through the test script in detail, but the features demonstrated include the following.
 
@@ -106,9 +106,7 @@ cd build
 ninja
 ```
 
-A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
-
-### Instructions for running `uboot-driver-example` 
+A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md). 
 
 #### Microkit
 
@@ -120,14 +118,14 @@ cd /host/uboot_test
 ```
 
 ```bash
-repo init -u https://github.com/sel4devkit/microkit_manifest
+repo init -u git@github.com:sel4devkit/sel4devkit-maaxboard-microkit_manifest.git
 ```
 
 ```bash
 repo sync
 ```
 
-The test application includes an Ethernet operation (`ping`) with hard-coded IP addresses; these need to be customised for an individual's environment. The following lines of the source file `microkit/example/maaxboard/uboot-driver-example/uboot-driver-example.c` should be edited:
+The test application includes an Ethernet operation (`ping`) with hard-coded IP addresses; these need to be customised for an individual's environment. The following lines of the source file `examples/maaxboard/uboot-driver-example/uboot-driver-example.c` should be edited:
 
 ```c
 run_uboot_command("setenv ipaddr xxx.xxx.xxx.xxx"); // IP address to allocate to MaaXBoard
@@ -145,10 +143,16 @@ run_uboot_command("ping 8.8.8.8"); // An example internet IP address (Google DNS
 From the `/host/uboot_test/project_libs` directory, execute the following command:
 
 ```bash
-./init-build.sh -DMICROKIT_APP=uboot-driver-example -DPLATFORM=maaxboard
+./init-build.sh -DMICROKIT_APP=uboot_driver_example -DPLATFORM=maaxboard
 ```
 
 A successful build will result in an executable file called `sel4_image` in the `project_libs/example/maaxboard/uboot-driver-example/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
+
+Once build there is an option to rebuild the entire project using the below command:
+
+```bash
+./init-build.sh -DMICROKIT_APP=uboot_driver_example -DPLATFORM=maaxboard -DBUILD_TYPE=rebuild
+```
 
 ## Test application: `picoserver_uboot`
 
