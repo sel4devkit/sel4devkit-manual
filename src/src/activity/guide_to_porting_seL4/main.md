@@ -1,4 +1,4 @@
-## Guide to Porting seL4
+# Guide to Porting seL4
 
 The level of work required and complexity of porting seL4 to a new platform is directly related to the level of similarity between the system to be ported and systems already supported by seL4. Porting seL4 to a new system based upon a SoC (system-on-chip) already supported by seL4 is likely to be relatively straightforward whilst porting seL4 to a system with a currently unsupported SoC is likely to require more work, e.g. requiring the addition of new serial and timer drivers.
 
@@ -6,7 +6,7 @@ As a starting point the user should read and understand the excellent guidance o
 
 The remainder of this section does not seek to repeat any information in the seL4 documentation; instead it provides more detailed guidance and worked examples based upon the experience of porting seL4 to the Avnet MaaXBoard.
 
-### Device Tree (DTS)
+## Device Tree (DTS)
 
 A device tree (DTS file) contains plain text data that describes a platform's hardware. A key requirement in porting seL4 to a new platform is the provision of a device tree describing the platform. A device tree can normally either be sourced from the Linux kernel or from a Linux distribution supplied by the platform manufacturer.
 
@@ -27,7 +27,7 @@ dtc -o maaxboard.dts temp.dtb
 
 Following creation of the platform's DTS file it should be stored in the `boards` directory 
 
-### Previous Worked Examples
+## Previous Worked Examples
 
 To help fully understand the guidance supplied by the seL4 documentation, it is informative to examine the changes made previously to the seL4 repositories to support new platforms. To that end the following links are to commits in the seL4 git repositories where support for platforms was added. It should be noted that to perform a basic port of seL4 to a new platform, i.e. sufficient to run and pass the seL4Test application, will require modification to the [`seL4`](https://github.com/seL4/seL4), [`seL4_tools`](https://github.com/seL4/seL4_tools) and [`util_libs`](https://github.com/seL4/util_libs) git repositories.
 
@@ -46,7 +46,7 @@ To help fully understand the guidance supplied by the seL4 documentation, it is 
   - [seL4_tools commit](https://github.com/seL4/seL4_tools/commit/f086b4b818d51519a6d00f6934d97c2a3a834cbe)
   - [util_libs commit](https://github.com/seL4/util_libs/commit/b6f99879e59950f39ee35472ab15eac1efb0f139)
 
-### Testing the Port With seL4Test
+## Testing the Port With seL4Test
 
 To confirm the correct functionality of a port it is recommended that the [seL4Test](https://docs.sel4.systems/projects/sel4test/) test suite is executed.
 
