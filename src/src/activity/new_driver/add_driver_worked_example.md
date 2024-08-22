@@ -207,7 +207,9 @@ The `add_definitions` lines establish the configuration macros. Note that `CONFI
 
 After these changes, within our `build` directory, `init_build` followed by `ninja` should result in a clean build.
 
-## Integrating the driver with CAmkES
+## Integrating the driver:
+
+### CAmkES
 
 We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the `uboot-driver-example` test application introduced earlier – see [Using the U-Boot Driver Library](uboot_driver_usage.md#instructions-for-running-the-uboot-driver-example-test) – we need to modify the file `camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h` as follows.
 
@@ -275,6 +277,39 @@ And also added to `HARDWARE_CONFIGURATION`:
     i2c_2.dtb     = dtb({ "path" : REG_I2C_2_PATH });  \
     i2c_3.dtb     = dtb({ "path" : REG_I2C_3_PATH });  \
     ...
+```
+
+### Microkit
+
+We have established the underlying driver code, but it is not yet integrated within the Microkit protection domain that we shall be using. Assuming that we use the `uboot-driver-example` test application introduced earlier – see [Using the U-Boot Driver Library](uboot_driver_usage.md#instructions-for-running-the-uboot-driver-example-test) – we need to modify the file `project_libs/include/plat/maaxboard/all_platform_devices.h` as follows.
+
+Firstly, we need to add path definitions so that the devices can be located in the device tree:
+
+```c
+#define REG_I2C_0_PATH      "/soc@0/bus@30800000/i2c@30a20000"
+#define REG_I2C_1_PATH      "/soc@0/bus@30800000/i2c@30a30000"
+#define REG_I2C_2_PATH      "/soc@0/bus@30800000/i2c@30a40000"
+#define REG_I2C_3_PATH      "/soc@0/bus@30800000/i2c@30a50000"
+...
+#define DEV_I2C_0_PATH      REG_I2C_0_PATH
+#define DEV_I2C_1_PATH      REG_I2C_1_PATH
+#define DEV_I2C_2_PATH      REG_I2C_2_PATH
+#define DEV_I2C_3_PATH      REG_I2C_3_PATH
+```
+
+These need to be added to `DEV_PATHS` and `DEV_PATH_COUNT` should be modified accordingly:
+
+```c
+#define DEV_PATH_COUNT 19 // In this example previous size was 15 so +4
+
+#define DEV_PATHS {   \
+    ...               \
+    DEV_I2C_0_PATH,   \
+    DEV_I2C_1_PATH,   \
+    DEV_I2C_2_PATH,   \
+    DEV_I2C_3_PATH,   \
+    ...
+    };
 ```
 
 ## Establishing the driver API
@@ -374,7 +409,7 @@ Within our `build` directory, after `init_build` and `ninja`, this should build 
 
 ## Testing the driver
 
-Now that we have the I<sup>2</sup>C driver and its API, we can call `i2c` commands from our test application. For example, the following lines can be used within a CAmkES component (in our example, these would be added to file `camkes/apps/uboot-driver-example/components/Test/src/test.c`):
+Now that we have the I<sup>2</sup>C driver and its API, we can call `i2c` commands from our test application. For example, the following lines can be used within a CAmkES component or Microkit PD (in our example, these would be added to file `camkes/apps/uboot-driver-example/components/Test/src/test.c` or `examples/maaxboard/uboot_driver_example/uboot_driver_example.c`):
 
 ```c
     // I2C test
