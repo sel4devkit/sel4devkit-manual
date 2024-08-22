@@ -1,4 +1,4 @@
-## Microkit Monitor Errors
+# Microkit Monitor Errors
 We found these errors to be difficult to understand for a while, so here is the general format:
 
 ### Invalid channel ID
