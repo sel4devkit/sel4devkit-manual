@@ -1,5 +1,5 @@
-# Flattened Device Tree - FDT
-The FDT functionality allows much more flexibility and generic usage of our driver. We use the libfdt library provided by NetBSD (but also available as a stand-alone library) to traverse and process the tree which lowers the amount of the driver that needs to be statically programmed.
+# Flattened Device Tree
+The Flattened Device Tree (FDT) functionality allows much more flexibility and generic usage of our driver. We use the libfdt library provided by NetBSD (but also available as a stand-alone library) to traverse and process the tree which lowers the amount of the driver that needs to be statically programmed.
 
 Due to Microkit lacking the ability to load the utilised device tree (for some reason) we have to load in the binary using inline assembly. This can be seen in the memory handler PD:
 ```C
