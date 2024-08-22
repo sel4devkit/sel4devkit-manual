@@ -76,8 +76,8 @@ Throughout the sections of this guide devoted to extension of the U-Boot driver 
 ```
 
 - `project_libs/boards`: Location of platform device trees.
-- `example/<platform>/uboot-driver-example`: [The test application](uboot_driver_usage.md).
-- `project_libs/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4-cap/dev-kit-libs/tree/main/libubootdrivers).
+- `example/<platform>/uboot-driver-example`: [The test application](../device_drivers/uboot_driver_usage.md).
+- `project_libs/libubootdrivers`: Referred to as "the library" throughout. See [linked Git repository](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-project-libs/tree/main/libubootdrivers).
 - `project_libs/uboot`: Fork of the U-Boot project source code (note, this is also symlinked to `project_libs/libubootdrivers/uboot`).
 
 ## Required Reading

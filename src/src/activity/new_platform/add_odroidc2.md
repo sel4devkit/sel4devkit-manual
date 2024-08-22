@@ -24,23 +24,23 @@ You'll need to your own GitHub account to do this. From here on, we'll be using 
 GitHub account name `rod-chapman` for our local forks.
 
 1. Using the GitHub web GUI, create your own forks of the `sel4devkit-maaxboard-camkes-manifest`, `sel4devkit-maaxboard-camkes`,
-and `sel4devkit-maaxboard-camkes-projects_libs` repositories. You might want to rename using the board being ported.
+and `sel4devkit-maaxboard-camkes-projects-libs` repositories. You might want to rename using the board being ported.
 
 2. Clone the `sel4devkit-maaxboard-camkes-manifest` fork into your local machine, and create
 a new branch called `addc2` to make our changes. In the following commands, remember to change `rod-chapman` to your own GitHub user name:
 
     ```text
-    git clone https://github.com/rod-chapman/camkes-manifest.git
+    git clone https://github.com/rod-chapman/sel4devkit-maaxboard-camkes-manifest.git
     cd camkes-manifest
     git checkout -b addc2
     git push --set-upstream origin addc2
     cd ..
     ```
 
-3. Similarly, clone the `sel4devkit-maaxboard-camkes` and ``sel4devkit-maaxboard-camkes-projects_libs` forks, and add a new branch to each with the same name.
+3. Similarly, clone the `sel4devkit-maaxboard-camkes` and `sel4devkit-maaxboard-camkes-projects-libs` forks, and add a new branch to each with the same name.
 
     ```text
-    git clone https://github.com/rod-chapman/camkes.git
+    git clone https://github.com/rod-chapman/sel4devkit-maaxboard-camkes.git
     cd camkes
     git checkout -b addc2
     git push --set-upstream origin addc2
@@ -48,7 +48,7 @@ a new branch called `addc2` to make our changes. In the following commands, reme
     ```
 
     ```text
-    git clone https://github.com/rod-chapman/projects_libs.git
+    git clone https://github.com/rod-chapman/sel4devkit-maaxboard-camkes-projects-libs.git
     cd projects_libs
     git checkout -b addc2
     git push --set-upstream origin addc2
@@ -64,7 +64,7 @@ case called `rod`) pointing at our own GitHub account.
     <remote name="rod" fetch="https://github.com/rod-chapman"/>
     ```
 
-5. Similarly, edit the `default.xml` file to specify that the `sel4devkit-maaxboard-camkes` and `sel4devkit-maaxboard-camkes-projects_libs` repositories
+5. Similarly, edit the `default.xml` file to specify that the `sel4devkit-maaxboard-camkes` and `sel4devkit-maaxboard-camkes-projects-libs` repositories
 should come from the `addc2` branches of our own forked repositories. Find the `project` line for each
 repository and modify its entry to specify our own remote (`rod`) and branch (`addc2`).
 
@@ -288,7 +288,7 @@ and
 projects_libs/libubootdrivers/src/plat/odroidc2
 ```
 
-Following the templates from the [New Platform](uboot_library_add_platform.md) section,
+Following the templates from the [New Platform](main.md) section,
 we create `plat_driver_data.h` in the former of those directories.
 
 There are five UClass Drivers that are effectively mandatory (`nop`, `root`, `simple_bus`, `phy` and `blk`),

@@ -84,7 +84,7 @@ We can see that the latter change has added to the arrays. In this example, the 
 
 In order to build the new driver files, we need to add them to the `libubootdrivers/CMakeLists.txt` makefile.
 
-There are also some U-Boot configuration macros relevant to I<sup>2</sup>C that are needed, which are also set within the makefile. In this example, we can use the guidance in the [Library Extension - New Driver](uboot_library_add_driver.md#updating-cmakeliststxt) section, and refer to the `.config` file created during the [Building U-Boot for the MaaXBoard](appendices/building_uboot.md) appendix. Using the suggested directory name from that appendix, the filepath would be: `maaxboard_dockerimage/maaxboard-uboot-build/maaxboard-uboot/uboot-imx/.config`.
+There are also some U-Boot configuration macros relevant to I<sup>2</sup>C that are needed, which are also set within the makefile. In this example, we can use the guidance in the [Library Extension - New Driver](main.md#updating-cmakeliststxt) section, and refer to the `.config` file created during the [Building U-Boot for the MaaXBoard](../../install_and_configure/building_uboot_manually.md) document. Using the suggested directory name from that document, the filepath would be: `maaxboard_dockerimage/maaxboard-uboot-build/maaxboard-uboot/uboot-imx/.config`.
 
 Extracting I2C-related items (e.g. using `grep -i I2C .config`), we would see:
 
@@ -146,7 +146,7 @@ CONFIG_SYS_MXC_I2C3_SLAVE=0
 CONFIG_SPL_I2C_SUPPORT=y
 ```
 
-This is an excellent starting point and may well be complete; however, we may still need to apply some reasoning. For example, we do not need the final item (although it would do no harm), as SPL is only used when compiling the secondary bootloader and `CONFIG_SPL_I2C_SUPPORT` does not appear in our U-Boot code. The penultimate item concerning I2C4 (currently commented) is inaccurate and is an omission from this `maaxboard-uboot/uboot-imx` build. Examining the DTS file `maaxboard.dts` confirms that there are four I<sup>2</sup>C buses, so we will include a set of I2C4 macros. Note that, although inconsistent, it is not an issue that these macros use I2C1-I2C4 labels, whereas the DTS labels them 0-3. Our convention, such as in the following [CAmkES](#integrating-the-driver-with-camkes) section, will be to use 0-3 labels.
+This is an excellent starting point and may well be complete; however, we may still need to apply some reasoning. For example, we do not need the final item (although it would do no harm), as SPL is only used when compiling the secondary bootloader and `CONFIG_SPL_I2C_SUPPORT` does not appear in our U-Boot code. The penultimate item concerning I2C4 (currently commented) is inaccurate and is an omission from this `maaxboard-uboot/uboot-imx` build. Examining the DTS file `maaxboard.dts` confirms that there are four I<sup>2</sup>C buses, so we will include a set of I2C4 macros. Note that, although inconsistent, it is not an issue that these macros use I2C1-I2C4 labels, whereas the DTS labels them 0-3. Our convention, such as in the following [CAmkES](#integrating-the-driver) section, will be to use 0-3 labels.
 
 Combining the previous paragraphs, we update the `libubootdrivers/CMakeLists.txt` makefile as follows (showing only extracts relevant to I<sup>2</sup>C).
 

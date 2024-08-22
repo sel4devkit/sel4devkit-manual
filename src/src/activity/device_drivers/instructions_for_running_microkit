@@ -36,7 +36,7 @@ From the `/host/uboot_test/project_libs` directory, execute the following comman
 ./init-build.sh -DMICROKIT_APP=uboot_driver_example -DPLATFORM=maaxboard
 ```
 
-A successful build will result in an executable file called `sel4_image` in the `project_libs/example/maaxboard/uboot-driver-example/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
+A successful build will result in an executable file called `sel4_image` in the `examples/maaxboard/uboot-driver-example/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
 
 Once build there is an option to rebuild the entire project using the below command:
 
