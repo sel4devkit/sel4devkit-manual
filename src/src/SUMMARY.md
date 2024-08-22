@@ -37,7 +37,7 @@
             - [Instructions for running `uboot-driver-example` for CAmkES](activity/device_drivers/instructions_for_running_camkes)
             - [Instructions for running the `uboot-driver-example` for Microkit](activity/device_drivers/instructions_for_running_microkit)
 
-    -[Activity: Picoserver U-Boot](activity/device_drivers/main.md)
+    -[Activity: Picoserver U-Boot](activity/picoserver_uboot/main.md)
 
     - [Activity: Porting Device Drivers to a New Platform](activity/device_drivers/uboot_library_add_platform.md)
         - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
