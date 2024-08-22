@@ -55,11 +55,11 @@
 
     - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
         - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Common Errors](activity/microkit_usb_driver/common_errors.md)
+        - [Flattened Device Tree](activity/microkit_usb_driver/flattened_device_tree.md)
+        - [Memory Sharing](activity/microkit_usb_driver/memory_sharing.md)
+        - [Microkit Monitor Errors](activity/microkit_usb_driver/microkit_monitor_errors.md)
+        - [Extra Notes](activity/microkit_usb_driver/extra_notes.md)
 
     - [Activity: Microkit HDMI Driver](activity/microkit_hdmi_driver/main.md)
 
