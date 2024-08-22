@@ -12,7 +12,7 @@ cd /host/security_demo
 ```
 
 ```bash
-repo init -u https://github.com/sel4devkit/microkit_manifest
+repo init -u git@github.com:sel4devkit/sel4devkit-maaxboard-microkit_manifest.git
 ```
 
 ```bash

@@ -34,12 +34,19 @@
     - [Activity: Device Drivers](activity/device_drivers/main.md)
         - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
         - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
-        - [Library Extension - New Platform](activity/device_drivers/uboot_library_add_platform.md)
-            - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
-        - [Library Extension - New Driver](activity/device_drivers/uboot_library_add_driver.md)
-            - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
-            - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
+            - [Instructions for running `uboot-driver-example` for CAmkES](activity/device_drivers/instructions_for_running_camkes)
+            - [Instructions for running the `uboot-driver-example` for Microkit](activity/device_drivers/instructions_for_running_microkit)
 
+    -[Activity: Picoserver U-Boot](activity/device_drivers/main.md)
+
+    - [Activity: Porting Device Drivers to a New Platform](activity/device_drivers/uboot_library_add_platform.md)
+        - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
+
+    - [Activity: New Driver](activity/device_drivers/uboot_library_add_driver.md)
+        - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
+        - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
+
+    - [Activity: Guide to Porting seL4](activity/guide_to_porting_seL4/main.md)
 
     - [Activity: SPI Bus BMP280 Pressure Sensor](activity/spi_bus_bmp280_pressure_sensor/main.md)
 

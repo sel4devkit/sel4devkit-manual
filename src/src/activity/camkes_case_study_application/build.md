@@ -12,7 +12,7 @@ cd /host/security_demo
 ```
 
 ```bash
-repo init -u https://github.com/sel4devkit/camkes-manifest.git
+repo init -u https://github.com/sel4devkit/sel4devkit-maaxboard-camkes-manifest.git
 ```
 
 ```bash
