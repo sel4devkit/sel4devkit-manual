@@ -39,12 +39,12 @@
 
     - [Activity: Picoserver U-Boot](activity/picoserver_uboot/main.md)
 
-    - [Activity: Porting Device Drivers to a New Platform](activity/device_drivers/uboot_library_add_platform.md)
-        - [Add Odroid C2](activity/device_drivers/add_odroidc2.md)
+    - [Activity: Porting Device Drivers to a New Platform](activity/new_platform/main.md)
+        - [Add Odroid C2](activity/new_platform/add_odroidc2.md)
 
-    - [Activity: New Driver](activity/device_drivers/uboot_library_add_driver.md)
-        - [Add Driver Worked Example](activity/device_drivers/add_driver_worked_example.md)
-        - [Driver Troubleshooting](activity/device_drivers/driver_troubleshooting.md)
+    - [Activity: New Driver](activity/new_driver/main.md)
+        - [Add Driver Worked Example](activity/new_driver/add_driver_worked_example.md)
+        - [Driver Troubleshooting](activity/new_driver/driver_troubleshooting.md)
 
     - [Activity: Guide to Porting seL4](activity/guide_to_porting_seL4/main.md)
 
