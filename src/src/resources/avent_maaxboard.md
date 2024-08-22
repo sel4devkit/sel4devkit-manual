@@ -1,7 +1,34 @@
 # Avnet MaaxBoard
 
-The Avnet MaaxBoard is a powerful single-board computer (SBC) designed to cater to a embedded computing applications. Built around the NXP i.MX 8M Quad processor, the MaaxBoard offers robust performance with its quad-core ARM Cortex-A53 CPU and ARM Cortex-M4 co-processor, making it suitable for multimedia, IoT, and industrial automation projects. It features a rich set of I/O options, including multiple USB ports, Gigabit Ethernet, HDMI output, and support for various display and camera interfaces, providing flexibility for diverse development needs. The board is also equipped with 2GB of LPDDR4 memory and 16GB of eMMC storage, ensuring ample resources for running complex applications. With its compatibility with popular Linux distributions and support from a vibrant community, the Avnet MaaxBoard stands out as a versatile and accessible platform for developers looking to prototype and deploy innovative embedded solutions.
+
+The 
+
+
+The [Avnet MaaXBoard]("../avent_maaxboard/main.md")
+
+- Selecting a readily available low-cost SBC (Single Board Computer) as the
+  target platform ().
+
+
+
+The Avnet MaaxBoard is a powerful single-board computer (SBC) designed to
+cater to a embedded computing applications. Built around the NXP i.MX 8M Quad
+processor, the MaaxBoard offers robust performance with its quad-core ARM
+Cortex-A53 CPU and ARM Cortex-M4 co-processor, making it suitable for
+multimedia, IoT, and industrial automation projects. It features a rich set of
+I/O options, including multiple USB ports, Gigabit Ethernet, HDMI output, and
+support for various display and camera interfaces, providing flexibility for
+diverse development needs. The board is also equipped with 2GB of LPDDR4
+memory and 16GB of eMMC storage, ensuring ample resources for running complex
+applications. With its compatibility with popular Linux distributions and
+support from a vibrant community, the Avnet MaaxBoard stands out as a
+versatile and accessible platform for developers looking to prototype and
+deploy innovative embedded solutions.
 
 ## IMX8M processor
 
-The Avnet MaaxBoard uses the i.MX 8M Quad processor developed by NXP. The application processor reference manual is a useful document for developing atop this processor. This link for this manual is [here](https://www.nxp.com/webapp/sps/download/preDownload.jsp?render=true). You will to create an NXP account the gain access to the manual.
+The Avnet MaaxBoard uses the i.MX 8M Quad processor developed by NXP. The
+application processor reference manual is a useful document for developing
+atop this processor. This link for this manual is
+[here](https://www.nxp.com/webapp/sps/download/preDownload.jsp?render=true).
+You will to create an NXP account the gain access to the manual.

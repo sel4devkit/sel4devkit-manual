@@ -6,7 +6,6 @@
 - [Resources](resources/main.md)
     - [seL4 Microkernel](resources/sel4_microkernel.md)
     - [Avent MaaXBoard](resources/avent_maaxboard.md)
-    - [Repositories](resources/repositories.md)
     - [Glossary](resources/glossary.md)
 
 - [Development Platform](development_platform/main.md)

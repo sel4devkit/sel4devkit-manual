@@ -15,5 +15,3 @@ to the seL4 Developer Kit.
 summarise and reference entry points into its available resources.
 - [Glossary](../resources/glossary.md): A consolidated glossary of key terms
   for subsequent reference.
-- [Repositories](../resources/repositories.md): Summarise the suite of
-  repositories that collectively deliver the seL4 Developer Kit.

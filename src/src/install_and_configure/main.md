@@ -2,7 +2,7 @@
 
 This section details how to configure a build environment with all tools required to generate seL4 executable images.
 
-Development is conducted across three different environments
+Development is conducted across three different environments:
 
 1. **Host Machine**: The developer's host machine. This can be running macOS, Linux, or Windows.
 
