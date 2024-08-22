@@ -1,5 +1,5 @@
 
-# Setting up U-Boot config
+# Setting up the U-Boot config file
 
 A U-Boot configuration file (uEnv.txt) is contained within the provided image. It is placed in the root of the `BOOT` partition and is named `uEnv.txt`. It contains 3 main configurable items:
 
