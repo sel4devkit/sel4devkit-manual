@@ -9,9 +9,6 @@ A U-Boot configuration file (uEnv.txt) is contained within the provided image. I
 
 3. ELF binary name (`elf_binary_file`): the name of the ELF binary the U-Boot will try to load, first from a USB device, then from a SD card, and finally via the configured TFTP server.
 
-## Microkit
-
-
-## CAmkES
+Different commands are needed to load each type of image. Microkit generates .img file which is loaded using the "go" instruction and CAmkES generates a .elf file which is loaded using the "bootelf" command. To see different U-Boot configuration options see: [sel4devkit-maaxboard-bootloader-u-boot](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv)
 
 
