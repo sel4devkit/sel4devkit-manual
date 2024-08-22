@@ -1,4 +1,4 @@
-## Structure
+# Structure
 
 The seL4 Developer Kit is structured into the following sections to provide a
 step-by-step guide:
@@ -9,10 +9,8 @@ Developer Kit as a means to help facilitate and encourage wider adoption.
 
 - __Resources__: Provides an overview of the fundamental aspects of both the
   seL4 Microkernel and our chosen SBC (Single Board Computer), the the Avent
-MaaXBoard, highlighting relevant supporting material from other sources. The
-technical scope of the seL4 Developer Kit is summerised though a list of its
-associated repositories. Finally, a consolidated glossary of key terms is
-presented for easy reference.
+MaaXBoard, highlighting relevant supporting material from other sources. Also
+presents a consolidated glossary of key terms for easy reference.
 
 - __Development Platform__: Identify and explain the minimum hardware and
   software requirements needed to assemble a viable development platform for

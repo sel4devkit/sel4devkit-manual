@@ -39,7 +39,9 @@ usage:
 # Target
 #===========================================================
 .PHONY: get
-get: | ${OUT_PATH}
+get: ${OUT_PATH}/mdbook
+
+${OUT_PATH}/mdbook: | ${OUT_PATH}
 	curl --location "https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz" --output ${OUT_PATH}/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz
 	gunzip ${OUT_PATH}/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz
 	tar --directory ${OUT_PATH} --extract --file ${OUT_PATH}/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar

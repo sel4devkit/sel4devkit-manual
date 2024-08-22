@@ -1,4 +1,4 @@
-## seL4 Microkernel
+# seL4 Microkernel
 
 The [seL4 Microkernel](https://sel4.systems), and its closely associated
 components, is managed by the [seL4
@@ -7,7 +7,7 @@ Foundation](https://sel4.systems/Foundation), operating as a project under the
 Foundation contribution is made publicly available. More so, there are several
 related efforts that provide further relevant contributions.
 
-### Community
+## Community
 
 The main entry points to the seL4 community are as follows:
 
@@ -35,7 +35,7 @@ Microkit, principally focusing on an emulated target (via the QEMU simulator).
 - [Trustworthy Systems Git Hub](https://github.com/au-ts): The primary
   location for all seL4 content as maintained by Trustworthy Systems.
 
-### Components
+## Components
 
 Several significant seL4 components are highlighted below. Many of these
 components are directly utilised within this seL4 Developer Kit:
@@ -63,7 +63,7 @@ Microkernel.
   Lions OS (Operating System), building atop both the principles and
 technology associated with the seL4 Microkernel.
 
-### Context
+## Context
 
 The seL4 Microkernel may be reasonably characterised as a technology of
 increasing relevance and interest. 
@@ -96,11 +96,11 @@ feature set, but has greater complexity. Microkit provides a very minimum
 feature set, but has greater simplicity.
 
 Both frameworks remain supported by the seL4 Foundation, and are accommodated
-in this sel4 developer kit. However, in many respects, Microkit may be
+in this seL4 developer kit. However, in many respects, Microkit may be
 regarded as a response to the lessons learned from CAmkES, and is gradually
 emerging as the logical default choice for any new development. Perhaps,
-fundamentally, Microkit may be positioned as being closer in spirit to
-Microkernels, in providing essential behaviours only, and thus provides a more
-compelling fit as a seL4 Microkernel component. A guide for translating CAmkES
-applications into Microkit is available externally ([CAmkES to
+fundamentally, Microkit is closer in spirit to Microkernels, in providing
+essential behaviours only, and thus provides a more compelling fit as a seL4
+Microkernel component. A guide for translating CAmkES applications into
+Microkit is available externally ([CAmkES to
 Microkit](https://github.com/au-ts/camkes_to_microkit_guide/blob/main/guide.md)).

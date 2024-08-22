@@ -6,7 +6,6 @@
 - [Resources](resources/main.md)
     - [seL4 Microkernel](resources/sel4_microkernel.md)
     - [Avent MaaXBoard](resources/avent_maaxboard.md)
-    - [Repositories](resources/repositories.md)
     - [Glossary](resources/glossary.md)
 
 - [Development Platform](development_platform/main.md)
@@ -20,6 +19,7 @@
     - [Bootloader Setup](install_and_configure/bootloader_setup.md)
         - [Using the Prebuilt Image](install_and_configure/using_the_prebuilt_image.md)
         - [Building U-boot Manually](install_and_configure/building_uboot_manually.md)
+        - [Setting Up the U-Boot Configuration File](install_and_configure/configure_uboot.md)
 
 - [First Boot](first_boot/main.md)
     - [Bootloader](first_boot/bootloader.md)
@@ -61,6 +61,12 @@
         - [Build](activity/microkit_case_study_application/build.md)
 
     - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Common Errors](activity/microkit_usb_driver/common_errors.md)
+        - [Flattened Device Tree](activity/microkit_usb_driver/flattened_device_tree.md)
+        - [Memory Sharing](activity/microkit_usb_driver/memory_sharing.md)
+        - [Microkit Monitor Errors](activity/microkit_usb_driver/microkit_monitor_errors.md)
+        - [Extra Notes](activity/microkit_usb_driver/extra_notes.md)
 
     - [Activity: Microkit HDMI Driver](activity/microkit_hdmi_driver/main.md)
 
