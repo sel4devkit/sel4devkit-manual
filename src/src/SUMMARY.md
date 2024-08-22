@@ -31,6 +31,8 @@
 
     - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 
+    - [Activity: Remote Power Cycle](activity/remote_power_cycle/main.md)
+
     - [Activity: Device Drivers](activity/device_drivers/main.md)
         - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
         - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
