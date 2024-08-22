@@ -19,6 +19,7 @@
     - [Bootloader Setup](install_and_configure/bootloader_setup.md)
         - [Using the Prebuilt Image](install_and_configure/using_the_prebuilt_image.md)
         - [Building U-boot Manually](install_and_configure/building_uboot_manually.md)
+        - [Setting Up the U-Boot Configuration File](install_and_configure/configure_uboot.md)
 
 - [First Boot](first_boot/main.md)
     - [Bootloader](first_boot/bootloader.md)
@@ -53,6 +54,12 @@
         - [Build](activity/microkit_case_study_application/build.md)
 
     - [Activity: Microkit USB Driver](activity/microkit_usb_driver/main.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+        - [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
 
     - [Activity: Microkit HDMI Driver](activity/microkit_hdmi_driver/main.md)
 
