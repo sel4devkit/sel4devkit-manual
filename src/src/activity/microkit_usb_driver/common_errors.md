@@ -1,4 +1,4 @@
-# List of common errors
+# Common errors
 ## Looping "sleeping on xfer"
 **Symptoms**: when running on debug, seeing `sleeping on xfer ...` looped in output. Without debug, output will seem to freeze.
 
