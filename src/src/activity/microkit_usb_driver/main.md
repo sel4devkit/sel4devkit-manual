@@ -34,15 +34,16 @@ Between the core driver PD and the software interrupt PD there are some function
 
 Once we initialised host controller we moved onto devices. We started with keyboard as it was straightforward to get an example up and running and easy to test as it is a human interface device. Next we added a mouse which was conceptually very similar to the keyboard as they were both human interface devices and had the same fundamental layer. Additionally we just needed to include the mouse set up files from NetBSD. We also added touchscreen support by making use of the generic code for the mouse and by implementing extra functionality to account for the Z axis. When probing the bus for drivers we needed to state what device was being attached. This meant modifying the code and recompiling the program when switching between devices. To resolve this we introduced NetBSD's autoconfiguration which reads from a  prebuilt list of devices created at kernel compile time to evaluate which USB devices drivers should be assigned.
 
-## Project Layout
+## Technical details
 
-This project uses a single 'make get' command to download and configure the dependencies for the project. Then a build script is used to build each separate example.
+For notes on technical details, see the following sections:
 
-The dependant projects can be found at:
-
-* [Microkit](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-dev)
-* [Fork of NetBSD](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-netbsd-fork)
-* [C library](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-picolibc)
+- [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
+- [Common Errors](activity/microkit_usb_driver/common_errors.md)
+- [Flattened Device Tree](activity/microkit_usb_driver/flattened_device_tree.md)
+- [Memory Sharing](activity/microkit_usb_driver/memory_sharing.md)
+- [Microkit Monitor Errors](activity/microkit_usb_driver/microkit_monitor_errors.md)
+- [Extra Notes](activity/microkit_usb_driver/extra_notes.md)
 
 ## Examples
 
@@ -51,3 +52,7 @@ The following examples have been provided:
 * **FatFs** - Demonstrates usage using our seL4 xHCI driver and API to communicate with a USB mass storage device on a block level.
 * **Shell** - This example shows off all of the capabilities of the xHCI API by providing a shell interface to interact with.
 * **Empty Client** - This example shows the usage of the driver as an empty API. This can be used as a skeleton to create a new API user.
+
+For detailed infromation on how to build and run the examples see the following repository:
+
+https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-xhci-driver

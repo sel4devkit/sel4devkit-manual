@@ -7,3 +7,6 @@ When a computer is turned off, its software remains stored in non-volatile memor
 There are two options for configuring and installing U-Boot:
 - [Using the prebuilt image](using_the_prebuilt_image.md)
 - [Building U-Boot manually](building_uboot_manually.md)
+
+For how to configure U-Boot see:
+- [Setting up the U-Boot config file](configure_uboot.md)
