@@ -32,10 +32,22 @@ run_uboot_command("ping 8.8.8.8"); // An example internet IP address (Google DNS
 
 From the `/host/uboot_test` directory, execute the following commands:
 
+Configure the python environment:
+
+```
+python -m venv pyenv
+source pyenv/bin/activate
+pip install sel4-deps camkes-deps "protobuf<=3.20.*"
+```
+
+Create build area:
+
 ```text
 mkdir build
 cd build
 ```
+
+Build application:
 
 ```bash
 ../init-build.sh -DCAMKES_APP=uboot-driver-example -DPLATFORM=maaxboard -DSIMULATION=FALSE

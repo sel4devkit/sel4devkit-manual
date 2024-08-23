@@ -21,10 +21,22 @@ repo sync
 
 The application requires an IP address to be allocated to PicoServer. This should be substituted for `xxx.xxx.xxx.xxx` below. From the `/host/security_demo` directory, we execute the following commands:
 
+Configure the python environment:
+
+```
+python -m venv pyenv
+source pyenv/bin/activate
+pip install sel4-deps camkes-deps "protobuf<=3.20.*"
+```
+
+Create build area:
+
 ```text
 mkdir build
 cd build
 ```
+
+Build application:
 
 ```bash
 ../init-build.sh -DCAMKES_APP=security_demo -DPLATFORM=maaxboard -DPICOSERVER_IP_ADDR=xxx.xxx.xxx.xxx
