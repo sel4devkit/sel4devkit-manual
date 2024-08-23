@@ -38,12 +38,12 @@ Once we initialised host controller we moved onto devices. We started with keybo
 
 For notes on technical details, see the following sections:
 
-- [Adding a New Device](activity/microkit_usb_driver/adding_a_new_device.md)
-- [Common Errors](activity/microkit_usb_driver/common_errors.md)
-- [Flattened Device Tree](activity/microkit_usb_driver/flattened_device_tree.md)
-- [Memory Sharing](activity/microkit_usb_driver/memory_sharing.md)
-- [Microkit Monitor Errors](activity/microkit_usb_driver/microkit_monitor_errors.md)
-- [Extra Notes](activity/microkit_usb_driver/extra_notes.md)
+- [Adding a New Device](../../activity/microkit_usb_driver/adding_a_new_device.md)
+- [Common Errors](../../activity/microkit_usb_driver/common_errors.md)
+- [Flattened Device Tree](../../activity/microkit_usb_driver/flattened_device_tree.md)
+- [Memory Sharing](../../activity/microkit_usb_driver/memory_sharing.md)
+- [Microkit Monitor Errors](../../activity/microkit_usb_driver/microkit_monitor_errors.md)
+- [Extra Notes](../../activity/microkit_usb_driver/extra_notes.md)
 
 ## Examples
 

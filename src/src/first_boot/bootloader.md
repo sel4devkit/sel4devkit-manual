@@ -34,7 +34,7 @@ The MaaXBoard has an Ethernet port that U-Boot is able to access, and the applic
 
 Connection options include either a direct wired Ethernet connection between the host machine and the MaaXBoard:
 
-![TFTP option direct connection](../first_boot//figures/TFTP-option-direct.png)
+![TFTP option direct connection](../first_boot/figures/TFTP-option-direct.png)
 
 Or a network connection via a hub / router:
 

@@ -8,7 +8,7 @@ As well as the changes to the [Architecture](../../activity/microkit_case_study_
 
 Microkit does not contain a bundled libc; therefore, it was decided to port picolibc to Microkit. Picolibc is a C library specifically designed for use in embedded systems, providing a lightweight and efficient implementation of the C standard library functions. This makes it an ideal choice to complement Microkit, enhancing its capabilities without adding unnecessary overhead.
 
-The ported picolibc for Microkit is linked [here](https://github.com/sel4devkit/picolibc) with instructions for building and linking with Microkit. To use dynamic memory allocation (malloc) the __heap_start and __heap_end symbols (defined in the system file) needed to be added to the picosbrk.c file. This tells picolibc where the memory location of the heap.
+The ported picolibc for Microkit is linked [here](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-picolibc) with instructions for building and linking with Microkit. To use dynamic memory allocation (malloc) the __heap_start and __heap_end symbols (defined in the system file) needed to be added to the picosbrk.c file. This tells picolibc where the memory location of the heap.
 
 ## U-Boot
 
