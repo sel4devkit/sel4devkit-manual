@@ -1,4 +1,4 @@
-# Instructions for running the `uboot-driver-example`: Microkit
+# Instructions for running the uboot-driver-example: Microkit
 
 As usual, this assumes that the user is already running the Microkit Docker container within the [build environment](../../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 

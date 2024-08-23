@@ -6,7 +6,7 @@ U-Boot Driver Library to build with seL4 on the Odroid-C2 platform for the CAmkE
 This document gives details of how this was achieved, following the structure
 of those earlier sections, but adding details of exact changes to each file.
 
-Our goal is to get the U-Boot [test application](../device_drivers/uboot_driver_usage.md#test-application-uboot-driver-example) running
+Our goal is to get the U-Boot [test application](../device_drivers/uboot-driver-example.md) running
 on the Odroid-C2.
 
 ## Repository setup and forks

@@ -8,10 +8,10 @@ way and act as inspiration for others wishing to embark on writing their own
 systems and programs with seL4.
 
 - [Microkit Memory Probe](../activity/microkit_memory_probe/main.md): Simple Microkit program illustrating memory access.
-- [Device Drivers](../activity/device_drivers/main.md): Guidance on adding device drivers to seL4.
-- [Test application: `picoserver_uboot`](../activity/picoserver_uboot/main.md): Picoserver U-Boot test application.
+- [Use U-Boot Device Drivers](../activity/device_drivers/main.md): Guidance on adding device drivers to seL4.
+- [Test application: picoserver_uboot](../activity/picoserver_uboot/main.md): Picoserver U-Boot test application.
 - [Porting Device Drivers to a New Platform](../activity/new_platform/main.md): Guidance for porting the U-Boot driver library to a new platform.
-- [New Driver](../activity/new_driver/main.md): Guidance for adding a new driver to the U-Boot driver library
+- [Adding New U-Boot Device Driver](../activity/new_driver/main.md): Guidance for adding a new driver to the U-Boot driver library
 - [Guide to Porting seL4](../activity/guide_to_porting_seL4/main.md): Guidance for porting seL4 to a new platform.
 - [SPI Bus BMP280 Pressure Sensor](../activity/spi_bus_bmp280_pressure_sensor/main.md): Testing the Serial Peripheral Interface (SPI) driver with a pressure sensor.
 - [CAmkES Case Study Application](../activity/camkes_case_study_application/main.md): Demonstrating device drivers being used within a larger application nominally a keyboard-based encryption device.
