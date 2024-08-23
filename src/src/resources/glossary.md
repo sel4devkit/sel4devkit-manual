@@ -22,4 +22,4 @@
 | [TFTP](https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol) | Trivial File Transfer Protocol. A simple file transfer protocol commonly used in the early stages of bootloading from a local area network. |
 | [U-Boot](https://www.denx.de/wiki/U-Boot) | Das U-Boot (known as "the Universal Boot Loader" and often shortened to U-Boot) is an open-source bootloader commonly used in embedded devices. |
 | [UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter) | Universal Asynchronous Receiver-Transmitter. A simple serial communication device commonly used by SBCs. |
-| [UART](https://en.wikipedia.org/wiki/USB) | Universal Serial Bus. A standard that defines enables simple and universally accepted connectivity between a host and peripheral device. |
+| [USB](https://en.wikipedia.org/wiki/USB) | Universal Serial Bus. A standard that defines enables simple and universally accepted connectivity between a host and peripheral device. |
