@@ -6,7 +6,7 @@ U-Boot Driver Library to build with seL4 on the Odroid-C2 platform for the CAmkE
 This document gives details of how this was achieved, following the structure
 of those earlier sections, but adding details of exact changes to each file.
 
-Our goal is to get the U-Boot [test application](../device_drivers/uboot-driver-example.md) running
+Our goal is to get the U-Boot [test application](../../activity/device_drivers/uboot-driver-example.md) running
 on the Odroid-C2.
 
 ## Repository setup and forks
@@ -93,7 +93,7 @@ Having made no other changes at this point, we should be able to build and run
 the U-Boot Driver Example program for the MaaxBoard from those newly forked
 repositories, just to make sure that creating the forks hasn't broken anything.
 
-The earlier instructions in the [New Platform](main.md)
+The earlier instructions in the [New Platform](../../activity/new_platform/main.md)
 section should be followed with one significant change: the first `repo init` command
 specifies our fork and branch of the `sel4devkit-maaxboard-camkes-manifest` repository.
 
@@ -133,7 +133,7 @@ repo init -u https://github.com/rod-chapman/sel4devkit-maaxboard-camkes-manifest
 repo sync
 ```
 
-At this point, we return to the structure of the [New Platform](main.md)
+At this point, we return to the structure of the [New Platform](../../activity/new_platform/main.md)
 section.
 
 ## Update the library's CMake file to support the platform
@@ -288,7 +288,7 @@ and
 projects_libs/libubootdrivers/src/plat/odroidc2
 ```
 
-Following the templates from the [New Platform](main.md) section,
+Following the templates from the [New Platform](../../activity/new_platform/main.md) section,
 we create `plat_driver_data.h` in the former of those directories.
 
 There are five UClass Drivers that are effectively mandatory (`nop`, `root`, `simple_bus`, `phy` and `blk`),
@@ -636,4 +636,4 @@ have been built and run under seL4 on the Odroid-C2. We've also shown how the ba
 driver from U-Boot can be added to our configuration for that platform and how the
 U-Boot `dm tree` command works and shows the presence of that device. We then went on to add support for the `pinmux` and `led` commands and demonstrated their use in a simple test application.
 
-![C2_Boots](../new_platform/figures/odroidc2_boots.png)
+![C2_Boots](../../activity/new_platform/figures/odroidc2_boots.png)

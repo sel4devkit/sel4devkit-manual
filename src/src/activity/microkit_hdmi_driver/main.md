@@ -39,6 +39,8 @@ The API contains the following examples:
 * rotating_bars - Displays 4 colour bars rotating across the screen.
 * moving_square - A small square that moves around the screen, changing direction each time it hits the side of the screen.
 
-Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit. For information on how to build and run the examples see:
-
+Currently the project is built using a build script that calls make. The
+dependencies are also built separately with a script for Picolibc and a
+Makefile for Microkit. For information on how to build and run the examples
+see:
 [sel4devkit-maaxboard-microkit-hdmi-driver](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver)

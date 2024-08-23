@@ -33,7 +33,7 @@ On completion of the compilation, the resulting executable is available at `/hos
 
 ## Example Output
 
-The example output when executed on the target (as described in [bootloader](../first_boot/bootloader.md)) is demonstrated below:
+The example output when executed on the target is demonstrated below:
 
 ```
 u-boot=> bootelf 0x50000000

@@ -22,7 +22,7 @@ We created a separate DMA library which can be found [here](https://github.com/s
 
 ### Architecture
 
-![screenshot](../microkit_usb_driver/figures/system_architecture.png)
+![screenshot](../../activity/microkit_usb_driver/figures/system_architecture.png)
 
 One Protection Domain (PD) acts as a central driver which handles all of the initialization and communicates with the hardware via MMIO. There are additional PD's for the memory handler, software interrupts and hardware interrupts.
 

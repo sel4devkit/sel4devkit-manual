@@ -48,7 +48,7 @@ There is a known race condition with the CMake configuration of picoserver, whic
 
 ## Preparing to Run
 
-A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
+A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory.
 
 Running the `security_demo` application requires the following:
 
