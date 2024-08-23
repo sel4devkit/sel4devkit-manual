@@ -11,7 +11,7 @@ An operator types a plaintext message using a USB-connected keyboard. The applic
 
 The architecture of the demonstrator is shown below.
 
-![Demonstrator architecture](../camkes_case_study_application/figures/encrypter_arch.png)
+![Demonstrator architecture](figures/encrypter_arch.png)
 
 Blue blocks show CAmkES components created specifically for the security demonstrator (or previously created within the developer kit in the case of [EthDriverUboot](../device_drivers/uboot_driver_usage.md#test-application-picoserver_uboot)); grey blocks show CAmkES [global components](https://github.com/seL4/global-components).
 
