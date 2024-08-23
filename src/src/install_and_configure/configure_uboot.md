@@ -1,14 +1,19 @@
+# Setting up the U-Boot Configuration file
 
-# Setting up the U-Boot config file
+A U-Boot configuration file (`uEnv.txt`) may be placed within the BOOT
+partition, to automatically control how U-Boot will locate and then boot the
+desired software image.
 
-A U-Boot configuration file (uEnv.txt) is contained within the provided image. It is placed in the root of the `BOOT` partition and is named `uEnv.txt`. It contains 3 main configurable items:
+The content of `uEnv.txt` will vary, depending on whether CAmkES or Microkit
+is being used, where the software image is to be located, and how the software
+image is to be retrieved. For convenience, covering each combination, a set of
+`uEnv.txt` templates are prepared in advance, as listed below:
 
-1. U-Boot network configuration (`ipaddr` and `netmask`): use this to manually configure the IP address and subnet for U-Boot to use, or comment them out to have them assigned by DHCP/BootP.
-
-2. TFTP server IP address (`serverip`): use this to configure the IP address of the TFTP server to contact, or comment out to disable boot via TFTP.
-
-3. ELF binary name (`elf_binary_file`): the name of the ELF binary the U-Boot will try to load, first from a USB device, then from a SD card, and finally via the configured TFTP server.
-
-Different commands are needed to load each type of image. Microkit generates .img file which is loaded using the "go" instruction and CAmkES generates a .elf file which is loaded using the "bootelf" command. To see different U-Boot configuration options see: [sel4devkit-maaxboard-bootloader-u-boot](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv)
-
-
+- [CAmkES::sd-card](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/camkes/sd-card/uEnv.txt) 
+- [CAmkES::usb-flash](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/camkes/usb-flash/uEnv.txt) 
+- [CAmkES::tftp::static](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/camkes/tftp/static/uEnv.txt)
+- [CAmkES::tftp::dhcp](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/camkes/tftp/dhcp/uEnv.txt)
+- [Microkit::sd-card](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/microkit/sd-card/uEnv.txt) 
+- [Microkit::usb-flash](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/microkit/usb-flash/uEnv.txt) 
+- [Microkit::tftp::static](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/microkit/tftp/static/uEnv.txt)
+- [Microkit::tftp::dhcp](https://github.com/sel4devkit/sel4devkit-maaxboard-bootloader-u-boot/tree/main/uenv/microkit/tftp/dhcp/uEnv.txt)
