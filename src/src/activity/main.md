@@ -8,6 +8,7 @@ way and act as inspiration for others wishing to embark on writing their own
 systems and programs with seL4.
 
 - [Microkit Memory Probe](../activity/microkit_memory_probe/main.md): Simple Microkit program illustrating memory access.
+- [Remote Power Cycle](../activity/remote_power_cycle/main.md): Use of PPPS (Per-Port Power Switching) USB Hub, to  programmatically power cycle the MaaXBoard, to ease remote development.
 - [Use U-Boot Device Drivers](../activity/device_drivers/main.md): Guidance on adding device drivers to seL4.
 - [Test application: picoserver_uboot](../activity/picoserver_uboot/main.md): Picoserver U-Boot test application.
 - [Porting Device Drivers to a New Platform](../activity/new_platform/main.md): Guidance for porting the U-Boot driver library to a new platform.
