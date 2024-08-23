@@ -2,7 +2,7 @@
 
 This section documents the required actions and guidance to add support for a new platform to the library.
 
-By the end of this section, an seL4 executable will be built for the new platform that can initialise the library (although the library may not support any of the platform's devices). Later sections of this guide cover the required actions to add driver support into the library for the new platform (e.g. see the [Odroid-C2 worked example](add_odroidc2.md)).
+By the end of this section, an seL4 executable will be built for the new platform that can initialise the library (although the library may not support any of the platform's devices). Later sections of this guide cover the required actions to add driver support into the library for the new platform (e.g. see the [Odroid-C2 worked example](../new_platform/add_odroidc2.md)).
 
 Throughout the sections of this guide devoted to extension of the U-Boot driver library, it is expected the developer is working within the folder structure created by the `repo` tool (e.g. as used to build the [test applications](../device_drivers/uboot_driver_usage.md)). Key folders and files within the hierarchy are shown below:
 

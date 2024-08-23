@@ -14,7 +14,7 @@ Adding support for a new device can be broken down into logical steps:
 
 5. [Updating an seL4 application to access the device](#updating-sel4-application)
 
-To further support this topic, documentation have been added to provide [a worked example](add_driver_worked_example.md) and to discuss [troubleshooting and common issues](driver_troubleshooting.md) that may be encountered.
+To further support this topic, documentation have been added to provide [a worked example](../../activity/new_driver/add_driver_worked_example.md) and to discuss [troubleshooting and common issues](../../activity/new_driver/driver_troubleshooting.md) that may be encountered.
 
 ## Identification of U-Boot Device Driver
 
@@ -147,7 +147,7 @@ Within the platform specific section of the library `CMakeLists.txt` file, the v
 
 ### `plat_driver_data.h`
 
-The `plat_driver_data.h` and `plat_driver_data.c` files are used to create arrays of objects, such as drivers or commands, that U-Boot normally stores in dedicated linker sections (see [documentation on linker lists](uboot_driver_library.md#linker-lists) for details). The objects are declared in U-Boot source files via macros of the form `U_BOOT_<object_type> = { ... };`. All objects that the library needs to access must be declared and enumerated in  `plat_driver_data.h` and added to the `driver_data` structure within `plat_driver_data.c`.
+The `plat_driver_data.h` and `plat_driver_data.c` files are used to create arrays of objects, such as drivers or commands, that U-Boot normally stores in dedicated linker sections (see [documentation on linker lists](../../activity/device_drivers/uboot_driver_library.md#linker-lists) for details). The objects are declared in U-Boot source files via macros of the form `U_BOOT_<object_type> = { ... };`. All objects that the library needs to access must be declared and enumerated in  `plat_driver_data.h` and added to the `driver_data` structure within `plat_driver_data.c`.
 
 Within the platform's `include/plat/<platform>/plat_driver_data.h` file, the new objects from the added source files (e.g. driver, UCLASS driver, commands, etc.) need to be declared, and the counts of each class of object needs to be updated. It should be noted that sometimes multiple drivers or UCLASS drivers are required to support a single device.
 
@@ -170,7 +170,7 @@ Within the platform's `include/plat/<platform>/plat_driver_data.c` file, the obj
 
 ## Resolving Compilation Issues
 
-At this stage, compilation of the library should be attempted, e.g. through compilation of the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md).
+At this stage, compilation of the library should be attempted, e.g. through compilation of the [uboot-driver-example test application](../../activity/device_drivers/uboot-driver-example.md).
 
 It is expected that the set of source files referenced in the library `CMakeLists.txt` may not be complete, leading to compilation or linker errors;  whilst the source files declaring the driver, UCLASS driver and commands have been added, these may rely upon routines from source files not currently referenced.
 
@@ -188,6 +188,6 @@ At this stage, the library with the newly added driver should compile cleanly.
 
 What remains is to update the application utilising the library to:
 
-1. Ensure that seL4 permits access to the necessary devices from the platform's device tree; this is performed through the configuration of the application's CAmkES project file or Microkit's system file. For a worked example, see the  `uboot-driver-example.camkes` or `uboot-driver-example.system` file from the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md).
+1. Ensure that seL4 permits access to the necessary devices from the platform's device tree; this is performed through the configuration of the application's CAmkES project file or Microkit's system file. For a worked example, see the  `uboot-driver-example.camkes` or `uboot-driver-example.system` file from the [uboot-driver-example test application](../../activity/device_drivers/uboot-driver-example.md).
 
 2. Provide the identity of those devices from the platform's device tree to the library; this is performed by providing the names of the devices when initialising the library through the `initialise_uboot_drivers` interface on the library's public API. Note that only those devices from the device tree listed in the call to `initialise_uboot_drivers` will be used by the library; all other devices in the device tree will be considered to be disabled.

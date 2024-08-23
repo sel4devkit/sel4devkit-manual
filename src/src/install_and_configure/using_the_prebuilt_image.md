@@ -6,7 +6,7 @@ Instructions for using the prebuilt U-Boot image are as follows: _Note: the disk
 
     _Note: the images are compressed as zip files in order to reduce their size (compressed size ~15MB, uncompressed size ~15GB), and will need to be uncompressed using a suitable utility before use._
 
-2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Setup](host_setup.md) section for more details.
+2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Setup](../install_and_configure/host_setup.md) section for more details.
 
 3. Insert the SD card you wish to flash, and open Etcher.
 ![etcher-default](../install_and_configure/figures/etcher-default.png)

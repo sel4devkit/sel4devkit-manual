@@ -1,6 +1,6 @@
 # Microkit Hello World
 
-The purpose of this example is to confirm that the Microkit environment is configured correctly. As usual, this assumes that the user is already running the Microkit Docker container within the [build environment](../../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
+The purpose of this example is to confirm that the Microkit environment is configured correctly. As usual, this assumes that the user is already running the Microkit Docker container within the [build environment](../install_and_configure/build_environment_setup.md), where we can create a directory and clone the code and dependencies.
 
 ## Getting the code 
 
@@ -25,7 +25,7 @@ On completion of the compilation, the resulting executable is available at `/hos
 
 ## Example output 
 
-The example output when executed on the target (as described in [bootloader](bootloader.md)) is demonstrated below:
+The example output when executed on the target (as described in [bootloader](../first_boot/bootloader.md)) is demonstrated below:
 
 ```
 u-boot=> go 0x50000000

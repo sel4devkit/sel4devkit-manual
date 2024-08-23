@@ -42,5 +42,5 @@ All these settings may be saved for convenience as a CoolTerm configuration file
 
 ## Minicom 
 
-Minicom can also be used to communicate with the maaxboard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](target_setup.md) section for more details of the necessary connections). Minicom can be used on linux machines or on Windows with the PuTTY application. Instructions for installing and running minicom are [here](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom). 
+Minicom can also be used to communicate with the maaxboard over the serial interface using the UART pins on the board's GPIO connector (see [Target Platform Setup](../install_and_configure/target_setup.md) section for more details of the necessary connections). Minicom can be used on linux machines or on Windows with the PuTTY application. Instructions for installing and running minicom are [here](https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom). 
 

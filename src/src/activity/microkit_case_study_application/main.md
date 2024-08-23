@@ -2,7 +2,7 @@
 
 This section works through the changes completed to port the case study application to Microkit.
 
-As well as the changes to the [Architecture](architecture.md) and [Design](detail.md), other infrastructure changes had to be made to make the case study compatible with Microkit:
+As well as the changes to the [Architecture](../../activity/microkit_case_study_application/architecture.md) and [Design](../../activity/microkit_case_study_application/detail.md), other infrastructure changes had to be made to make the case study compatible with Microkit:
 
 ## Picolibc
 

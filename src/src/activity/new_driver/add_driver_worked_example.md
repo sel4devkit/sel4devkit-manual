@@ -16,13 +16,13 @@ A `dm tree` command from the U-Boot prompt[^2] should reveal an `i2c` entry, whi
  i2c           1  [   ]   i2c_mxc                   |   |-- i2c@30a30000
 ```
 
-[^2]: If the MaaXBoard is powered on and autoboot is interrupted (e.g. press the `Enter` key during the countdown shown in line 37 of the output in the [First Boot](../first_boot.md#boot-to-u-boot-prompt) section), then the `dm tree` command may be entered at the U-Boot prompt.
+[^2]: If the MaaXBoard is powered on and autoboot is interrupted (e.g. press the `Enter` key during the countdown shown in line 37 of the output in the [First Boot](../../first_boot/main.md#boot-to-u-boot-prompt) section), then the `dm tree` command may be entered at the U-Boot prompt.
 
 A search for `i2c_mxc` within U-Boot's github repository [https://github.com/u-boot/u-boot](https://github.com/u-boot/u-boot) reveals the relevant file to be `uboot/drivers/i2c/mxc_i2c.c`:
 
-![i2c GitHub search-1](../new_driver/figures/github_search_i2c_1.png)
+![i2c GitHub search-1](../../activity/new_driver/figures/github_search_i2c_1.png)
 
-![i2c GitHub search-2](../new_driver/figures/github_search_i2c_2.png)
+![i2c GitHub search-2](../../activity/new_driver/figures/github_search_i2c_2.png)
 
 This file is in the equivalent location within our `libubootdrivers` library, at `projects_libs/libubootdrivers/uboot/drivers/i2c/mxc_i2c.c`.
 
@@ -84,7 +84,7 @@ We can see that the latter change has added to the arrays. In this example, the 
 
 In order to build the new driver files, we need to add them to the `libubootdrivers/CMakeLists.txt` makefile.
 
-There are also some U-Boot configuration macros relevant to I<sup>2</sup>C that are needed, which are also set within the makefile. In this example, we can use the guidance in the [Library Extension - New Driver](main.md#updating-cmakeliststxt) section, and refer to the `.config` file created during the [Building U-Boot for the MaaXBoard](../../install_and_configure/building_uboot_manually.md) document. Using the suggested directory name from that document, the filepath would be: `maaxboard_dockerimage/maaxboard-uboot-build/maaxboard-uboot/uboot-imx/.config`.
+There are also some U-Boot configuration macros relevant to I<sup>2</sup>C that are needed, which are also set within the makefile. In this example, we can use the guidance in the [New Driver](../../activity/new_driver/main.md#updating-cmakeliststxt) section, and refer to the `.config` file created during the [Building U-Boot for the MaaXBoard](../../install_and_configure/building_uboot_manually.md) document. Using the suggested directory name from that document, the filepath would be: `maaxboard_dockerimage/maaxboard-uboot-build/maaxboard-uboot/uboot-imx/.config`.
 
 Extracting I2C-related items (e.g. using `grep -i I2C .config`), we would see:
 
@@ -211,7 +211,7 @@ After these changes, within our `build` directory, `init_build` followed by `nin
 
 ### CAmkES
 
-We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../device_drivers/uboot_driver_usage.md#instructions-for-running-the-uboot-driver-example-test) – we need to modify the file `camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h` as follows.
+We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../../activity/device_drivers/instructions_for_running_camkes) – we need to modify the file `camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h` as follows.
 
 Firstly, we need to add path definitions so that the devices can be located in the device tree:
 
@@ -281,7 +281,7 @@ And also added to `HARDWARE_CONFIGURATION`:
 
 ### Microkit
 
-We have established the underlying driver code, but it is not yet integrated within the Microkit protection domain that we shall be using. Assuming that we use the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../device_drivers/uboot_driver_usage.md#instructions-for-running-the-uboot-driver-example-test) – we need to modify the file `project_libs/include/plat/maaxboard/all_platform_devices.h` as follows.
+We have established the underlying driver code, but it is not yet integrated within the Microkit protection domain that we shall be using. Assuming that we use the [uboot-driver-example test application](../../activity/device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../../activity/device_drivers/instructions_for_running_microkit) – we need to modify the file `project_libs/include/plat/maaxboard/all_platform_devices.h` as follows.
 
 Firstly, we need to add path definitions so that the devices can be located in the device tree:
 

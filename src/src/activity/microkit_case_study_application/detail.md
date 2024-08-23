@@ -1,6 +1,6 @@
 # Design Detail
 
-Following on from the [architecture document](architecture.md), this section provides further details on the design and functionality of the 'security domain' demonstrator application.
+Following on from the [architecture document](../../activity/microkit_case_study_application/architecture.md), this section provides further details on the design and functionality of the 'security domain' demonstrator application.
 
 It is expected that the reader is familiar with the [seL4 Microkit manual](https://github.com/seL4/microkit/blob/main/docs/manual.md).
 

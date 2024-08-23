@@ -36,7 +36,7 @@ Once build there is an option to rebuild the entire project using the below comm
 
 ## Preparing to Run
 
-A successful build will result in an executable file called `sel4_image` in the `example/<platform>/security_demo/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
+A successful build will result in an executable file called `sel4_image` in the `example/<platform>/security_demo/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
 
 Running the `security_demo` application requires the following:
 
@@ -46,7 +46,7 @@ Running the `security_demo` application requires the following:
 
 ## Running the Application
 
-The application invokes two instances of the [U-Boot Driver Library](../device_drivers/uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case none of the library instances are configured to use ethernet. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
+The application invokes two instances of the [U-Boot Driver Library](../../activity/device_drivers/uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case none of the library instances are configured to use ethernet. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
 
 When the application's initialisation has completed, we should see:
 
@@ -63,7 +63,7 @@ run_uboot_command@uboot_wrapper.c:176 --- running command 'fatrm mmc 0:2 transmi
 run_uboot_command@uboot_wrapper.c:181 --- command 'fatrm mmc 0:2 transmitter_log.txt' completed with return code 0 ---
 ```
 
-In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card appendix](partitioning_sd_card.md).
+In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card section](../../install_and_configure/building_uboot_manually.md#partitioning-the-sd-card).
 
 The application is now ready to perform various actions concurrently:
 

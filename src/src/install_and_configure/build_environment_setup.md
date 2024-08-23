@@ -19,7 +19,7 @@ required development tools. The primary tools supplied are:
 
 ## Installation
 
-[Host machine setup](host_setup.md) must be completed, specifically
+[Host machine setup](../install_and_configure/host_setup.md) must be completed, specifically
 installation of Docker, and the Docker tools must be active prior to
 installation of the build environment.
 

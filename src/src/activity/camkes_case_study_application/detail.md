@@ -1,6 +1,6 @@
 # Design Detail
 
-Following on from the [Architecture document](architecture.md), this section provides further details on the design and functionality of the 'security domain' demonstrator application.
+Following on from the [Architecture document](../../activity/camkes_case_study_application/architecture.md), this section provides further details on the design and functionality of the 'security domain' demonstrator application.
 
 It is expected that the reader is familiar with the [seL4 CAmkES manual](https://docs.sel4.systems/projects/camkes/manual.html).
 

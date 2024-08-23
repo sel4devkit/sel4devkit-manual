@@ -11,8 +11,8 @@ Development is conducted across three different environments:
 3. __Target Platform__: The [Avnet MaaXBoard](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/maaxboard/maaxboard), a single board computer based around the [NXP i.MX 8M SoC (system on chip)](https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-8-processors/i-mx-8m-family-armcortex-a53-cortex-m4-audio-voice-video:i.MX8M). This is the environment upon which seL4 binaries are executed. User interaction with the target platform is performed via a serial console from the host machine.
 
 The required configuration of the host and target environments are detailed in
-the [Host Setup](host_setup.md) and [Target Setup](target_setup.md) sections.
+the [Host Setup](../install_and_configure/host_setup.md) and [Target Setup](../install_and_configure/target_setup.md) sections.
 A preconfigured build environment is supplied as part of this developer kit as
-detailed in the [Build Environment Setup](build_environment_setup.md) section.
-[Bootloader setup](bootloader_setup.md) describes how to install and the
+detailed in the [Build Environment Setup](../install_and_configure/build_environment_setup.md) section.
+[Bootloader setup](../install_and_configure/bootloader_setup.md) describes how to install and the
 bootloader U-Boot.

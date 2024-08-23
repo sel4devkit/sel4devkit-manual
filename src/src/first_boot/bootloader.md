@@ -12,7 +12,7 @@ We cover three primary mechanisms for loading the application into RAM by U-Boot
 
 Additional mechanisms are available, such as downloading over the serial cable; however, this would be much slower compared with the options above and is not considered further here. Downloading from on-board flash memory is another possible mechanism, but that is not applicable to the MaaXBoard.
 
-The remainder of this section assumes that you have an application in the form of an executable ELF file called `sel4_image`. We will create this as our test application [later in this documentation](sel4test.md), but this section is concerned with the loading mechanisms rather than the executable itself.
+The remainder of this section assumes that you have an application in the form of an executable ELF file called `sel4_image`. We will create this as our test application [later in this documentation](../first_boot/sel4test.md), but this section is concerned with the loading mechanisms rather than the executable itself.
 
 #### Loading from SD Card
 
@@ -34,11 +34,11 @@ The MaaXBoard has an Ethernet port that U-Boot is able to access, and the applic
 
 Connection options include either a direct wired Ethernet connection between the host machine and the MaaXBoard:
 
-![TFTP option direct connection](../install_and_configure/figures/TFTP-option-direct.png)
+![TFTP option direct connection](../first_boot//figures/TFTP-option-direct.png)
 
 Or a network connection via a hub / router:
 
-![TFTP option router connection](../install_and_configure/figures/TFTP-option-router.png)
+![TFTP option router connection](../first_boot/figures/TFTP-option-router.png)
 
 Loading via TFTP is considered to be the most convenient method within an application development environment as there is no need to keep plugging and unplugging anything from the board. To load the `sel4_image` binary via TFTP, the file needs to be made available for download from the TFTP server.
 
@@ -185,5 +185,5 @@ elf_tftp_boot_2=echo Booting ELF binary from TFTP ...; tftp ${loadaddr} ${elf_bi
 uenvcmd=usb start; for devtype in usb mmc; do for devnum in 0 1; do run elf_dev_boot; done; done; run elf_tftp_boot_0
 ```
 
-Some configuration of the `uEnv.txt` file is required, e.g. to set IP addresses relevant to the user's network. This is covered in more detail in the [Bootloader Setup](../install_and_configure/bootloader_setup.md) and [First Boot](main.md) sections.
+Some configuration of the `uEnv.txt` file is required, e.g. to set IP addresses relevant to the user's network. This is covered in more detail in the [Bootloader Setup](../install_and_configure/bootloader_setup.md) and [First Boot](../first_boot/main.md) sections.
 

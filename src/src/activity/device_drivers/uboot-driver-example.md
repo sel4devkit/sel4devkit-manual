@@ -13,7 +13,7 @@ It is left to the reader to look through the test script in detail, but the feat
   - read and echo keypresses from a USB keyboard, if connected, during a defined period.
 - SD/MMC operations to identify and list (`ls`) the contents of the SD card.
 - Filesystem operations to write a file to a FAT partition on the SD card before reading the contents back and deleting the file.
-- I<sup>2</sup>C operations to probe the bus and read the power management IC present on the MaaXBoard's I<sup>2</sup>C bus. (There are more details in the [worked example](add_driver_worked_example.md) that walks through the steps that were required to add this driver.)
+- I<sup>2</sup>C operations to probe the bus and read the power management IC present on the MaaXBoard's I<sup>2</sup>C bus. (There are more details in the [worked example](../../activity/new_driver/add_driver_worked_example.md) that walks through the steps that were required to add this driver.)
 
 [^1]: Note: Currently, only the upper USB port on the Avnet MaaXBoard is active (i.e. the port furthest away from the PCB); the lower USB port does not function. This is a feature of the power domains on the board, not the USB driver.
 
@@ -21,4 +21,4 @@ Other utility commands are exercised, such as `dm tree`, which is useful to foll
 
 ### Configuration for different platforms
 
-Although uboot-driver-example was created to demonstrate the device drivers developed for this MaaXBoard developer kit, it is configurable to support other platforms. For example, in the [worked example appendix for the Odroid-C2](add_odroidc2.md), a small subset of drivers has been developed for that platform, and the `test.c` source file for `uboot-driver-example` uses the preprocessor macros `CONFIG_PLAT_MAAXBOARD` and `CONFIG_PLAT_ODROIDC2` to configure which commands are run for each platform. By default, all tests are enabled for an unrecognised platform, but this would be readily configured for a new platform's `CONFIG_PLAT_...` preprocessor macro.
+Although uboot-driver-example was created to demonstrate the device drivers developed for this MaaXBoard developer kit, it is configurable to support other platforms. For example, in the [worked example appendix for the Odroid-C2](../../activity/new_platform/add_odroidc2.md), a small subset of drivers has been developed for that platform, and the `test.c` source file for `uboot-driver-example` uses the preprocessor macros `CONFIG_PLAT_MAAXBOARD` and `CONFIG_PLAT_ODROIDC2` to configure which commands are run for each platform. By default, all tests are enabled for an unrecognised platform, but this would be readily configured for a new platform's `CONFIG_PLAT_...` preprocessor macro.

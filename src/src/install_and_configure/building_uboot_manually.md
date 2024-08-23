@@ -68,7 +68,7 @@ The intention of this section is provide instructions on how to create three par
 
 ## Building U-Boot
 
-In order to build U-Boot, the seL4devkit Docker build environment is required, please see [Build Environment Setup](build_environment_setup.md) to setup this up if you haven't already done so.
+In order to build U-Boot, the seL4devkit Docker build environment is required, please see [Build Environment Setup](../install_and_configure/build_environment_setup.md) to setup this up if you haven't already done so.
 
 1. Clone the repository:
 ```

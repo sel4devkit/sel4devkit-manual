@@ -11,7 +11,7 @@ An operator types a plaintext message using a USB-connected keyboard. The applic
 
 The architecture of the demonstrator is shown below.
 
-![Demonstrator architecture](figures/encrypter_arch.png)
+![Demonstrator architecture](../../activity/camkes_case_study_application/figures/encrypter_arch.png)
 
 Blue blocks show CAmkES components created specifically for the security demonstrator (or previously created within the developer kit in the case of [EthDriverUboot](../device_drivers/uboot_driver_usage.md#test-application-picoserver_uboot)); grey blocks show CAmkES [global components](https://github.com/seL4/global-components).
 
@@ -31,7 +31,7 @@ If the buffer is full, Crypto discards characters; otherwise, each time Crypto w
 
 The shared buffer is protected from concurrent access by use of a [mutex](https://en.wikipedia.org/wiki/Lock_(computer_science)). The mutex is owned by Crypto, and Transmitter accesses its lock and unlock operations via an _RPC_ connection (labelled as RPC-2); note that this is a control flow and is in the opposite direction to the arrow, which shows the data flow of encrypted characters.
 
-The Transmitter component interfaces to PicoServer via three connections, as shown in the `picoserver_uboot` [test application diagram](uboot_driver_usage.md#test-application-picoserver_uboot): `send`, `receive`, and `control`. The `send` and `receive` connections are defined as global connector type `seL4PicoServer`, which is fundamentally `seL4RPCDataport` (_SharedData_ combined with _RPC_). The `control` connection has a global connector type of `seL4PicoServerSignal`, which is fundamentally `seL4RPCCallSignal` (_RPC_ combined with _Notification_). Note that although the interface between Transmitter and PicoServer configures `receive` in order to satisfy the CAmkES connections, the application does not process any Ethernet traffic in this direction, and only `send` is used.
+The Transmitter component interfaces to PicoServer via three connections, as shown in the `picoserver_uboot` [test application diagram](../../activity/picoserver_uboot/main.md): `send`, `receive`, and `control`. The `send` and `receive` connections are defined as global connector type `seL4PicoServer`, which is fundamentally `seL4RPCDataport` (_SharedData_ combined with _RPC_). The `control` connection has a global connector type of `seL4PicoServerSignal`, which is fundamentally `seL4RPCCallSignal` (_RPC_ combined with _Notification_). Note that although the interface between Transmitter and PicoServer configures `receive` in order to satisfy the CAmkES connections, the application does not process any Ethernet traffic in this direction, and only `send` is used.
 
 The interface between PicoServer and EthDriverUboot uses the `seL4Ethdriver` global connector type, which is fundamentally another instance of `seL4RPCDataport` (_SharedData_ combined with _RPC_).
 
@@ -47,7 +47,7 @@ As can be seen from the architecture diagram, three hardware devices are involve
 
 3. The EthDriverUboot component requires access to the Ethernet device to allow for ciphertext message to be output to the network.
 
-Device drivers for the required hardware access are supplied by the [U-Boot Driver Library](../device_drivers/uboot_driver_library.md) previously introduced by this development kit.
+Device drivers for the required hardware access are supplied by the [U-Boot Driver Library](../../activity/device_drivers/uboot_driver_library.md) previously introduced by this development kit.
 
 Three separate instances of the library are used by the application, one per component with a need for hardware device access. The capabilities of each component, and their associated library instances, are configured such that each component is only capable of accessing the minimum set of hardware devices required to perform the desired function.
 

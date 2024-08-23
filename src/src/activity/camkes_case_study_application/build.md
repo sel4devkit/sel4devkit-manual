@@ -48,20 +48,20 @@ There is a known race condition with the CMake configuration of picoserver, whic
 
 ## Preparing to Run
 
-A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Execution on Target Platform](execution_on_target_platform.md).
+A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
 
 Running the `security_demo` application requires the following:
 
 - Connect a keyboard to the USB socket[^1] of the MaaXBoard;
-- Establish an Ethernet connection between the MaaXBoard and the host machine, which can be direct or via a network, as outlined in [an earlier section](bootloader.md#loading-via-tftp) (e.g. it will already be in place if TFTP is being used to transfer executables).
+- Establish an Ethernet connection between the MaaXBoard and the host machine, which can be direct or via a network, as outlined in [an earlier section](../../first_boot/bootloader.md#loading-via-tftp) (e.g. it will already be in place if TFTP is being used to transfer executables).
 
 [^1]: Note: Currently, only the upper USB port on the Avnet MaaXBoard is active (i.e. the port furthest away from the PCB); the lower USB port does not function. This is a feature of the power domains on the board, not the USB driver.
 
-If the user has experience of running the [`picoserver_uboot` test application](uboot_driver_usage.md#test-application-picoserver_uboot), then elements of the `security_demo` application will be familiar. For example, from a terminal window on the host machine, we will use the `netcat` (`nc`) command (native to Linux or macOS, or available as a [download](https://nmap.org/ncat/) for Windows) to connect to the MaaXBoard, so this should be prepared.
+If the user has experience of running the [picoserver_uboot test application](../../activity/picoserver_uboot/main.md), then elements of the `security_demo` application will be familiar. For example, from a terminal window on the host machine, we will use the `netcat` (`nc`) command (native to Linux or macOS, or available as a [download](https://nmap.org/ncat/) for Windows) to connect to the MaaXBoard, so this should be prepared.
 
 ## Running the Application
 
-The application invokes three instances of the [U-Boot Driver Library](uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case only one of the library instances is configured to use Ethernet (i.e. the library invoked by the EthDriverUboot component), and amongst the other messages there should be confirmation that it was successful, e.g. `Assigned ipv4 xxx.xxx.xxx.xxx to device eth0`. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
+The application invokes three instances of the [U-Boot Driver Library](../../activity/device_drivers/uboot_driver_library.md), so various sets of diagnostic messages are repeated on the CoolTerm display as the application starts. We should not be unduly concerned with some of the individual messages, such as `No ethernet found`, since in this case only one of the library instances is configured to use Ethernet (i.e. the library invoked by the EthDriverUboot component), and amongst the other messages there should be confirmation that it was successful, e.g. `Assigned ipv4 xxx.xxx.xxx.xxx to device eth0`. There are also some `clk_register: failed ... (parent ...)` messages, which are harmless (a fault in U-Boot's clock driver for the MaaXBoard).
 
 When the application's initialisation has completed, we should see:
 
@@ -78,9 +78,9 @@ run_uboot_command@uboot_wrapper.c:176 --- running command 'fatrm mmc 0:2 transmi
 run_uboot_command@uboot_wrapper.c:181 --- command 'fatrm mmc 0:2 transmitter_log.txt' completed with return code 0 ---
 ```
 
-In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card appendix](appendices/partitioning_sd_card.md).
+In either scenario, this is housekeeping by the application to delete any previous Transmitter logfile from the SD card, before it starts writing new log data. The logfile is named `transmitter_log.txt` and is expected on the third partition of the SD card - see the FAT partition `FILESYS` established during the [Partitioning the SD Card section](../../install_and_configure/building_uboot_manually.md#partitioning-the-sd-card).
 
-Just as with the [`picoserver_uboot` test application](uboot_driver_usage.md#test-application-picoserver_uboot), the application may sporadically display `No such port ....` messages as it monitors traffic on the network. This is expected diagnostic behaviour that may be ignored; indeed, the lack of any such messages may indicate for example that the Ethernet driver has not initialised properly.
+Just as with the [`picoserver_uboot` test application](../../activity/picoserver_uboot/main.md), the application may sporadically display `No such port ....` messages as it monitors traffic on the network. This is expected diagnostic behaviour that may be ignored; indeed, the lack of any such messages may indicate for example that the Ethernet driver has not initialised properly.
 
 The application is now ready to perform various actions concurrently:
 
@@ -104,7 +104,7 @@ transmitter: Connection established with yyy.yyy.yyy.yyy on socket 1
 
 where `yyy.yyy.yyy.yyy` is the IP address of the host machine.
 
-If this connection is not established promptly, please refer to the previous [implementation note](uboot_driver_usage.md#implementation-note) relating to network connection delays.
+If this connection is not established promptly, please refer to the previous [implementation note](../../activity/device_drivers/uboot_driver_usage.md#implementation-note) relating to network connection delays.
 
 If characters have been typed at the USB keyboard before making the `netcat` connection, then (ciphertext) characters will appear straightaway on the host machine, since the application stores characters in a buffer while they cannot be sent.
 

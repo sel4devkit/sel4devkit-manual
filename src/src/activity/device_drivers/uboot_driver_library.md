@@ -175,7 +175,7 @@ When calling the `initialise_uboot_wrapper` routine the following must be provid
 - A pointer to the device tree blob.
 - The list of device tree paths for the devices to enable. Note that all sub-nodes of the device tree paths will be automatically enabled; only the root node for the required devices need to be listed. All other nodes in the device tree will be marked as disabled.
 
-A worked example for use of the `initialise_uboot_wrapper` routine is provided by the [uboot-driver-example test application](uboot-driver-example.md) for the Avnet MaaXBoard.
+A worked example for use of the `initialise_uboot_wrapper` routine is provided by the [uboot-driver-example test application](../../activity/device_drivers/uboot-driver-example.md) for the Avnet MaaXBoard.
 
 ## Build System
 
@@ -201,7 +201,7 @@ This modular structure of the CMake file is intended to allow for the library to
 
 Users of the library should be aware of its limitations, and potential workarounds for those limitations.
 
-1. **Thread safety**: The library is not thread safe; as such it is the responsibility of the user to serialise access to any single instance of the library. Note, however, that multiple instances of the library may be used. For example, two instances of the library could be used concurrently, each held within separate CAmkES components/ Microkit protection domains. If multiple instances of the library are used, it is the responsibility of the user to ensure that each instance is using disjoint devices, i.e. two instances of the library would not both be able to access the same USB device; however, it should be possible for one instance to access an Ethernet device whilst a second instance accesses a USB device (see the [case study application](../camkes_case_study_application/main.md) for an example of this).
+1. **Thread safety**: The library is not thread safe; as such it is the responsibility of the user to serialise access to any single instance of the library. Note, however, that multiple instances of the library may be used. For example, two instances of the library could be used concurrently, each held within separate CAmkES components/ Microkit protection domains. If multiple instances of the library are used, it is the responsibility of the user to ensure that each instance is using disjoint devices, i.e. two instances of the library would not both be able to access the same USB device; however, it should be possible for one instance to access an Ethernet device whilst a second instance accesses a USB device (see the [case study application](../../activity/camkes_case_study_application/main.md) for an example of this).
 
 2. **Performance**: Do not expect great performance from the library. The underlying U-Boot drivers have tended to prioritise simplicity over performance; for example the SPI driver for the Avnet MaaXBoard does not support the use of DMA transfers even though the underlying device can perform DMA transfers. Additionally, the library wrapper adds additional layers of address translations and data copying (e.g. in its support of memory mapped IO and DMA) as part of the trade-off for minimising changes necessary to the U-Boot drivers.
 
@@ -239,5 +239,5 @@ The following conventions are maintained for each folder name:
 - **public_api**: Holds header files defining the library's publicly accessible API.
 - **wrapper**: Bespoke code written for the library.
 - **timer**: Timer driver source code.
-- **uboot**: A symlink to an unmodified, or minimally modified, fork of the U-Boot project. Note that the build system is responsible for creation of the symlink; for the [example test applications](uboot_driver_usage.md) the symlink is created by the `repo` tool.
+- **uboot**: A symlink to an unmodified, or minimally modified, fork of the U-Boot project. Note that the build system is responsible for creation of the symlink; for the [example test applications](../../activity/device_drivers/uboot_driver_usage.md) the symlink is created by the `repo` tool.
 - **uboot_stub**: Holds library specific replacements for U-Boot source code. Internal folder structure mirrors U-Boot code structure.
