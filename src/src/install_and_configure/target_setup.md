@@ -9,11 +9,11 @@ Our boards came with the heat sink already attached; however, sales photographs 
 
 The following shows a plan view of the MaaXBoard with heat sink attached:
 
-![Avnet MaaXBoard plan view](figures/avnet-maaxboard-plan.png)
+![Avnet MaaXBoard plan view](../install_and_configure/figures/avnet-maaxboard-plan.png)
 
 For clarity, not all of the components have been labelled, only those to which we are going to refer. Full hardware details are given in the [MaaXBoard Hardware User Manual](https://www.avnet.com/wps/wcm/connect/onesite/1e83cac7-ebe8-4be4-8776-6781e3833d11/MaaXBoard-Hardware_UserManual-V1.2-EN.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_NA5A1I41L0ICD0ABNDMDDG0000-1e83cac7-ebe8-4be4-8776-6781e3833d11-nVsEcIl), including the full pin-out for the 40-pin GPIO connector, but we only use the three pins that are labelled in red in the photograph. For reference, pin 1 is also labelled in blue and the numbering is as follows:
 
-![GPIO pin numbering](figures/GPIO-pin-out.png)
+![GPIO pin numbering](../install_and_configure/figures/GPIO-pin-out.png)
 
 ## Connecting to the MaaXBoard
 
@@ -25,9 +25,9 @@ The USB-to-TTL serial UART cable that we used has 3 flying lead connectors, but 
 - Yellow = Transmit;
 - Orange = Receive.
 
-![UART connector side 1](figures/uart-connector-side1.png)
+![UART connector side 1](../install_and_configure/figures/uart-connector-side1.png)
 
-![UART connector side 2](figures/uart-connector-side2.png)
+![UART connector side 2](../install_and_configure/figures/uart-connector-side2.png)
 
 The final photograph shows the MaaXBoard (anti-clockwise from the top):
 
@@ -37,4 +37,4 @@ The final photograph shows the MaaXBoard (anti-clockwise from the top):
 - connected to an Ethernet cable (may not be necessary if loading from USB);
 - connected to a USB-to-TTL serial UART cable.
 
-![Avnet MaaXBoard populated](figures/maaxboard-populated.png)
+![Avnet MaaXBoard populated](../install_and_configure/figures/maaxboard-populated.png)

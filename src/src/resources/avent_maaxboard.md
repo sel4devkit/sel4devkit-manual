@@ -1,13 +1,13 @@
 # Avnet MaaxBoard
 
 The Avnet MaaXBoard SBC (Single Board Computer) has been selected as the
-target platform for developing and investiagating this seL4 Developer Kit. 
+target platform for developing and investigating this seL4 Developer Kit. 
 
 The following high level features of the Avnet MaaXBoard SBC make it
-particually suitable for use with the seL4 Developer Kit:
+particularly suitable for use with the seL4 Developer Kit:
 
-- __Inexpensive__: The Avnet MaaXBoard SBC is relitively inexpensive, minimising
-  the cost of getting started with the seL4 Developer Kit.
+- __Inexpensive__: The Avnet MaaXBoard SBC is relatively inexpensive,
+  minimising the cost of getting started with the seL4 Developer Kit.
 
 - __Available__: While not a routine product, it is straight forward to identify
   suppliers with multiple instances of the Avnet MaaXBoard in stock.

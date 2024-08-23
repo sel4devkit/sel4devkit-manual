@@ -8,7 +8,7 @@ Docker Desktop is a widely used platform for developing, packaging, and running 
 
 Little configuration of the default setup for Docker is required. Using the Docker Desktop application available for macOS and Windows, the following _Settings > Preferences_ have been found to be sufficient where the RAM setting was increased from a lower default:
 
-![Docker Preferences](figures/docker-preferences.png)
+![Docker Preferences](../install_and_configure/figures/docker-preferences.png)
 
 When using Linux, the user running the Docker Engine needs to be made a member of the `docker` group by issuing the following command, substituting your username for `<username>`:
 
@@ -28,13 +28,13 @@ CoolTerm enables the host machine to communicate with the MaaXBoard over the ser
 
 The configuration parameters are accessible via the _Connection > Options_ menu. The following serial port parameters are required (i.e. 115200 baud, 8 data bits, no parity, 1 stop bit):
 
-![CoolTerm serial port configuration](figures/coolTerm-serialport.png)
+![CoolTerm serial port configuration](../install_and_configure/figures/coolTerm-serialport.png)
 
 Note: within the _Port_ field, an appropriate USB port on the host machine should be selected; it may differ from the example shown above in the screenshot.
 
 The following terminal parameters are suggested:
 
-![CoolTerm terminal configuration](figures/coolTerm-terminal.png)
+![CoolTerm terminal configuration](../install_and_configure/figures/coolTerm-terminal.png)
 
 Users may also wish to extend the size of the _Receive Buffer_ to be able to scroll back through a longer history. This is accessible via the _Receive_ sub-option within the _Connection > Options_ menu.
 
