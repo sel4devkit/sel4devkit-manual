@@ -19,10 +19,9 @@
     - [Bootloader Setup](install_and_configure/bootloader_setup.md)
         - [Using the Prebuilt Image](install_and_configure/using_the_prebuilt_image.md)
         - [Building U-boot Manually](install_and_configure/building_uboot_manually.md)
-        - [Setting Up the U-Boot Configuration File](install_and_configure/configure_uboot.md)
+        - [Configure U-Boot](install_and_configure/configure_uboot.md)
 
 - [First Boot](first_boot/main.md)
-    - [Bootloader](first_boot/bootloader.md)
     - [seL4Test](first_boot/sel4test.md)
     - [CAmkES Adder](first_boot/camkes_adder.md)
     - [Microkit Hello World](first_boot/microkit_hello_world.md)
