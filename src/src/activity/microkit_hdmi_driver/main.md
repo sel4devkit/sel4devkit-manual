@@ -30,6 +30,8 @@ The initial time to redraw the buffer was slow because we were writing 8 bits of
 
 For moving images there is a visible redraw of the screen when switching between frames. This is most noticeable when the whole screen has changed. Multiple attempts have been made to combat this issue, which have been listed in the repo for this activity.
 
+## Examples
+
 The API contains the following examples:
 
 * static_image - Displays 4 colour bars on the screen.
@@ -37,6 +39,6 @@ The API contains the following examples:
 * rotating_bars - Displays 4 colour bars rotating across the screen.
 * moving_square - A small square that moves around the screen, changing direction each time it hits the side of the screen.
 
-## Project Environment
+Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit. For information on how to build and run the examples see:
 
-Currently the project is built using a build script that calls make. The dependencies are also built separately with a script for Picolibc and a Makefile for Microkit. 
+[sel4devkit-maaxboard-microkit-hdmi-driver](https://github.com/sel4devkit/sel4devkit-maaxboard-microkit-hdmi-driver)
