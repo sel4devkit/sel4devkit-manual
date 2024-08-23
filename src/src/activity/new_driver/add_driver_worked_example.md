@@ -20,9 +20,9 @@ A `dm tree` command from the U-Boot prompt[^2] should reveal an `i2c` entry, whi
 
 A search for `i2c_mxc` within U-Boot's github repository [https://github.com/u-boot/u-boot](https://github.com/u-boot/u-boot) reveals the relevant file to be `uboot/drivers/i2c/mxc_i2c.c`:
 
-![i2c GitHub search-1](../figures/github_search_i2c_1.png)
+![i2c GitHub search-1](../new_driver/figures/github_search_i2c_1.png)
 
-![i2c GitHub search-2](../figures/github_search_i2c_2.png)
+![i2c GitHub search-2](../new_driver/figures/github_search_i2c_2.png)
 
 This file is in the equivalent location within our `libubootdrivers` library, at `projects_libs/libubootdrivers/uboot/drivers/i2c/mxc_i2c.c`.
 

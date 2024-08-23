@@ -34,11 +34,11 @@ The MaaXBoard has an Ethernet port that U-Boot is able to access, and the applic
 
 Connection options include either a direct wired Ethernet connection between the host machine and the MaaXBoard:
 
-![TFTP option direct connection](figures/TFTP-option-direct.png)
+![TFTP option direct connection](../install_and_configure/figures/TFTP-option-direct.png)
 
 Or a network connection via a hub / router:
 
-![TFTP option router connection](figures/TFTP-option-router.png)
+![TFTP option router connection](../install_and_configure/figures/TFTP-option-router.png)
 
 Loading via TFTP is considered to be the most convenient method within an application development environment as there is no need to keep plugging and unplugging anything from the board. To load the `sel4_image` binary via TFTP, the file needs to be made available for download from the TFTP server.
 

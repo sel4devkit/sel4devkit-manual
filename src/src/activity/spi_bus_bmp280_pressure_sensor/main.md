@@ -15,8 +15,8 @@ The wiring connections using the MaaXBoard's 40-pin GPIO connector are as follow
 |   23     |  SCL        |
 |   24     |  CSB (SSO)  |
 
-![SPI GPIO view](../figures/SPI_side_view.png)
-![SPI GPIO view](../figures/SPI_top_view.png)
-![SPI sensor top view](../figures/SPI_sensor_top.png)
-![SPI sensor bottom view](../figures/SPI_sensor_bottom.png)
+![SPI GPIO view](../spi_bus_bmp280_pressure_sensor/figures/SPI_side_view.png)
+![SPI GPIO view](../spi_bus_bmp280_pressure_sensor/figures/SPI_top_view.png)
+![SPI sensor top view](../spi_bus_bmp280_pressure_sensor/figures/SPI_sensor_top.png)
+![SPI sensor bottom view](../spi_bus_bmp280_pressure_sensor/figures/SPI_sensor_bottom.png)
 

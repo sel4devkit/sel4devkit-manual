@@ -27,7 +27,7 @@
     - [CAmkES Adder](first_boot/camkes_adder.md)
     - [Microkit Hello World](first_boot/microkit_hello_world.md)
 
-- [Activities](activities/main.md)
+- [Activities](activity/main.md)
 
     - [Activity: Microkit Memory Probe](activity/microkit_memory_probe/main.md)
 

@@ -11,7 +11,7 @@ An operator types a plaintext message using a USB-connected keyboard. The applic
 
 The architecture of the demonstrator is shown below.
 
-![Demonstrator architecture](encrypter_arch.png)
+![Demonstrator architecture](../camkes_case_study_application/figures/encrypter_arch.png)
 
 Blue blocks show CAmkES components created specifically for the security demonstrator (or previously created within the developer kit in the case of [EthDriverUboot](../device_drivers/uboot_driver_usage.md#test-application-picoserver_uboot)); grey blocks show CAmkES [global components](https://github.com/seL4/global-components).
 
@@ -47,7 +47,7 @@ As can be seen from the architecture diagram, three hardware devices are involve
 
 3. The EthDriverUboot component requires access to the Ethernet device to allow for ciphertext message to be output to the network.
 
-Device drivers for the required hardware access are supplied by the [U-Boot Driver Library](uboot_driver_library.md) previously introduced by this development kit.
+Device drivers for the required hardware access are supplied by the [U-Boot Driver Library](../device_drivers/uboot_driver_library.md) previously introduced by this development kit.
 
 Three separate instances of the library are used by the application, one per component with a need for hardware device access. The capabilities of each component, and their associated library instances, are configured such that each component is only capable of accessing the minimum set of hardware devices required to perform the desired function.
 

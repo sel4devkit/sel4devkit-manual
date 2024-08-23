@@ -9,20 +9,20 @@ Instructions for using the prebuilt U-Boot image are as follows: _Note: the disk
 2. Once you have downloaded the image you will need to use a utility for flashing images to external drives. The rest of this section assumes that you will use Etcher; see the [Host Setup](host_setup.md) section for more details.
 
 3. Insert the SD card you wish to flash, and open Etcher.
-![etcher-default](figures/etcher-default.png)
+![etcher-default](../install_and_configure/figures/etcher-default.png)
 
 4. Select Flash from file, and navigate to and select the image file you wish to flash. Then click open.
-![etcher-img-select](figures/etcher-img-select.png)
+![etcher-img-select](../install_and_configure/figures/etcher-img-select.png)
 
 5. Click select target and select the drive you wish to flash, taking care to choose the right drive.
-![etcher-drive-select](figures/etcher-drive-select.png)
+![etcher-drive-select](../install_and_configure/figures/etcher-drive-select.png)
 
 6. Then finally click ‘Flash!’ to flash the image. This may take a significant time (e.g. 25 minutes).
-![etcher-ready-to-flash](figures/etcher-ready-to-flash.png)
+![etcher-ready-to-flash](../install_and_configure/figures/etcher-ready-to-flash.png)
 _Flashing in progress:_
-![etcher-flashing](figures/etcher-flashing.png)
+![etcher-flashing](../install_and_configure/figures/etcher-flashing.png)
 _After Etcher has flashed the disk, it will validate the disk:_
-![etcher-validation](figures/etcher-validation.png)
+![etcher-validation](../install_and_configure/figures/etcher-validation.png)
 
 7. Once flashing is complete, the SD card is ready for use in the MaaXBoard for booting as far as the U-Boot bootloader.
 

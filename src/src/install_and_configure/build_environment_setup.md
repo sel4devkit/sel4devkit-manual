@@ -12,11 +12,10 @@ setup, the build environment is provided as a pre-built Docker image.
 The build environment is a Debian Linux system pre-installed with all of the
 required development tools. The primary tools supplied are:
 
-- [__Git__](https://git-scm.com) version control system.
-- [__Repo__](https://gerrit.googlesource.com/git-repo/+/refs/heads/master/README.md) Git repository management tool.
-- [__aarch64-linux-gnu__](https://gcc.gnu.org) cross compiler toolchain targeting the ARM AArch64 instruction set.
-- [__arm-linux-gnueabi__](https://gcc.gnu.org) cross compiler toolchain targeting the ARM AArch32 instruction set.
-- [__Make__](https://www.gnu.org/software/make/), [__CMake__](https://cmake.org), [__Ninja__](https://ninja-build.org) and [__MESON__](https://mesonbuild.com/) build automation tools.
+- [Git](https://git-scm.com) version control system.
+- [Repo](https://gerrit.googlesource.com/git-repo/+/refs/heads/master/README.md) Git repository management tool.
+- [aarch64-linux-gnu](https://gcc.gnu.org) cross compiler toolchain targeting the ARM AArch64 instruction set.
+- [Make](https://www.gnu.org/software/make/), [CMake](https://cmake.org), [Ninja](https://ninja-build.org) and [MESON](https://mesonbuild.com/) build automation tools.
 
 ## Installation
 
@@ -30,9 +29,10 @@ a more effective integration into those different host Operating Systems.
 
 ### Docker Usage
 
-Normal usage involves acquiring and running a Docker Image, optionally mapping
-in a local development area (HOST_PATH), and (for Linux) a local home area
-(HOME_PATH).
+Given their considerably different technical dependencies, separate Docker
+Images are provided for CAmkES and Microkit. Normal usage involves acquiring
+and running the appropriate Docker Image, optionally mapping in a local
+development area (HOST_PATH), and (for Linux) a local home area (HOME_PATH).
 
 Note that, apart from any mapped areas, the entirety of the Docker Image will
 be lost when the Docker Image is exited. This is deliberate and desirable,
@@ -41,8 +41,7 @@ ensuring a consistent starting environment for each session.
 ### Windows
 
 Given the limited shell provided by Windows, usage of its Docker Images are
-best coordinated directly. Separate instructions are provided for CAmkES and
-Microkit.
+best coordinated directly. 
 
 #### Windows CAmkES
 
@@ -76,8 +75,8 @@ docker run --rm --interactive --tty --hostname "sel4devkit-maaxboard-microkit" \
 
 ### Linux
 
-Usage of the Linux Docker is coordinated indirectly via a separate repository
-as follows:
+Usage of the Linux Docker Images are coordinated indirectly via a separate
+helper repository as follows:
 - __CAmkES__: `git clone "git@github.com:sel4devkit/sel4devkit-maaxboard-camkes-docker-dev-env.git"`
 - __Microkit__: `git clone "git@github.com:sel4devkit/sel4devkit-maaxboard-camkes-docker-dev-env.git"`
 

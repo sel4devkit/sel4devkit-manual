@@ -1,10 +1,10 @@
 # Resources
 
-This section presents a high level overview of the fundamental resources
-associated with the seL4 Developer Kit. The majority of this section is
-deliberately framed in terms of references to external content. The intention
-is that developers will refer to, and return to, this section to find further
-avenues of information to help with their efforts.
+This section presents a high level overview of the main resources associated
+with the seL4 Developer Kit. The majority of this section is framed in terms
+of references to external content. The intention is that developers will refer
+to, and return to, this section to find further avenues of information to help
+with their efforts.
 
 The section is structured as follows:
 - [seL4 Microkernel](../resources/sel4_microkernel.md): Provide an overview of the
