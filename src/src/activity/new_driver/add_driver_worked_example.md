@@ -211,7 +211,7 @@ After these changes, within our `build` directory, `init_build` followed by `nin
 
 ### CAmkES
 
-We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../../activity/device_drivers/instructions_for_running_camkes) – we need to modify the file `camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h` as follows.
+We have established the underlying driver code, but it is not yet integrated within the CAmkES component that we shall be using. Assuming that we use the [uboot-driver-example test application](../device_drivers/uboot-driver-example.md) introduced earlier – see [Using the U-Boot Driver Library](../../activity/device_drivers/instructions_for_running_camkes.md) – we need to modify the file `camkes/apps/uboot-driver-example/include/plat/maaxboard/platform_devices.h` as follows.
 
 Firstly, we need to add path definitions so that the devices can be located in the device tree:
 

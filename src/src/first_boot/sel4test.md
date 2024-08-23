@@ -6,7 +6,7 @@ This section of the document assumes the [build environment setup](../install_an
 
 ## Context
 
-The seL4Test example that is built in this section is a result of an seL4 port for the Avnet MaaXBoard that we created for this developer kit. Whilst our seL4 port is not documented here in detail, there is some guidance on this in the [Guide to Porting seL4](#appendices) appendix, which includes links to the Git commits that added the MaaXBoard port to the main seL4 repositories.
+The seL4Test example that is built in this section is a result of an seL4 port for the Avnet MaaXBoard that we created for this developer kit. Whilst our seL4 port is not documented here in detail, there is some guidance on this in the [Guide to Porting seL4](../activity/guide_to_porting_seL4/main.md) section, which includes links to the Git commits that added the MaaXBoard port to the main seL4 repositories.
 
 ## Getting the Code
 

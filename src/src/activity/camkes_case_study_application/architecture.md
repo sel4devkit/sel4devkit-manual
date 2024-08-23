@@ -13,7 +13,7 @@ The architecture of the demonstrator is shown below.
 
 ![Demonstrator architecture](../../activity/camkes_case_study_application/figures/encrypter_arch.png)
 
-Blue blocks show CAmkES components created specifically for the security demonstrator (or previously created within the developer kit in the case of [EthDriverUboot](../device_drivers/uboot_driver_usage.md#test-application-picoserver_uboot)); grey blocks show CAmkES [global components](https://github.com/seL4/global-components).
+Blue blocks show CAmkES components created specifically for the security demonstrator (or previously created within the developer kit in the case of [EthDriverUboot](../../activity/picoserver_uboot/main.md); grey blocks show CAmkES [global components](https://github.com/seL4/global-components).
 
 Arrow directions show an abstracted view of data flow. Arrow labels refer to seL4 connector types (some concerned with data flow, some with control flow), which are elaborated in the key. More details about seL4 connector types may be found in the [CAmkES manual](https://docs.sel4.systems/projects/camkes/manual.html), but the fundamental types are _RPC_ (Remote Procedure Call), _SharedData_, and _Notification_ (see examples such as `seL4RPCCall` in the key).
 

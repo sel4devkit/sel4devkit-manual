@@ -1,4 +1,4 @@
-# Device Driver's
+# Use U-Boot Device Driver's
 
 This section seeks to provide guidance on adding device drivers to seL4.
 

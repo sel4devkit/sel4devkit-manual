@@ -88,9 +88,9 @@ The developer should be familiar with the following tools and concepts in order 
 
 - *CMake*: Reference documentation is provided by [the CMake project](https://cmake.org/cmake/help/latest/), including details of the structure and syntax of the CMakeLists.txt file.
 
-- *CAmkES*: The seL4 foundation provides [documentation on its use of CAmkES](https://docs.sel4.systems/projects/camkes/) including tutorials.
+- *CAmkES*: The seL4 foundation provides documentation on its use of [CAmkES](https://docs.sel4.systems/projects/camkes/) including tutorials.
 
-- *Microkit*: The seL4 foundation provides [documentation on its use of Microkit](https://github.com/seL4/microkit/blob/main/docs/manual.md) including tutorials.
+- *Microkit*: The seL4 foundation provides documentation on its use of [Microkit](https://github.com/seL4/microkit/blob/main/docs/manual.md) including tutorials.
 
 ## Add basic support to library
 

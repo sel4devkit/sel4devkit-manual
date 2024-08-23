@@ -32,7 +32,7 @@
 
     - [Activity: Remote Power Cycle](activity/remote_power_cycle/main.md)
 
-    - [Activity: Use U-Boot Device Drivers](activity/device_drivers/main.md)
+    - [Activity: Use U-Boot Device Driver's](activity/device_drivers/main.md)
         - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
         - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
         - [Test application: uboot-driver-example](activity/device_drivers/uboot-driver-example.md)
