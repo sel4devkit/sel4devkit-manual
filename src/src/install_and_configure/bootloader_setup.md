@@ -9,4 +9,4 @@ There are two options for configuring and installing U-Boot:
 - [Building U-Boot manually](building_uboot_manually.md)
 
 For how to configure U-Boot see:
-- [Configuring U-Boot](configure_uboot.md)
+- [Setting up the U-Boot config file](configure_uboot.md)
