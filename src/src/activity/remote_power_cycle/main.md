@@ -16,65 +16,59 @@ However, where the Avent MaaXBoard is in a remote location, it is more awkward
 to achieve a power cycle. One solution is to utilise a USB Hub with PPPS
 (Per-Port Power Switching), as described below.
 
-## MEGA4 (4-Port USB 3.1 PPPS Hub for Raspberry Pi 4)
+## PPPS (Per-Port Power Switching)
 
-While there are many USB Hubs 
+The [uhubctl](https://github.com/mvp/uhubctlk) project provides both software
+and instructions for programmatically controlling power on PPPS equipped USB
+ports. Since the MaaXBoard is powered via a standard USB Type C connection, it
+may be powered from a PPPS equipped USB port, permitting its power supply to
+be controlled remotely. 
+
+Unfortunately, while there are many USB Hubs available, only a select few
+implement the PPPS (Per-Port Power Switching) feature. The
+[uhubctl](https://github.com/mvp/uhubctlk) maintains a list of USB Hubs that
+are known to support this feature.
+
+We have selected the "MEGA4 (4-Port USB 3.1 PPPS Hub for Raspberry Pi 4)",
+which has been specifically developed to provide an embedded USB HUB
+supporting PPPS. The device is intended for controlling power to a "Raspberry
+Pi". However, since both the "Raspberry Pi" and "Avent MaaXBoard" are powered
+from a standard USB Type C connection, it may also be used for our purpose.
+
 
 ## Deployment
 
+The physical deployment is straight forward. The Host Machine is connected to
+the PPPS USB Hub, and a PPPS USB Hub Port is connected to supply power to the
+the MaaXBoard. The arrangement is illustrated below.
 
+![SPI GPIO view](../figures/PPPS_physical_deployment.png)
 
-## Usage
+Once the physical deployment is complete, the controlling software needs to be
+established. The [uhubctl](https://github.com/mvp/uhubctlk) project provides a
+complete and self-contained solution. The exact configuration of uhubctl will
+likely vary depending on the specific details of the host operating system.
 
+In our Linux Debian based development environment, uhubctl may be installed
+thus:
+```
 sudo apt-get install uhubctl
+```
 
-
-
+The entire set of USB Ports, and their PPPS status, may be queried thus:
+```
 sudo /usr/sbin/uhubctl
+```
 
-Identify the address...
-
-
-Indvidual control....
-
+In our deployment, the MEGA4 PPPS USB Hub resides at location "1-12.1". Where
+its fourth port is used to power the MaaXBoard, its power may be remotely
+cycled (turned off and back on again) as follows:
+```
 sudo /usr/sbin/uhubctl -l "1-12.1" -p 4 -a cycle
+```
 
-
-
-
-
-
-
-perhaps being
-shared across a team, 
-
-
-
-in close physically, it may be trivially power
-cycled, by removing and 
-
-
-
-When the 
-
-
-
-
-applications to start and never
-terminite 
-
-
-targeting the 
-
-The development of applications of with the 
-
-atop the seL4 Microkernel, particularly where interacting with
-
-
-
-
-https://thepihut.com/products/mega4-4-port-usb-3-1-ppps-hub-for-raspberry-pi-4
-
-
-
-
+In the above, use of `sudo` is required, as by default manipulating the power
+controls of USB Ports is an administrator (root) privilege. The use of `sudo`
+may be avoided, by granting this privilege to standard users, as described and
+maintained within the uhubctl documentation as [Linux USB
+permissions](https://github.com/mvp/uhubctl?tab=readme-ov-file#linux-usb-permissions).
