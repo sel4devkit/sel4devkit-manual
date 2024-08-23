@@ -37,8 +37,8 @@
         - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
         - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
         - [Test application: uboot-driver-example](activity/device_drivers/uboot-driver-example.md)
-        - [Instructions for running uboot-driver-example: CAmkES](activity/device_drivers/instructions_for_running_camkes)
-        - [Instructions for running the uboot-driver-example: Microkit](activity/device_drivers/instructions_for_running_microkit)
+        - [Instructions for running uboot-driver-example: CAmkES](activity/device_drivers/instructions_for_running_camkes.md)
+        - [Instructions for running the uboot-driver-example: Microkit](activity/device_drivers/instructions_for_running_microkit.md)
 
     - [Activity: Picoserver U-Boot](activity/picoserver_uboot/main.md)
 
