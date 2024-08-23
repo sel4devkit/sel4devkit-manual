@@ -636,4 +636,4 @@ have been built and run under seL4 on the Odroid-C2. We've also shown how the ba
 driver from U-Boot can be added to our configuration for that platform and how the
 U-Boot `dm tree` command works and shows the presence of that device. We then went on to add support for the `pinmux` and `led` commands and demonstrated their use in a simple test application.
 
-![C2_Boots](../figures/odroidc2_boots.png)
+![C2_Boots](../new_platform/figures/odroidc2_boots.png)

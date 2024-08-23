@@ -6,7 +6,7 @@ The picoserver_uboot test application has only been built using the camkes frame
 
 It is not the purpose of this developer kit to give a CAmkES tutorial (e.g. see [seL4's documentation](https://docs.sel4.systems/projects/camkes/)), but this application is based on the following CAmkES model:
 
-![Picoserver CAmkES overview](../figures/picoserver-camkes.png)
+![Picoserver CAmkES overview](../picoserver_uboot/figures/picoserver-camkes.png)
 
 EthDriverUboot is a simple implementation of an Ethernet driver that has been ported from U-Boot. PicoServer provides a picoTCP TCP/IP stack on top of this, and the Echo component simply listens on port 1234 of a given IP address, echoing received characters on the display. (An additional component TimeServer has been omitted from the diagram for clarity, but see the [case study application](../camkes_case_study_application/main.md) for more details.)
 
