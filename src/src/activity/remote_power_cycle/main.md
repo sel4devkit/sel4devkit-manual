@@ -42,7 +42,7 @@ The physical deployment is straight forward. The Host Machine is connected to
 the PPPS USB Hub, and a PPPS USB Hub Port is connected to supply power to the
 the MaaXBoard. The arrangement is illustrated below.
 
-![SPI GPIO view](../figures/PPPS_physical_deployment.png)
+![PPPS Physical Deployment](../remote_power_cycle/figures/PPPS_physical_deployment.png)
 
 Once the physical deployment is complete, the controlling software needs to be
 established. The [uhubctl](https://github.com/mvp/uhubctlk) project provides a
