@@ -175,7 +175,7 @@ When calling the `initialise_uboot_wrapper` routine the following must be provid
 - A pointer to the device tree blob.
 - The list of device tree paths for the devices to enable. Note that all sub-nodes of the device tree paths will be automatically enabled; only the root node for the required devices need to be listed. All other nodes in the device tree will be marked as disabled.
 
-A worked example for use of the `initialise_uboot_wrapper` routine is provided by the [`uboot-driver-example` test application](uboot_driver_usage.md#test-application-uboot-driver-example) for the Avnet MaaXBoard.
+A worked example for use of the `initialise_uboot_wrapper` routine is provided by the [uboot-driver-example test application](uboot-driver-example.md) for the Avnet MaaXBoard.
 
 ## Build System
 

@@ -33,18 +33,18 @@
 
     - [Activity: Remote Power Cycle](activity/remote_power_cycle/main.md)
 
-    - [Activity: Device Drivers](activity/device_drivers/main.md)
+    - [Activity: Use U-Boot Device Drivers](activity/device_drivers/main.md)
         - [U-Boot Driver Library Overview](activity/device_drivers/uboot_driver_library.md)
         - [Using the U-Boot Driver Library](activity/device_drivers/uboot_driver_usage.md)
-            - [Instructions for running `uboot-driver-example`: CAmkES](activity/device_drivers/instructions_for_running_camkes)
-            - [Instructions for running the `uboot-driver-example`: Microkit](activity/device_drivers/instructions_for_running_microkit)
+        - [Instructions for running uboot-driver-example: CAmkES](activity/device_drivers/instructions_for_running_camkes)
+        - [Instructions for running the uboot-driver-example: Microkit](activity/device_drivers/instructions_for_running_microkit)
 
     - [Activity: Picoserver U-Boot](activity/picoserver_uboot/main.md)
 
     - [Activity: Porting Device Drivers to a New Platform](activity/new_platform/main.md)
         - [Add Odroid C2](activity/new_platform/add_odroidc2.md)
 
-    - [Activity: New Driver](activity/new_driver/main.md)
+    - [Activity: Adding a New U-Boot Device Driver](activity/new_driver/main.md)
         - [Add Driver Worked Example](activity/new_driver/add_driver_worked_example.md)
         - [Driver Troubleshooting](activity/new_driver/driver_troubleshooting.md)
 
