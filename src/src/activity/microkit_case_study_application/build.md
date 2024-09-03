@@ -36,7 +36,7 @@ Once build there is an option to rebuild the entire project using the below comm
 
 ## Preparing to Run
 
-A successful build will result in an executable file called `sel4_image` in the `example/<platform>/security_demo/example-build` subdirectory. This file should be made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
+A successful build will result in an executable file called `sel4_image` in the `example/<platform>/security_demo/example-build` subdirectory.
 
 Running the `security_demo` application requires the following:
 

@@ -2,7 +2,7 @@
 
 This section details the hardware related to the target platform that the guide assumes is available to the developer. Before following the guide the developer will need to have access to all items marked as mandatory.
 
-As detailed in the [Bootloader](../first_boot/bootloader.md) section, there are multiple methods of transferring a compiled seL4 binary from the host machine to the target platform. Where a hardware item is required to support only one potential transfer method it is marked as 'optional'. The developer should decide which transfer method(s) are to be used to determine which items need to be available.
+As detailed in the [Configure U-Boot](../install_and_configure/configure_uboot.md) section, there are multiple methods of transferring a compiled seL4 binary from the host machine to the target platform. Where a hardware item is required to support only one potential transfer method it is marked as 'optional'. The developer should decide which transfer method(s) are to be used to determine which items need to be available.
 
 For convenience, the following table includes order codes and hyperlinks for the [Farnell UK store](https://uk.farnell.com) correct as of 16th August 2024; clearly, equivalent items are available from many other sources.
 
@@ -24,6 +24,6 @@ For convenience, the following table includes order codes and hyperlinks for the
 
 This guide assumes the following basic hardware capabilities of the user's development environment:
 
-1. The ability to connect the MaaXBoard to a wired network to which the host machine is also connected. This is required if the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Bootloader](../first_boot/bootloader.md#loading-via-tftp) section).
+1. The ability to connect the MaaXBoard to a wired network to which the host machine is also connected. This is required if the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Configure U-Boot](../install_and_configure/configure_uboot.md#loading-via-tftp) section).
 
 2. The ability to connect USB devices (i.e. the USB flash drive and USB SD card reader / writer) to the host machine.

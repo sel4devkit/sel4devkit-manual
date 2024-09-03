@@ -6,9 +6,9 @@ The picoserver_uboot test application has only been built using the camkes frame
 
 It is not the purpose of this developer kit to give a CAmkES tutorial (e.g. see [seL4's documentation](https://docs.sel4.systems/projects/camkes/)), but this application is based on the following CAmkES model:
 
-![Picoserver CAmkES overview](../picoserver_uboot/figures/picoserver-camkes.png)
+![Picoserver CAmkES overview](../../activity/picoserver_uboot/figures/picoserver-camkes.png)
 
-EthDriverUboot is a simple implementation of an Ethernet driver that has been ported from U-Boot. PicoServer provides a picoTCP TCP/IP stack on top of this, and the Echo component simply listens on port 1234 of a given IP address, echoing received characters on the display. (An additional component TimeServer has been omitted from the diagram for clarity, but see the [case study application](../camkes_case_study_application/main.md) for more details.)
+EthDriverUboot is a simple implementation of an Ethernet driver that has been ported from U-Boot. PicoServer provides a picoTCP TCP/IP stack on top of this, and the Echo component simply listens on port 1234 of a given IP address, echoing received characters on the display. (An additional component TimeServer has been omitted from the diagram for clarity, but see the [case study application](../../activity/camkes_case_study_application/main.md) for more details.)
 
 ## Instructions for running `picoserver_uboot`
 
@@ -41,7 +41,7 @@ ninja
 
 where `xxx.xxx.xxx.xxx` is the IP address to allocate to the MaaXBoard.
 
-A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory. This should be copied to a file named `sel4_image` and then made available to the preferred loading mechanism, such as TFTP, as per [Bootloader](../../first_boot/bootloader.md).
+A successful build will result in an executable file called `capdl-loader-image-arm-maaxboard` in the `images` subdirectory.
 
 When the `picoserver_uboot` application is running on the MaaXBoard, it should confirm that it is listening on port 1234 of the supplied IP address. It will also confirm registration of the protocol stack layers. The application allocates a random MAC address.
 
