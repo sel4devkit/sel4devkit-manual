@@ -65,7 +65,7 @@ A successful build will result in an executable file called `capdl-loader-image-
 Running the `security_demo` application requires the following:
 
 - Connect a keyboard to the USB socket[^1] of the MaaXBoard;
-- Establish an Ethernet connection between the MaaXBoard and the host machine, which can be direct or via a network, as outlined in [an earlier section](../../first_boot/bootloader.md#loading-via-tftp) (e.g. it will already be in place if TFTP is being used to transfer executables).
+- Establish an Ethernet connection between the MaaXBoard and the host machine, which can be direct or via a network, as outlined in [an earlier section](../../install_and_configure/configure_uboot.md#loading-via-tftp) (e.g. it will already be in place if TFTP is being used to transfer executables).
 
 [^1]: Note: Currently, only the upper USB port on the Avnet MaaXBoard is active (i.e. the port furthest away from the PCB); the lower USB port does not function. This is a feature of the power domains on the board, not the USB driver.
 

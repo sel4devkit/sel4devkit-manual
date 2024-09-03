@@ -24,7 +24,7 @@ The following mandatory applications are assumed on the host machine:
 
 ## Optional Requirements
 
-If the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Bootloader](../first_boot/bootloader.md) section) then installation of a TFTP server is required.
+If the user wishes to perform TFTP transfer of executables from the host environment to the target platform (see the [Configure U-Boot](../install_and_configure/configure_uboot.md#loading-via-tftp) section) then installation of a TFTP server is required.
 
 Full details of the installation and configuration of a TFTP server is considered to be outside the scope of this developer kit, however the following guidance is offered:
 
