@@ -1,10 +1,10 @@
 # Architecture Overview
 
-It is assumed the CAmkES case study [architecture document](../../activity/camkes_case_study_application/architecture.md) had been read previous to reading this document.
+It is assumed the CAmkES case study [architecture document](../microkit_case_study_application/architecture.md) had been read previous to reading this document.
 
 The architecture of the Microkit demonstrator is shown below.
 
-![Demonstrator architecture](../../activity/camkes_case_study_application/figures/encrypter_arch.png)
+![Demonstrator architecture](../microkit_case_study_application/figures/encrypter_arch.png)
 
 The Microkit architecture is different to the CAmkES architecture as it does not include the picoserver, Timeserver or EthDriverUboot modules because there is no ethernet capability in the Microkit case study. Arrow labels refer to Microkit connector types (some concerned with data flow, some with control flow), which are elaborated in the key. More details about Microkit connector types may be found in the Microkit manual, but the fundamental types are Protected procedure and Notification (see examples such as Protected procedure in the key).
 
